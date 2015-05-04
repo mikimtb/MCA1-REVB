@@ -26,8 +26,134 @@
 "15 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "47 F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\main.c
+[v _delay_ms delay_ms `(v  1 e 0 0 ]
+"54
 [v _main main `(i  1 e 2 0 ]
+"3 F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\uart.c
+[v _UARTInit UARTInit `(v  1 e 0 0 ]
+"18
+[v _UARTSendByte UARTSendByte `(v  1 e 0 0 ]
+[s S42 . 1 `uc 1 TRISC0 1 0 :1:0 
+`uc 1 TRISC1 1 0 :1:1 
+`uc 1 TRISC2 1 0 :1:2 
+`uc 1 TRISC3 1 0 :1:3 
+`uc 1 TRISC4 1 0 :1:4 
+`uc 1 TRISC5 1 0 :1:5 
+`uc 1 TRISC6 1 0 :1:6 
+`uc 1 TRISC7 1 0 :1:7 
+]
+"2962 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f4431.h
+[s S51 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 RC3 1 0 :1:3 
+`uc 1 RC4 1 0 :1:4 
+`uc 1 RC5 1 0 :1:5 
+`uc 1 RC6 1 0 :1:6 
+`uc 1 RC7 1 0 :1:7 
+]
+[u S60 . 1 `S42 1 . 1 0 `S51 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES60  1 e 1 @3988 ]
+[s S84 . 1 `uc 1 ABDEN 1 0 :1:0 
+`uc 1 WUE 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 BRG16 1 0 :1:3 
+`uc 1 TXCKP 1 0 :1:4 
+`uc 1 RXDTP 1 0 :1:5 
+`uc 1 RCIDL 1 0 :1:6 
+`uc 1 ABDOVF 1 0 :1:7 
+]
+"4450
+[s S93 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 SCKP 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 RCMT 1 0 :1:6 
+]
+[s S98 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 RXCKP 1 0 :1:5 
+]
+[s S101 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 W4E 1 0 :1:1 
+]
+[u S104 . 1 `S84 1 . 1 0 `S93 1 . 1 0 `S98 1 . 1 0 `S101 1 . 1 0 ]
+[v _BAUDCONbits BAUDCONbits `VES104  1 e 1 @4010 ]
+"4534
+[v _BAUDCTLbits BAUDCTLbits `VES104  1 e 1 @4010 ]
+"4593
+[v _RCSTA RCSTA `VEuc  1 e 1 @4011 ]
+"4802
+[v _TXSTA TXSTA `VEuc  1 e 1 @4012 ]
+[s S178 . 1 `uc 1 TX9D 1 0 :1:0 
+`uc 1 TRMT 1 0 :1:1 
+`uc 1 BRGH 1 0 :1:2 
+`uc 1 SENDB 1 0 :1:3 
+`uc 1 SYNC 1 0 :1:4 
+`uc 1 TXEN 1 0 :1:5 
+`uc 1 TX9 1 0 :1:6 
+`uc 1 CSRC 1 0 :1:7 
+]
+"4862
+[s S187 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 BRGH1 1 0 :1:2 
+]
+[s S190 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 CSRC1 1 0 :1:7 
+]
+[s S193 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 SENDB1 1 0 :1:3 
+]
+[s S196 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 SYNC1 1 0 :1:4 
+]
+[s S199 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 TRMT1 1 0 :1:1 
+]
+[s S202 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 TX91 1 0 :1:6 
+]
+[s S205 . 1 `uc 1 TX9D1 1 0 :1:0 
+]
+[s S207 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 TXEN1 1 0 :1:5 
+]
+[s S210 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 TX8_9 1 0 :1:6 
+]
+[s S213 . 1 `uc 1 TXD8 1 0 :1:0 
+]
+[u S215 . 1 `S178 1 . 1 0 `S187 1 . 1 0 `S190 1 . 1 0 `S193 1 . 1 0 `S196 1 . 1 0 `S199 1 . 1 0 `S202 1 . 1 0 `S205 1 . 1 0 `S207 1 . 1 0 `S210 1 . 1 0 `S213 1 . 1 0 ]
+[v _TXSTAbits TXSTAbits `VES215  1 e 1 @4012 ]
+"5099
+[v _TXREG TXREG `VEuc  1 e 1 @4013 ]
+"5121
+[v _SPBRG SPBRG `VEuc  1 e 1 @4015 ]
+"5132
+[v _SPBRGH SPBRGH `VEuc  1 e 1 @4016 ]
+"54 F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\main.c
 [v _main main `(i  1 e 2 0 ]
 {
-"51
+"66
+} 0
+"47
+[v _delay_ms delay_ms `(v  1 e 0 0 ]
+{
+"49
+[v delay_ms@i i `i  1 a 2 3 ]
+"47
+[v delay_ms@delay delay `i  1 p 2 0 ]
+"52
+} 0
+"18 F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\uart.c
+[v _UARTSendByte UARTSendByte `(v  1 e 0 0 ]
+{
+[v UARTSendByte@data data `uc  1 a 1 wreg ]
+[v UARTSendByte@data data `uc  1 a 1 wreg ]
+[v UARTSendByte@data data `uc  1 a 1 0 ]
+"23
+} 0
+"3
+[v _UARTInit UARTInit `(v  1 e 0 0 ]
+{
+[v UARTInit@baudrate baudrate `l  1 p 4 0 ]
+"17
 } 0

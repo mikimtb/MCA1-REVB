@@ -42,10 +42,25 @@
 #pragma config EBTRB = OFF      // Boot Block Table Read Protection bit (Boot Block (000000-0001FFh) not protected from table reads executed in other blocks)
 // End of project config for PIC18F4431
 
+#include "uart.h"
 
+void delay_ms(int delay)
+{
+    int i;
+    for (i = 0; i < delay; i++)
+        __delay_ms(1);
+}
 
 int main() 
 {
+    UARTInit(115200);
+    delay_ms(1);
+    
+    while (1)
+    {
+        UARTSendByte(66);
+        delay_ms(1000);
+    }
     
     return 0;
 }
