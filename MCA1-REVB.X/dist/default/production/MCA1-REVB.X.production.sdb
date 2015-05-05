@@ -29,11 +29,26 @@
 [v _delay_ms delay_ms `(v  1 e 0 0 ]
 "54
 [v _main main `(i  1 e 2 0 ]
-"3 F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\uart.c
+"4 F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\uart.c
 [v _UARTInit UARTInit `(v  1 e 0 0 ]
-"18
-[v _UARTSendByte UARTSendByte `(v  1 e 0 0 ]
-[s S42 . 1 `uc 1 TRISC0 1 0 :1:0 
+"23
+[v _UARTSendBytes UARTSendBytes `(v  1 e 0 0 ]
+[s S94 . 1 `uc 1 RD0 1 0 :1:0 
+`uc 1 RD1 1 0 :1:1 
+`uc 1 RD2 1 0 :1:2 
+`uc 1 RD3 1 0 :1:3 
+`uc 1 RD4 1 0 :1:4 
+`uc 1 RD5 1 0 :1:5 
+`uc 1 RD6 1 0 :1:6 
+`uc 1 RD7 1 0 :1:7 
+]
+"1522 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f4431.h
+[s S134 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 SS2 1 0 :1:7 
+]
+[u S137 . 1 `S94 1 . 1 0 `S134 1 . 1 0 ]
+[v _PORTDbits PORTDbits `VES137  1 e 1 @3971 ]
+[s S45 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
 `uc 1 TRISC3 1 0 :1:3 
@@ -42,8 +57,8 @@
 `uc 1 TRISC6 1 0 :1:6 
 `uc 1 TRISC7 1 0 :1:7 
 ]
-"2962 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f4431.h
-[s S51 . 1 `uc 1 RC0 1 0 :1:0 
+"2962
+[s S54 . 1 `uc 1 RC0 1 0 :1:0 
 `uc 1 RC1 1 0 :1:1 
 `uc 1 RC2 1 0 :1:2 
 `uc 1 RC3 1 0 :1:3 
@@ -52,9 +67,21 @@
 `uc 1 RC6 1 0 :1:6 
 `uc 1 RC7 1 0 :1:7 
 ]
-[u S60 . 1 `S42 1 . 1 0 `S51 1 . 1 0 ]
-[v _TRISCbits TRISCbits `VES60  1 e 1 @3988 ]
-[s S84 . 1 `uc 1 ABDEN 1 0 :1:0 
+[u S63 . 1 `S45 1 . 1 0 `S54 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES63  1 e 1 @3988 ]
+[s S85 . 1 `uc 1 TRISD0 1 0 :1:0 
+`uc 1 TRISD1 1 0 :1:1 
+`uc 1 TRISD2 1 0 :1:2 
+`uc 1 TRISD3 1 0 :1:3 
+`uc 1 TRISD4 1 0 :1:4 
+`uc 1 TRISD5 1 0 :1:5 
+`uc 1 TRISD6 1 0 :1:6 
+`uc 1 TRISD7 1 0 :1:7 
+]
+"3183
+[u S103 . 1 `S85 1 . 1 0 `S94 1 . 1 0 ]
+[v _TRISDbits TRISDbits `VES103  1 e 1 @3989 ]
+[s S155 . 1 `uc 1 ABDEN 1 0 :1:0 
 `uc 1 WUE 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 BRG16 1 0 :1:3 
@@ -64,26 +91,26 @@
 `uc 1 ABDOVF 1 0 :1:7 
 ]
 "4450
-[s S93 . 1 `uc 1 . 1 0 :4:0 
+[s S164 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 SCKP 1 0 :1:4 
 `uc 1 . 1 0 :1:5 
 `uc 1 RCMT 1 0 :1:6 
 ]
-[s S98 . 1 `uc 1 . 1 0 :5:0 
+[s S169 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 RXCKP 1 0 :1:5 
 ]
-[s S101 . 1 `uc 1 . 1 0 :1:0 
+[s S172 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 W4E 1 0 :1:1 
 ]
-[u S104 . 1 `S84 1 . 1 0 `S93 1 . 1 0 `S98 1 . 1 0 `S101 1 . 1 0 ]
-[v _BAUDCONbits BAUDCONbits `VES104  1 e 1 @4010 ]
+[u S175 . 1 `S155 1 . 1 0 `S164 1 . 1 0 `S169 1 . 1 0 `S172 1 . 1 0 ]
+[v _BAUDCONbits BAUDCONbits `VES175  1 e 1 @4010 ]
 "4534
-[v _BAUDCTLbits BAUDCTLbits `VES104  1 e 1 @4010 ]
+[v _BAUDCTLbits BAUDCTLbits `VES175  1 e 1 @4010 ]
 "4593
 [v _RCSTA RCSTA `VEuc  1 e 1 @4011 ]
 "4802
 [v _TXSTA TXSTA `VEuc  1 e 1 @4012 ]
-[s S178 . 1 `uc 1 TX9D 1 0 :1:0 
+[s S249 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -93,36 +120,36 @@
 `uc 1 CSRC 1 0 :1:7 
 ]
 "4862
-[s S187 . 1 `uc 1 . 1 0 :2:0 
+[s S258 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 BRGH1 1 0 :1:2 
 ]
-[s S190 . 1 `uc 1 . 1 0 :7:0 
+[s S261 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 CSRC1 1 0 :1:7 
 ]
-[s S193 . 1 `uc 1 . 1 0 :3:0 
+[s S264 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 SENDB1 1 0 :1:3 
 ]
-[s S196 . 1 `uc 1 . 1 0 :4:0 
+[s S267 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 SYNC1 1 0 :1:4 
 ]
-[s S199 . 1 `uc 1 . 1 0 :1:0 
+[s S270 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 TRMT1 1 0 :1:1 
 ]
-[s S202 . 1 `uc 1 . 1 0 :6:0 
+[s S273 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 TX91 1 0 :1:6 
 ]
-[s S205 . 1 `uc 1 TX9D1 1 0 :1:0 
+[s S276 . 1 `uc 1 TX9D1 1 0 :1:0 
 ]
-[s S207 . 1 `uc 1 . 1 0 :5:0 
+[s S278 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 TXEN1 1 0 :1:5 
 ]
-[s S210 . 1 `uc 1 . 1 0 :6:0 
+[s S281 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 TX8_9 1 0 :1:6 
 ]
-[s S213 . 1 `uc 1 TXD8 1 0 :1:0 
+[s S284 . 1 `uc 1 TXD8 1 0 :1:0 
 ]
-[u S215 . 1 `S178 1 . 1 0 `S187 1 . 1 0 `S190 1 . 1 0 `S193 1 . 1 0 `S196 1 . 1 0 `S199 1 . 1 0 `S202 1 . 1 0 `S205 1 . 1 0 `S207 1 . 1 0 `S210 1 . 1 0 `S213 1 . 1 0 ]
-[v _TXSTAbits TXSTAbits `VES215  1 e 1 @4012 ]
+[u S286 . 1 `S249 1 . 1 0 `S258 1 . 1 0 `S261 1 . 1 0 `S264 1 . 1 0 `S267 1 . 1 0 `S270 1 . 1 0 `S273 1 . 1 0 `S276 1 . 1 0 `S278 1 . 1 0 `S281 1 . 1 0 `S284 1 . 1 0 ]
+[v _TXSTAbits TXSTAbits `VES286  1 e 1 @4012 ]
 "5099
 [v _TXREG TXREG `VEuc  1 e 1 @4013 ]
 "5121
@@ -132,7 +159,11 @@
 "54 F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\main.c
 [v _main main `(i  1 e 2 0 ]
 {
-"66
+"56
+[v main@array array `[3]uc  1 a 3 6 ]
+"55
+[v main@F4469 F4469 `[3]uc  1 s 3 F4469 ]
+"67
 } 0
 "47
 [v _delay_ms delay_ms `(v  1 e 0 0 ]
@@ -143,17 +174,22 @@
 [v delay_ms@delay delay `i  1 p 2 0 ]
 "52
 } 0
-"18 F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\uart.c
-[v _UARTSendByte UARTSendByte `(v  1 e 0 0 ]
+"23 F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\uart.c
+[v _UARTSendBytes UARTSendBytes `(v  1 e 0 0 ]
 {
-[v UARTSendByte@data data `uc  1 a 1 wreg ]
-[v UARTSendByte@data data `uc  1 a 1 wreg ]
-[v UARTSendByte@data data `uc  1 a 1 0 ]
+[v UARTSendBytes@data data `*.30uc  1 a 1 wreg ]
+"25
+[v UARTSendBytes@i i `i  1 a 2 4 ]
 "23
+[v UARTSendBytes@data data `*.30uc  1 a 1 wreg ]
+[v UARTSendBytes@dataLength dataLength `i  1 p 2 0 ]
+"26
+[v UARTSendBytes@data data `*.30uc  1 a 1 3 ]
+"35
 } 0
-"3
+"4
 [v _UARTInit UARTInit `(v  1 e 0 0 ]
 {
 [v UARTInit@baudrate baudrate `l  1 p 4 0 ]
-"17
+"22
 } 0

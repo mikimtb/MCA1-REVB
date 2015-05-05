@@ -10,6 +10,28 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S147 . . . ]
 "2962
 [v _TRISCbits `VS147 ~T0 @X0 0 e@3988 ]
+"3162
+[s S154 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S154 . TRISD0 TRISD1 TRISD2 TRISD3 TRISD4 TRISD5 TRISD6 TRISD7 ]
+"3172
+[s S155 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S155 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
+"3161
+[u S153 `S154 1 `S155 1 ]
+[n S153 . . . ]
+"3183
+[v _TRISDbits `VS153 ~T0 @X0 0 e@3989 ]
+"1507
+[s S57 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S57 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
+"1517
+[s S58 :7 `uc 1 :1 `uc 1 ]
+[n S58 . . SS2 ]
+"1506
+[u S56 `S57 1 `S58 1 ]
+[n S56 . . . ]
+"1522
+[v _PORTDbits `VS56 ~T0 @X0 0 e@3971 ]
 "4802
 [v _TXSTA `Vuc ~T0 @X0 0 e@4012 ]
 "4593
@@ -4223,70 +4245,114 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 161: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 163: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 165: extern __nonreentrant void _delay3(unsigned char);
-"3 uart.c
+[; ;uart.h: 1: void UARTInit(long);
+[; ;uart.h: 2: void UARTSendBytes(unsigned char*, int);
+"4 uart.c
 [v _UARTInit `(v ~T0 @X0 1 ef1`l ]
-"4
-{
-[; ;uart.c: 3: void UARTInit(long baudrate)
-[; ;uart.c: 4: {
-[e :U _UARTInit ]
-"3
-[v _baudrate `l ~T0 @X0 1 r1 ]
-"4
-[f ]
-[; ;uart.c: 5: TRISCbits.RC6 = 1;
 "5
-[e = . . _TRISCbits 1 6 -> -> 1 `i `uc ]
-[; ;uart.c: 6: TRISCbits.RC7 = 1;
+{
+[; ;uart.c: 4: void UARTInit(long baudrate)
+[; ;uart.c: 5: {
+[e :U _UARTInit ]
+"4
+[v _baudrate `l ~T0 @X0 1 r1 ]
+"5
+[f ]
+[; ;uart.c: 6: TRISCbits.RC6 = 1;
 "6
+[e = . . _TRISCbits 1 6 -> -> 1 `i `uc ]
+[; ;uart.c: 7: TRISCbits.RC7 = 1;
+"7
 [e = . . _TRISCbits 1 7 -> -> 1 `i `uc ]
-[; ;uart.c: 8: TXSTA = 0b00100110;
-"8
-[e = _TXSTA -> -> 38 `i `uc ]
-[; ;uart.c: 9: RCSTA = 0b10010000;
-"9
-[e = _RCSTA -> -> 144 `i `uc ]
-[; ;uart.c: 11: BAUDCTLbits.BRG16 = 1;
+[; ;uart.c: 10: TRISDbits.RD4 = 0;
+"10
+[e = . . _TRISDbits 1 4 -> -> 0 `i `uc ]
+[; ;uart.c: 11: PORTDbits.RD4 = 0;
 "11
-[e = . . _BAUDCTLbits 0 3 -> -> 1 `i `uc ]
-[; ;uart.c: 12: BAUDCTLbits.WUE = 1;
-"12
-[e = . . _BAUDCTLbits 0 1 -> -> 1 `i `uc ]
-[; ;uart.c: 13: BAUDCONbits.ABDEN = 0;
+[e = . . _PORTDbits 0 4 -> -> 0 `i `uc ]
+[; ;uart.c: 13: TXSTA = 0b00100110;
 "13
-[e = . . _BAUDCONbits 0 0 -> -> 0 `i `uc ]
-[; ;uart.c: 15: SPBRG = 86;
-"15
-[e = _SPBRG -> -> 86 `i `uc ]
-[; ;uart.c: 16: SPBRGH = 0;
+[e = _TXSTA -> -> 38 `i `uc ]
+[; ;uart.c: 14: RCSTA = 0b10010000;
+"14
+[e = _RCSTA -> -> 144 `i `uc ]
+[; ;uart.c: 16: BAUDCTLbits.BRG16 = 1;
 "16
-[e = _SPBRGH -> -> 0 `i `uc ]
-[; ;uart.c: 17: }
+[e = . . _BAUDCTLbits 0 3 -> -> 1 `i `uc ]
+[; ;uart.c: 17: BAUDCTLbits.WUE = 1;
 "17
+[e = . . _BAUDCTLbits 0 1 -> -> 1 `i `uc ]
+[; ;uart.c: 18: BAUDCONbits.ABDEN = 0;
+"18
+[e = . . _BAUDCONbits 0 0 -> -> 0 `i `uc ]
+[; ;uart.c: 20: SPBRG = 86;
+"20
+[e = _SPBRG -> -> 86 `i `uc ]
+[; ;uart.c: 21: SPBRGH = 0;
+"21
+[e = _SPBRGH -> -> 0 `i `uc ]
+[; ;uart.c: 22: }
+"22
 [e :UE 441 ]
 }
-"18
-[v _UARTSendByte `(v ~T0 @X0 1 ef1`uc ]
-"19
-{
-[; ;uart.c: 18: void UARTSendByte(unsigned char data)
-[; ;uart.c: 19: {
-[e :U _UARTSendByte ]
-"18
-[v _data `uc ~T0 @X0 1 r1 ]
-"19
-[f ]
-[; ;uart.c: 20: while (!TXSTAbits.TRMT);
-"20
-[e $U 443  ]
-[e :U 444 ]
-[e :U 443 ]
-[e $ ! != -> . . _TXSTAbits 0 1 `i -> -> -> 0 `i `Vuc `i 444  ]
-[e :U 445 ]
-[; ;uart.c: 21: TXREG = data;
-"21
-[e = _TXREG _data ]
-[; ;uart.c: 23: }
 "23
+[v _UARTSendBytes `(v ~T0 @X0 1 ef2`*uc`i ]
+"24
+{
+[; ;uart.c: 23: void UARTSendBytes(unsigned char *data, int dataLength)
+[; ;uart.c: 24: {
+[e :U _UARTSendBytes ]
+"23
+[v _data `*uc ~T0 @X0 1 r1 ]
+[v _dataLength `i ~T0 @X0 1 r2 ]
+"24
+[f ]
+"25
+[v _i `i ~T0 @X0 1 a ]
+[; ;uart.c: 25: int i;
+[; ;uart.c: 26: for (i = 0; i < dataLength; i++)
+"26
+{
+[e = _i -> 0 `i ]
+[e $U 446  ]
+"27
+[e :U 443 ]
+[; ;uart.c: 27: {
+{
+[; ;uart.c: 28: while (!TXSTAbits.TRMT);
+"28
+[e $U 447  ]
+[e :U 448 ]
+[e :U 447 ]
+[e $ ! != -> . . _TXSTAbits 0 1 `i -> -> -> 0 `i `Vuc `i 448  ]
+[e :U 449 ]
+[; ;uart.c: 29: PORTDbits.RD4 = 1;
+"29
+[e = . . _PORTDbits 0 4 -> -> 1 `i `uc ]
+[; ;uart.c: 30: TXREG = data[i];
+"30
+[e = _TXREG *U + _data * -> _i `x -> -> # *U _data `i `x ]
+"31
+}
+"26
+[e ++ _i -> 1 `i ]
+[e :U 446 ]
+[e $ < _i _dataLength 443  ]
+[e :U 444 ]
+"31
+}
+[; ;uart.c: 31: }
+[; ;uart.c: 32: while (!TXSTAbits.TRMT);
+"32
+[e $U 450  ]
+[e :U 451 ]
+[e :U 450 ]
+[e $ ! != -> . . _TXSTAbits 0 1 `i -> -> -> 0 `i `Vuc `i 451  ]
+[e :U 452 ]
+[; ;uart.c: 33: PORTDbits.RD4 = 0;
+"33
+[e = . . _PORTDbits 0 4 -> -> 0 `i `uc ]
+[; ;uart.c: 35: }
+"35
 [e :UE 442 ]
 }

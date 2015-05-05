@@ -7,7 +7,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "1 uart.h
 [v _UARTInit `(v ~T0 @X0 0 ef1`l ]
 "2
-[v _UARTSendByte `(v ~T0 @X0 0 ef1`uc ]
+[v _UARTSendBytes `(v ~T0 @X0 0 ef2`*uc`i ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f4431.h: 49: extern volatile unsigned char DFLTCON @ 0xF60;
@@ -4214,7 +4214,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "42
 [p x EBTRB=OFF ]
 [; ;uart.h: 1: void UARTInit(long);
-[; ;uart.h: 2: void UARTSendByte(unsigned char);
+[; ;uart.h: 2: void UARTSendBytes(unsigned char*, int);
 "47
 [v _delay_ms `(v ~T0 @X0 1 ef1`i ]
 "48
@@ -4257,36 +4257,48 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 55: {
 [e :U _main ]
 [f ]
-[; ;main.c: 56: UARTInit(115200);
+[v F4469 `uc ~T0 @X0 -> 0 `x s ]
+[i F4469
+:U ..
 "56
-[e ( _UARTInit (1 -> 115200 `l ]
-[; ;main.c: 57: delay_ms(1);
+-> -> 65 `ui `uc
+-> -> 66 `ui `uc
+-> -> 67 `ui `uc
+..
+]
+[v _array `uc ~T0 @X0 3  a ]
+[; ;main.c: 56: unsigned char array[] = {'A','B','C'};
+[e = _array F4469 ]
+[; ;main.c: 57: UARTInit(115200);
 "57
+[e ( _UARTInit (1 -> 115200 `l ]
+[; ;main.c: 58: delay_ms(1);
+"58
 [e ( _delay_ms (1 -> 1 `i ]
-[; ;main.c: 59: while (1)
-"59
-[e :U 448 ]
-[; ;main.c: 60: {
+[; ;main.c: 60: while (1)
 "60
-{
-[; ;main.c: 61: UARTSendByte(66);
+[e :U 448 ]
+[; ;main.c: 61: {
 "61
-[e ( _UARTSendByte (1 -> -> 66 `i `uc ]
-[; ;main.c: 62: delay_ms(1000);
+{
+[; ;main.c: 62: UARTSendBytes(array, 3);
 "62
-[e ( _delay_ms (1 -> 1000 `i ]
+[e ( _UARTSendBytes (2 , &U _array -> 3 `i ]
+[; ;main.c: 63: delay_ms(1000);
 "63
+[e ( _delay_ms (1 -> 1000 `i ]
+"64
 }
 [e :U 447 ]
-"59
+"60
 [e $U 448  ]
 [e :U 449 ]
-[; ;main.c: 63: }
-[; ;main.c: 65: return 0;
-"65
+[; ;main.c: 64: }
+[; ;main.c: 66: return 0;
+"66
 [e ) -> 0 `i ]
 [e $UE 446  ]
-[; ;main.c: 66: }
-"66
+[; ;main.c: 67: }
+"67
 [e :UE 446 ]
 }

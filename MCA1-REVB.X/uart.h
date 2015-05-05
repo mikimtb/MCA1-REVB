@@ -1,2 +1,2 @@
 void UARTInit(long);
-void UARTSendByte(unsigned char);
+void UARTSendBytes(unsigned char*, int);

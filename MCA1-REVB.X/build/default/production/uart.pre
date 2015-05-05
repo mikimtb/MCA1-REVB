@@ -5524,11 +5524,19 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 3 "uart.c"
+# 1 "uart.h"
+void UARTInit(long);
+void UARTSendBytes(unsigned char*, int);
+
+# 4 "uart.c"
 void UARTInit(long baudrate)
 {
 TRISCbits.RC6 = 1;
 TRISCbits.RC7 = 1;
+
+
+TRISDbits.RD4 = 0;
+PORTDbits.RD4 = 0;
 
 TXSTA = 0b00100110;
 RCSTA = 0b10010000;
@@ -5540,9 +5548,16 @@ BAUDCONbits.ABDEN = 0;
 SPBRG = 86;
 SPBRGH = 0;
 }
-void UARTSendByte(unsigned char data)
+void UARTSendBytes(unsigned char *data, int dataLength)
+{
+int i;
+for (i = 0; i < dataLength; i++)
 {
 while (!TXSTAbits.TRMT);
-TXREG = data;
+PORTDbits.RD4 = 1;
+TXREG = data[i];
+}
+while (!TXSTAbits.TRMT);
+PORTDbits.RD4 = 0;
 
 }

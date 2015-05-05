@@ -53,12 +53,13 @@ void delay_ms(int delay)
 
 int main() 
 {
+    unsigned char array[] = {'A','B','C'};
     UARTInit(115200);
     delay_ms(1);
     
     while (1)
     {
-        UARTSendByte(66);
+        UARTSendBytes(array, 3);
         delay_ms(1000);
     }
     
