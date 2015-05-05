@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\Miroslav\AppData\Local\Temp\s8qo.obj
+$C:\Users\Miroslav\AppData\Local\Temp\s88o.obj
 idloc IDLOC 0 200000 200000 8 1
 end_init CODE 0 0 0 4 1
 config CONFIG 0 300000 300000 E 1
@@ -70,24 +70,24 @@ $dist/default/production\MCA1-REVB.X.production.obj
 3F2E text3 CODE >20:F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\uart.c
 3F32 text3 CODE >21:F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\uart.c
 3F34 text3 CODE >22:F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\uart.c
-3F36 cinit CODE >983:C:\Users\Miroslav\AppData\Local\Temp\s8qo.
-3F36 cinit CODE >985:C:\Users\Miroslav\AppData\Local\Temp\s8qo.
-3F36 cinit CODE >988:C:\Users\Miroslav\AppData\Local\Temp\s8qo.
-3F36 cinit CODE >1002:C:\Users\Miroslav\AppData\Local\Temp\s8qo.
-3F38 cinit CODE >1003:C:\Users\Miroslav\AppData\Local\Temp\s8qo.
-3F3A cinit CODE >1004:C:\Users\Miroslav\AppData\Local\Temp\s8qo.
-3F3C cinit CODE >1005:C:\Users\Miroslav\AppData\Local\Temp\s8qo.
-3F3E cinit CODE >1006:C:\Users\Miroslav\AppData\Local\Temp\s8qo.
-3F40 cinit CODE >1007:C:\Users\Miroslav\AppData\Local\Temp\s8qo.
-3F42 cinit CODE >1008:C:\Users\Miroslav\AppData\Local\Temp\s8qo.
-3F44 cinit CODE >1009:C:\Users\Miroslav\AppData\Local\Temp\s8qo.
-3F48 cinit CODE >1010:C:\Users\Miroslav\AppData\Local\Temp\s8qo.
-3F4A cinit CODE >1011:C:\Users\Miroslav\AppData\Local\Temp\s8qo.
-3F4E cinit CODE >1012:C:\Users\Miroslav\AppData\Local\Temp\s8qo.
-3F50 cinit CODE >1013:C:\Users\Miroslav\AppData\Local\Temp\s8qo.
-3F54 cinit CODE >1019:C:\Users\Miroslav\AppData\Local\Temp\s8qo.
-3F54 cinit CODE >1020:C:\Users\Miroslav\AppData\Local\Temp\s8qo.
-3F56 cinit CODE >1021:C:\Users\Miroslav\AppData\Local\Temp\s8qo.
+3F36 cinit CODE >983:C:\Users\Miroslav\AppData\Local\Temp\s88o.
+3F36 cinit CODE >985:C:\Users\Miroslav\AppData\Local\Temp\s88o.
+3F36 cinit CODE >988:C:\Users\Miroslav\AppData\Local\Temp\s88o.
+3F36 cinit CODE >1002:C:\Users\Miroslav\AppData\Local\Temp\s88o.
+3F38 cinit CODE >1003:C:\Users\Miroslav\AppData\Local\Temp\s88o.
+3F3A cinit CODE >1004:C:\Users\Miroslav\AppData\Local\Temp\s88o.
+3F3C cinit CODE >1005:C:\Users\Miroslav\AppData\Local\Temp\s88o.
+3F3E cinit CODE >1006:C:\Users\Miroslav\AppData\Local\Temp\s88o.
+3F40 cinit CODE >1007:C:\Users\Miroslav\AppData\Local\Temp\s88o.
+3F42 cinit CODE >1008:C:\Users\Miroslav\AppData\Local\Temp\s88o.
+3F44 cinit CODE >1009:C:\Users\Miroslav\AppData\Local\Temp\s88o.
+3F48 cinit CODE >1010:C:\Users\Miroslav\AppData\Local\Temp\s88o.
+3F4A cinit CODE >1011:C:\Users\Miroslav\AppData\Local\Temp\s88o.
+3F4E cinit CODE >1012:C:\Users\Miroslav\AppData\Local\Temp\s88o.
+3F50 cinit CODE >1013:C:\Users\Miroslav\AppData\Local\Temp\s88o.
+3F54 cinit CODE >1019:C:\Users\Miroslav\AppData\Local\Temp\s88o.
+3F54 cinit CODE >1020:C:\Users\Miroslav\AppData\Local\Temp\s88o.
+3F56 cinit CODE >1021:C:\Users\Miroslav\AppData\Local\Temp\s88o.
 3F5A text1 CODE >47:F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\main.c
 3F5A text1 CODE >50:F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\main.c
 3F60 text1 CODE >51:F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\main.c
@@ -126,14 +126,14 @@ __Hspace_0 30000E 0 ABS 0 - dist/default/production\MCA1-REVB.X.production.obj
 __Hspace_1 D 0 ABS 0 - dist/default/production\MCA1-REVB.X.production.obj
 __Hspace_2 0 0 ABS 0 - dist/default/production\MCA1-REVB.X.production.obj
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production\MCA1-REVB.X.production.obj
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\Miroslav\AppData\Local\Temp\s8qo.obj
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\Miroslav\AppData\Local\Temp\s88o.obj
 __Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\MCA1-REVB.X.production.obj
 __CFG_MCLRE$ON 0 0 ABS 0 - dist/default/production\MCA1-REVB.X.production.obj
 __size_of_UARTSendBytes 0 0 ABS 0 - dist/default/production\MCA1-REVB.X.production.obj
 __Lsmallconst 0 0 SMALLCONST 0 smallconst dist/default/production\MCA1-REVB.X.production.obj
-___sp 0 0 STACK 2 stack C:\Users\Miroslav\AppData\Local\Temp\s8qo.obj
+___sp 0 0 STACK 2 stack C:\Users\Miroslav\AppData\Local\Temp\s88o.obj
 _main 3FC0 0 CODE 0 text0 dist/default/production\MCA1-REVB.X.production.obj
-start 0 0 CODE 0 init C:\Users\Miroslav\AppData\Local\Temp\s8qo.obj
+start 0 0 CODE 0 init C:\Users\Miroslav\AppData\Local\Temp\s88o.obj
 __CFG_BOREN$OFF 0 0 ABS 0 - dist/default/production\MCA1-REVB.X.production.obj
 __size_of_main 0 0 ABS 0 - dist/default/production\MCA1-REVB.X.production.obj
 __CFG_WDTEN$OFF 0 0 ABS 0 - dist/default/production\MCA1-REVB.X.production.obj
@@ -141,11 +141,11 @@ UARTInit@baudrate 1 0 COMRAM 1 cstackCOMRAM dist/default/production\MCA1-REVB.X.
 __Hpowerup 0 0 CODE 0 powerup dist/default/production\MCA1-REVB.X.production.obj
 __end_of_UARTSendBytes 3FC0 0 CODE 0 text2 dist/default/production\MCA1-REVB.X.production.obj
 __HdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production\MCA1-REVB.X.production.obj
-__accesstop 60 0 ABS 0 - C:\Users\Miroslav\AppData\Local\Temp\s8qo.obj
-intlevel0 0 0 CODE 0 text C:\Users\Miroslav\AppData\Local\Temp\s8qo.obj
-intlevel1 0 0 CODE 0 text C:\Users\Miroslav\AppData\Local\Temp\s8qo.obj
-intlevel2 0 0 CODE 0 text C:\Users\Miroslav\AppData\Local\Temp\s8qo.obj
-intlevel3 0 0 CODE 0 text C:\Users\Miroslav\AppData\Local\Temp\s8qo.obj
+__accesstop 60 0 ABS 0 - C:\Users\Miroslav\AppData\Local\Temp\s88o.obj
+intlevel0 0 0 CODE 0 text C:\Users\Miroslav\AppData\Local\Temp\s88o.obj
+intlevel1 0 0 CODE 0 text C:\Users\Miroslav\AppData\Local\Temp\s88o.obj
+intlevel2 0 0 CODE 0 text C:\Users\Miroslav\AppData\Local\Temp\s88o.obj
+intlevel3 0 0 CODE 0 text C:\Users\Miroslav\AppData\Local\Temp\s88o.obj
 __LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\MCA1-REVB.X.production.obj
 __CFG_EBTR0$OFF 0 0 ABS 0 - dist/default/production\MCA1-REVB.X.production.obj
 __CFG_EBTR1$OFF 0 0 ABS 0 - dist/default/production\MCA1-REVB.X.production.obj
@@ -155,8 +155,8 @@ __CFG_EBTRB$OFF 0 0 ABS 0 - dist/default/production\MCA1-REVB.X.production.obj
 __Hifardata 0 0 CODE 0 ifardata dist/default/production\MCA1-REVB.X.production.obj
 __Hclrtext 0 0 ABS 0 clrtext dist/default/production\MCA1-REVB.X.production.obj
 __pidataCOMRAM 3F15 0 CODE 0 idataCOMRAM dist/default/production\MCA1-REVB.X.production.obj
-___inthi_sp 0 0 STACK 2 stack C:\Users\Miroslav\AppData\Local\Temp\s8qo.obj
-___intlo_sp 0 0 STACK 2 stack C:\Users\Miroslav\AppData\Local\Temp\s8qo.obj
+___inthi_sp 0 0 STACK 2 stack C:\Users\Miroslav\AppData\Local\Temp\s88o.obj
+___intlo_sp 0 0 STACK 2 stack C:\Users\Miroslav\AppData\Local\Temp\s88o.obj
 __LdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production\MCA1-REVB.X.production.obj
 __Hintcode_body 0 0 ABS 0 intcode_body dist/default/production\MCA1-REVB.X.production.obj
 __Lintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\MCA1-REVB.X.production.obj
@@ -192,7 +192,7 @@ __Htext3 0 0 ABS 0 text3 dist/default/production\MCA1-REVB.X.production.obj
 __CFG_PWM4MX$RB5 0 0 ABS 0 - dist/default/production\MCA1-REVB.X.production.obj
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\MCA1-REVB.X.production.obj
 __Hbigram 0 0 ABS 0 bigram dist/default/production\MCA1-REVB.X.production.obj
-__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\Miroslav\AppData\Local\Temp\s8qo.obj
+__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\Miroslav\AppData\Local\Temp\s88o.obj
 __Hcomram 0 0 ABS 0 comram dist/default/production\MCA1-REVB.X.production.obj
 __Hconfig 30000E 0 CONFIG 0 config dist/default/production\MCA1-REVB.X.production.obj
 UARTSendBytes@data 4 0 COMRAM 1 cstackCOMRAM dist/default/production\MCA1-REVB.X.production.obj
@@ -256,8 +256,8 @@ main@F4469 A 0 COMRAM 1 dataCOMRAM dist/default/production\MCA1-REVB.X.productio
 __Lfarbss 0 0 FARRAM 0 farbss dist/default/production\MCA1-REVB.X.production.obj
 main@array 7 0 COMRAM 1 cstackCOMRAM dist/default/production\MCA1-REVB.X.production.obj
 __Lfardata 0 0 FARRAM 0 fardata dist/default/production\MCA1-REVB.X.production.obj
-stackhi 2FF 0 ABS 0 - C:\Users\Miroslav\AppData\Local\Temp\s8qo.obj
-stacklo 60 0 ABS 0 - C:\Users\Miroslav\AppData\Local\Temp\s8qo.obj
+stackhi 2FF 0 ABS 0 - C:\Users\Miroslav\AppData\Local\Temp\s88o.obj
+stacklo 60 0 ABS 0 - C:\Users\Miroslav\AppData\Local\Temp\s88o.obj
 __Lintcode 0 0 CODE 0 intcode dist/default/production\MCA1-REVB.X.production.obj
 __Lintret 0 0 ABS 0 intret dist/default/production\MCA1-REVB.X.production.obj
 __Lirdata 0 0 CODE 0 irdata dist/default/production\MCA1-REVB.X.production.obj
@@ -283,7 +283,7 @@ __ptext1 3F5A 0 CODE 0 text1 dist/default/production\MCA1-REVB.X.production.obj
 __ptext2 3F88 0 CODE 0 text2 dist/default/production\MCA1-REVB.X.production.obj
 __ptext3 3F18 0 CODE 0 text3 dist/default/production\MCA1-REVB.X.production.obj
 __Lstruct 0 0 COMRAM 1 struct dist/default/production\MCA1-REVB.X.production.obj
-__ramtop 300 0 RAM 0 ramtop C:\Users\Miroslav\AppData\Local\Temp\s8qo.obj
+__ramtop 300 0 RAM 0 ramtop C:\Users\Miroslav\AppData\Local\Temp\s88o.obj
 __CFG_PWMPIN$OFF 0 0 ABS 0 - dist/default/production\MCA1-REVB.X.production.obj
 __Lpowerup 0 0 CODE 0 powerup dist/default/production\MCA1-REVB.X.production.obj
 __Leeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\MCA1-REVB.X.production.obj

@@ -4285,9 +4285,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;uart.c: 18: BAUDCONbits.ABDEN = 0;
 "18
 [e = . . _BAUDCONbits 0 0 -> -> 0 `i `uc ]
-[; ;uart.c: 20: SPBRG = 86;
+[; ;uart.c: 20: SPBRG = 10;
 "20
-[e = _SPBRG -> -> 86 `i `uc ]
+[e = _SPBRG -> -> 10 `i `uc ]
 [; ;uart.c: 21: SPBRGH = 0;
 "21
 [e = _SPBRGH -> -> 0 `i `uc ]

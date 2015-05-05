@@ -17,7 +17,7 @@ void UARTInit(long baudrate)
     BAUDCTLbits.WUE = 1;
     BAUDCONbits.ABDEN = 0;
     
-    SPBRG = 86;
+    SPBRG = 10;
     SPBRGH = 0;
 }
 void UARTSendBytes(unsigned char *data, int dataLength)

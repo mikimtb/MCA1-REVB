@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC18 PRO Macro Assembler V1.34 build -361300703 
-                                                                                               Tue May 05 02:12:09 2015
+                                                                                               Tue May 05 02:15:01 2015
 
 Microchip Technology Omniscient Code Generator (PRO mode) build 201502162209
      1                           	processor	18F4431
@@ -444,8 +444,8 @@ Microchip Technology Omniscient Code Generator (PRO mode) build 201502162209
    438                           ;uart.c: 18: BAUDCONbits.ABDEN = 0;
    439  003F2C  90AA               	bcf	4010,0,c	;volatile
    440                           
-   441                           ;uart.c: 20: SPBRG = 86;
-   442  003F2E  0E56               	movlw	86
+   441                           ;uart.c: 20: SPBRG = 10;
+   442  003F2E  0E0A               	movlw	10
    443  003F30  6EAF               	movwf	4015,c	;volatile
    444                           
    445                           ;uart.c: 21: SPBRGH = 0;
@@ -573,7 +573,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V1.34 build -361300703 
-Symbol Table                                                                                   Tue May 05 02:12:09 2015
+Symbol Table                                                                                   Tue May 05 02:15:01 2015
 
        UARTInit@baudrate 0001                        l9 3F72                       l50 3F90  
                      l54 3FB8                       u97 3F66             __CFG_CP0$OFF 000000  
