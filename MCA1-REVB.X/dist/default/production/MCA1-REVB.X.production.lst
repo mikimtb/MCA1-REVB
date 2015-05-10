@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC18 PRO Macro Assembler V1.34 build -361300703 
-                                                                                               Tue May 05 02:15:01 2015
+                                                                                               Thu May 07 01:32:38 2015
 
 Microchip Technology Omniscient Code Generator (PRO mode) build 201502162209
      1                           	processor	18F4431
@@ -20,13 +20,13 @@ Microchip Technology Omniscient Code Generator (PRO mode) build 201502162209
     14                           	psect	rparam,global,class=COMRAM,space=1,delta=1
     15  0000                     
     16                           	psect	idataCOMRAM
-    17  003F15                     __pidataCOMRAM:
+    17  003E8B                     __pidataCOMRAM:
     18                           	opt stack 0
     19                           
     20                           ;initializer for main@F4469
-    21  003F15  41                 	db	65
-    22  003F16  42                 	db	66
-    23  003F17  43                 	db	67
+    21  003E8B  41                 	db	65
+    22  003E8C  42                 	db	66
+    23  003E8D  43                 	db	67
     24  0000                     _BAUDCONbits	set	4010
     25  0000                     _BAUDCTLbits	set	4010
     26  0000                     _PORTDbits	set	3971
@@ -42,446 +42,623 @@ Microchip Technology Omniscient Code Generator (PRO mode) build 201502162209
     36                           ; #config settings
     37  0000                     
     38                           	psect	cinit
-    39  003F36                     __pcinit:
+    39  003E8E                     __pcinit:
     40                           	opt stack 0
-    41  003F36                     start_initialization:
+    41  003E8E                     start_initialization:
     42                           	opt stack 0
-    43  003F36                     __initialization:
+    43  003E8E                     __initialization:
     44                           	opt stack 0
     45                           
     46                           ; Initialize objects allocated to COMRAM (3 bytes)
     47                           ; load TBLPTR registers with __pidataCOMRAM
-    48  003F36  0E15               	movlw	low __pidataCOMRAM
-    49  003F38  6EF6               	movwf	tblptrl,c
-    50  003F3A  0E3F               	movlw	high __pidataCOMRAM
-    51  003F3C  6EF7               	movwf	tblptrh,c
-    52  003F3E  0E00               	movlw	low (__pidataCOMRAM shr (0+16))
-    53  003F40  6EF8               	movwf	tblptru,c
-    54  003F42  0009               	tblrd		*+	;fetch initializer
-    55  003F44  CFF5 F00A          	movff	tablat,__pdataCOMRAM
-    56  003F48  0009               	tblrd		*+	;fetch initializer
-    57  003F4A  CFF5 F00B          	movff	tablat,__pdataCOMRAM+1
-    58  003F4E  0009               	tblrd		*+	;fetch initializer
-    59  003F50  CFF5 F00C          	movff	tablat,__pdataCOMRAM+2
-    60  003F54                     end_of_initialization:
+    48  003E8E  0E8B               	movlw	low __pidataCOMRAM
+    49  003E90  6EF6               	movwf	tblptrl,c
+    50  003E92  0E3E               	movlw	high __pidataCOMRAM
+    51  003E94  6EF7               	movwf	tblptrh,c
+    52  003E96  0E00               	movlw	low (__pidataCOMRAM shr (0+16))
+    53  003E98  6EF8               	movwf	tblptru,c
+    54  003E9A  0009               	tblrd		*+	;fetch initializer
+    55  003E9C  CFF5 F00E          	movff	tablat,__pdataCOMRAM
+    56  003EA0  0009               	tblrd		*+	;fetch initializer
+    57  003EA2  CFF5 F00F          	movff	tablat,__pdataCOMRAM+1
+    58  003EA6  0009               	tblrd		*+	;fetch initializer
+    59  003EA8  CFF5 F010          	movff	tablat,__pdataCOMRAM+2
+    60  003EAC                     end_of_initialization:
     61                           	opt stack 0
-    62  003F54                     __end_of__initialization:
+    62  003EAC                     __end_of__initialization:
     63                           	opt stack 0
-    64  003F54  0100               	movlb	0
-    65  003F56  EFE0  F01F         	goto	_main	;jump to C main() function
-    66                           tblptru	equ	0xFF8
-    67                           tblptrh	equ	0xFF7
-    68                           tblptrl	equ	0xFF6
-    69                           tablat	equ	0xFF5
-    70                           
-    71                           	psect	dataCOMRAM
-    72  00000A                     __pdataCOMRAM:
-    73                           	opt stack 0
-    74  00000A                     main@F4469:
+    64  003EAC  0E00               	movlw	low (__Lmediumconst shr (0+16))
+    65  003EAE  6EF8               	movwf	tblptru,c
+    66  003EB0  0100               	movlb	0
+    67  003EB2  EF8E  F01F         	goto	_main	;jump to C main() function
+    68                           tblptru	equ	0xFF8
+    69                           tblptrh	equ	0xFF7
+    70                           tblptrl	equ	0xFF6
+    71                           tablat	equ	0xFF5
+    72                           
+    73                           	psect	dataCOMRAM
+    74  00000E                     __pdataCOMRAM:
     75                           	opt stack 0
-    76  00000A                     	ds	3
-    77                           tblptru	equ	0xFF8
-    78                           tblptrh	equ	0xFF7
-    79                           tblptrl	equ	0xFF6
-    80                           tablat	equ	0xFF5
-    81                           
-    82                           	psect	cstackCOMRAM
-    83  000001                     __pcstackCOMRAM:
-    84                           	opt stack 0
-    85  000001                     delay_ms@delay:
+    76  00000E                     main@F4469:
+    77                           	opt stack 0
+    78  00000E                     	ds	3
+    79                           tblptru	equ	0xFF8
+    80                           tblptrh	equ	0xFF7
+    81                           tblptrl	equ	0xFF6
+    82                           tablat	equ	0xFF5
+    83                           
+    84                           	psect	cstackCOMRAM
+    85  000001                     __pcstackCOMRAM:
     86                           	opt stack 0
-    87  000001                     UARTSendBytes@dataLength:
+    87  000001                     delay_ms@delay:
     88                           	opt stack 0
-    89  000001                     UARTInit@baudrate:
+    89  000001                     UARTSendBytes@dataLength:
     90                           	opt stack 0
-    91                           
-    92                           ; 4 bytes @ 0x0
-    93  000001                     	ds	2
-    94  000003                     ??_UARTSendBytes:
-    95  000003                     ??_delay_ms:
-    96                           
-    97                           ; 0 bytes @ 0x2
-    98  000003                     	ds	1
-    99  000004                     UARTSendBytes@data:
-   100                           	opt stack 0
-   101  000004                     delay_ms@i:
+    91  000001                     UARTInit@baudrate:
+    92                           	opt stack 0
+    93                           
+    94                           ; 4 bytes @ 0x0
+    95  000001                     	ds	2
+    96  000003                     ??_UARTSendBytes:
+    97  000003                     ??_delay_ms:
+    98                           
+    99                           ; 0 bytes @ 0x2
+   100  000003                     	ds	1
+   101  000004                     UARTSendBytes@data:
    102                           	opt stack 0
-   103                           
-   104                           ; 2 bytes @ 0x3
-   105  000004                     	ds	1
-   106  000005                     UARTSendBytes@i:
-   107                           	opt stack 0
-   108                           
-   109                           ; 2 bytes @ 0x4
-   110  000005                     	ds	2
-   111  000007                     main@array:
-   112                           	opt stack 0
-   113                           
-   114                           ; 3 bytes @ 0x6
-   115  000007                     	ds	3
-   116                           tblptru	equ	0xFF8
-   117                           tblptrh	equ	0xFF7
-   118                           tblptrl	equ	0xFF6
-   119                           tablat	equ	0xFF5
-   120                           
-   121 ;;
-   122 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
-   123 ;;
-   124 ;; *************** function _main *****************
-   125 ;; Defined at:
-   126 ;;		line 54 in file "main.c"
-   127 ;; Parameters:    Size  Location     Type
-   128 ;;		None
-   129 ;; Auto vars:     Size  Location     Type
-   130 ;;  array           3    6[COMRAM] unsigned char [3]
-   131 ;; Return value:  Size  Location     Type
-   132 ;;                  2   14[None  ] int 
-   133 ;; Registers used:
-   134 ;;		wreg, fsr2l, fsr2h, status,2, status,0, cstack
-   135 ;; Tracked objects:
-   136 ;;		On entry : 0/0
-   137 ;;		On exit  : 0/0
-   138 ;;		Unchanged: 0/0
-   139 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2
-   140 ;;      Params:         0       0       0       0
-   141 ;;      Locals:         3       0       0       0
-   142 ;;      Temps:          0       0       0       0
-   143 ;;      Totals:         3       0       0       0
-   144 ;;Total ram usage:        3 bytes
-   145 ;; Hardware stack levels required when called:    1
-   146 ;; This function calls:
-   147 ;;		_UARTInit
-   148 ;;		_UARTSendBytes
-   149 ;;		_delay_ms
-   150 ;; This function is called by:
-   151 ;;		Startup code after reset
-   152 ;; This function uses a non-reentrant model
-   153 ;;
-   154                           
-   155                           	psect	text0
-   156  003FC0                     __ptext0:
-   157                           	opt stack 0
-   158  003FC0                     _main:
-   159                           	opt stack 30
-   160                           
-   161                           ;main.c: 56: unsigned char array[] = {'A','B','C'};
+   103  000004                     delay_ms@i:
+   104                           	opt stack 0
+   105                           
+   106                           ; 2 bytes @ 0x3
+   107  000004                     	ds	1
+   108  000005                     ??_UARTInit:
+   109  000005                     UARTSendBytes@i:
+   110                           	opt stack 0
+   111                           
+   112                           ; 2 bytes @ 0x4
+   113  000005                     	ds	4
+   114  000009                     UARTInit@divisor:
+   115                           	opt stack 0
+   116                           
+   117                           ; 2 bytes @ 0x8
+   118  000009                     	ds	2
+   119  00000B                     main@array:
+   120                           	opt stack 0
+   121                           
+   122                           ; 3 bytes @ 0xA
+   123  00000B                     	ds	3
+   124                           tblptru	equ	0xFF8
+   125                           tblptrh	equ	0xFF7
+   126                           tblptrl	equ	0xFF6
+   127                           tablat	equ	0xFF5
+   128                           
+   129 ;;
+   130 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   131 ;;
+   132 ;; *************** function _main *****************
+   133 ;; Defined at:
+   134 ;;		line 54 in file "main.c"
+   135 ;; Parameters:    Size  Location     Type
+   136 ;;		None
+   137 ;; Auto vars:     Size  Location     Type
+   138 ;;  array           3   10[COMRAM] unsigned char [3]
+   139 ;; Return value:  Size  Location     Type
+   140 ;;                  2   14[None  ] int 
+   141 ;; Registers used:
+   142 ;;		wreg, fsr2l, fsr2h, status,2, status,0, cstack
+   143 ;; Tracked objects:
+   144 ;;		On entry : 0/0
+   145 ;;		On exit  : 0/0
+   146 ;;		Unchanged: 0/0
+   147 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2
+   148 ;;      Params:         0       0       0       0
+   149 ;;      Locals:         3       0       0       0
+   150 ;;      Temps:          0       0       0       0
+   151 ;;      Totals:         3       0       0       0
+   152 ;;Total ram usage:        3 bytes
+   153 ;; Hardware stack levels required when called:    1
+   154 ;; This function calls:
+   155 ;;		_UARTInit
+   156 ;;		_UARTSendBytes
+   157 ;;		_delay_ms
+   158 ;; This function is called by:
+   159 ;;		Startup code after reset
+   160 ;; This function uses a non-reentrant model
+   161 ;;
    162                           
-   163                           ;incstack = 0
-   164  003FC0  C00A  F007         	movff	main@F4469,main@array
-   165  003FC4  C00B  F008         	movff	main@F4469+1,main@array+1
-   166  003FC8  C00C  F009         	movff	main@F4469+2,main@array+2
-   167                           
-   168                           ;main.c: 57: UARTInit(115200);
-   169  003FCC  6A01               	clrf	UARTInit@baudrate,c
-   170  003FCE  0EC2               	movlw	194
-   171  003FD0  6E02               	movwf	UARTInit@baudrate+1,c
-   172  003FD2  0E01               	movlw	1
-   173  003FD4  6E03               	movwf	UARTInit@baudrate+2,c
-   174  003FD6  6A04               	clrf	UARTInit@baudrate+3,c
-   175  003FD8  EC8C  F01F         	call	_UARTInit	;wreg free
-   176                           
-   177                           ;main.c: 58: delay_ms(1);
-   178  003FDC  6A02               	clrf	delay_ms@delay+1,c
-   179  003FDE  0E01               	movlw	1
-   180  003FE0  6E01               	movwf	delay_ms@delay,c
-   181  003FE2  ECAD  F01F         	call	_delay_ms	;wreg free
-   182  003FE6                     l704:
-   183                           
-   184                           ;main.c: 61: {
-   185                           ;main.c: 62: UARTSendBytes(array, 3);
-   186  003FE6  6A02               	clrf	UARTSendBytes@dataLength+1,c
-   187  003FE8  0E03               	movlw	3
-   188  003FEA  6E01               	movwf	UARTSendBytes@dataLength,c
-   189  003FEC  0E07               	movlw	main@array& (0+255)
-   190  003FEE  ECC4  F01F         	call	_UARTSendBytes
+   163                           	psect	text0
+   164  003F1C                     __ptext0:
+   165                           	opt stack 0
+   166  003F1C                     _main:
+   167                           	opt stack 30
+   168                           
+   169                           ;main.c: 56: unsigned char array[] = {'A','B','C'};
+   170                           
+   171                           ;incstack = 0
+   172  003F1C  C00E  F00B         	movff	main@F4469,main@array
+   173  003F20  C00F  F00C         	movff	main@F4469+1,main@array+1
+   174  003F24  C010  F00D         	movff	main@F4469+2,main@array+2
+   175                           
+   176                           ;main.c: 57: UARTInit(921600);
+   177  003F28  6A01               	clrf	UARTInit@baudrate,c
+   178  003F2A  0E10               	movlw	16
+   179  003F2C  6E02               	movwf	UARTInit@baudrate+1,c
+   180  003F2E  0E0E               	movlw	14
+   181  003F30  6E03               	movwf	UARTInit@baudrate+2,c
+   182  003F32  6A04               	clrf	UARTInit@baudrate+3,c
+   183  003F34  ECAE  F01F         	call	_UARTInit	;wreg free
+   184                           
+   185                           ;main.c: 58: delay_ms(1);
+   186  003F38  6A02               	clrf	delay_ms@delay+1,c
+   187  003F3A  0E01               	movlw	1
+   188  003F3C  6E01               	movwf	delay_ms@delay,c
+   189  003F3E  EC5B  F01F         	call	_delay_ms	;wreg free
+   190  003F42                     l839:
    191                           
-   192                           ;main.c: 63: delay_ms(1000);
-   193  003FF2  0E03               	movlw	3
-   194  003FF4  6E02               	movwf	delay_ms@delay+1,c
-   195  003FF6  0EE8               	movlw	232
-   196  003FF8  6E01               	movwf	delay_ms@delay,c
-   197  003FFA  ECAD  F01F         	call	_delay_ms	;wreg free
-   198  003FFE  D7F3               	goto	l704
-   199  004000                     __end_of_main:
-   200                           	opt stack 0
-   201                           tblptru	equ	0xFF8
-   202                           tblptrh	equ	0xFF7
-   203                           tblptrl	equ	0xFF6
-   204                           tablat	equ	0xFF5
-   205                           
-   206 ;; *************** function _delay_ms *****************
-   207 ;; Defined at:
-   208 ;;		line 47 in file "main.c"
-   209 ;; Parameters:    Size  Location     Type
-   210 ;;  delay           2    0[COMRAM] int 
-   211 ;; Auto vars:     Size  Location     Type
-   212 ;;  i               2    3[COMRAM] int 
-   213 ;; Return value:  Size  Location     Type
-   214 ;;		None               void
-   215 ;; Registers used:
-   216 ;;		wreg, status,2, status,0
-   217 ;; Tracked objects:
-   218 ;;		On entry : 0/0
-   219 ;;		On exit  : 0/0
-   220 ;;		Unchanged: 0/0
-   221 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2
-   222 ;;      Params:         2       0       0       0
-   223 ;;      Locals:         2       0       0       0
-   224 ;;      Temps:          1       0       0       0
-   225 ;;      Totals:         5       0       0       0
-   226 ;;Total ram usage:        5 bytes
-   227 ;; Hardware stack levels used:    1
-   228 ;; This function calls:
-   229 ;;		Nothing
-   230 ;; This function is called by:
-   231 ;;		_main
-   232 ;; This function uses a non-reentrant model
-   233 ;;
-   234                           
-   235                           	psect	text1
-   236  003F5A                     __ptext1:
-   237                           	opt stack 0
-   238  003F5A                     _delay_ms:
-   239                           	opt stack 30
-   240                           
-   241                           ;main.c: 49: int i;
-   242                           ;main.c: 50: for (i = 0; i < delay; i++)
-   243                           
-   244                           ;incstack = 0
-   245  003F5A  6A04               	clrf	delay_ms@i,c
-   246  003F5C  6A05               	clrf	delay_ms@i+1,c
-   247  003F5E  D009               	goto	l9
-   248  003F60                     l674:
-   249                           
-   250                           ;main.c: 51: _delay((unsigned long)((1)*(40000000/4000.0)));
-   251  003F60  0E0D               	movlw	13
-   252  003F62  6E03               	movwf	??_delay_ms& (0+255),c
-   253  003F64  0EFC               	movlw	252
-   254  003F66                     u97:
-   255  003F66  2EE8               	decfsz	wreg,f,c
-   256  003F68  D7FE               	goto	u97
-   257  003F6A  2E03               	decfsz	??_delay_ms& (0+255),f,c
-   258  003F6C  D7FC               	goto	u97
-   259  003F6E  4A04               	infsnz	delay_ms@i,f,c
-   260  003F70  2A05               	incf	delay_ms@i+1,f,c
-   261  003F72                     l9:
-   262  003F72  5001               	movf	delay_ms@delay,w,c
-   263  003F74  5C04               	subwf	delay_ms@i,w,c
-   264  003F76  5005               	movf	delay_ms@i+1,w,c
-   265  003F78  0A80               	xorlw	128
-   266  003F7A  6E03               	movwf	??_delay_ms& (0+255),c
-   267  003F7C  5002               	movf	delay_ms@delay+1,w,c
-   268  003F7E  0A80               	xorlw	128
-   269  003F80  5803               	subwfb	??_delay_ms& (0+255),w,c
-   270  003F82  B0D8               	btfsc	status,0,c
-   271  003F84  0012               	return		;funcret
-   272  003F86  D7EC               	goto	l674
-   273  003F88                     __end_of_delay_ms:
-   274                           	opt stack 0
-   275                           tblptru	equ	0xFF8
-   276                           tblptrh	equ	0xFF7
-   277                           tblptrl	equ	0xFF6
-   278                           tablat	equ	0xFF5
-   279                           wreg	equ	0xFE8
-   280                           status	equ	0xFD8
-   281                           
-   282 ;; *************** function _UARTSendBytes *****************
-   283 ;; Defined at:
-   284 ;;		line 23 in file "uart.c"
-   285 ;; Parameters:    Size  Location     Type
-   286 ;;  data            1    wreg     PTR unsigned char 
-   287 ;;		 -> main@array(3), 
-   288 ;;  dataLength      2    0[COMRAM] int 
-   289 ;; Auto vars:     Size  Location     Type
-   290 ;;  data            1    3[COMRAM] PTR unsigned char 
-   291 ;;		 -> main@array(3), 
-   292 ;;  i               2    4[COMRAM] int 
-   293 ;; Return value:  Size  Location     Type
-   294 ;;		None               void
-   295 ;; Registers used:
-   296 ;;		wreg, fsr2l, fsr2h, status,2, status,0
-   297 ;; Tracked objects:
-   298 ;;		On entry : 0/0
-   299 ;;		On exit  : 0/0
-   300 ;;		Unchanged: 0/0
-   301 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2
-   302 ;;      Params:         2       0       0       0
-   303 ;;      Locals:         3       0       0       0
-   304 ;;      Temps:          1       0       0       0
-   305 ;;      Totals:         6       0       0       0
-   306 ;;Total ram usage:        6 bytes
-   307 ;; Hardware stack levels used:    1
-   308 ;; This function calls:
-   309 ;;		Nothing
-   310 ;; This function is called by:
-   311 ;;		_main
-   312 ;; This function uses a non-reentrant model
-   313 ;;
-   314                           
-   315                           	psect	text2
-   316  003F88                     __ptext2:
-   317                           	opt stack 0
-   318  003F88                     _UARTSendBytes:
-   319                           	opt stack 30
-   320                           
-   321                           ;incstack = 0
-   322                           ;UARTSendBytes@data stored from wreg
-   323  003F88  6E04               	movwf	UARTSendBytes@data,c
-   324                           
-   325                           ;uart.c: 25: int i;
-   326                           ;uart.c: 26: for (i = 0; i < dataLength; i++)
-   327  003F8A  6A05               	clrf	UARTSendBytes@i,c
-   328  003F8C  6A06               	clrf	UARTSendBytes@i+1,c
-   329  003F8E  D00B               	goto	l696
-   330  003F90                     l50:
-   331  003F90  A2AC               	btfss	4012,1,c	;volatile
-   332  003F92  D7FE               	goto	l50
-   333                           
-   334                           ;uart.c: 29: PORTDbits.RD4 = 1;
-   335  003F94  8883               	bsf	3971,4,c	;volatile
-   336                           
-   337                           ;uart.c: 30: TXREG = data[i];
-   338  003F96  5004               	movf	UARTSendBytes@data,w,c
-   339  003F98  2405               	addwf	UARTSendBytes@i,w,c
-   340  003F9A  6ED9               	movwf	fsr2l,c
-   341  003F9C  6ADA               	clrf	fsr2h,c
-   342  003F9E  50DF               	movf	indf2,w,c
-   343  003FA0  6EAD               	movwf	4013,c	;volatile
-   344  003FA2  4A05               	infsnz	UARTSendBytes@i,f,c
-   345  003FA4  2A06               	incf	UARTSendBytes@i+1,f,c
-   346  003FA6                     l696:
-   347  003FA6  5001               	movf	UARTSendBytes@dataLength,w,c
-   348  003FA8  5C05               	subwf	UARTSendBytes@i,w,c
-   349  003FAA  5006               	movf	UARTSendBytes@i+1,w,c
-   350  003FAC  0A80               	xorlw	128
-   351  003FAE  6E03               	movwf	??_UARTSendBytes& (0+255),c
-   352  003FB0  5002               	movf	UARTSendBytes@dataLength+1,w,c
-   353  003FB2  0A80               	xorlw	128
-   354  003FB4  5803               	subwfb	??_UARTSendBytes& (0+255),w,c
-   355  003FB6  E3EC               	bnc	l50
-   356  003FB8                     l54:
-   357  003FB8  A2AC               	btfss	4012,1,c	;volatile
-   358  003FBA  D7FE               	goto	l54
-   359                           
-   360                           ;uart.c: 33: PORTDbits.RD4 = 0;
-   361  003FBC  9883               	bcf	3971,4,c	;volatile
-   362  003FBE  0012               	return		;funcret
-   363  003FC0                     __end_of_UARTSendBytes:
-   364                           	opt stack 0
-   365                           tblptru	equ	0xFF8
-   366                           tblptrh	equ	0xFF7
-   367                           tblptrl	equ	0xFF6
-   368                           tablat	equ	0xFF5
-   369                           wreg	equ	0xFE8
-   370                           indf2	equ	0xFDF
-   371                           fsr2h	equ	0xFDA
-   372                           fsr2l	equ	0xFD9
-   373                           status	equ	0xFD8
-   374                           
-   375 ;; *************** function _UARTInit *****************
-   376 ;; Defined at:
-   377 ;;		line 4 in file "uart.c"
-   378 ;; Parameters:    Size  Location     Type
-   379 ;;  baudrate        4    0[COMRAM] long 
-   380 ;; Auto vars:     Size  Location     Type
-   381 ;;		None
-   382 ;; Return value:  Size  Location     Type
-   383 ;;		None               void
-   384 ;; Registers used:
-   385 ;;		wreg, status,2
-   386 ;; Tracked objects:
-   387 ;;		On entry : 0/0
-   388 ;;		On exit  : 0/0
-   389 ;;		Unchanged: 0/0
-   390 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2
-   391 ;;      Params:         4       0       0       0
-   392 ;;      Locals:         0       0       0       0
-   393 ;;      Temps:          0       0       0       0
-   394 ;;      Totals:         4       0       0       0
-   395 ;;Total ram usage:        4 bytes
-   396 ;; Hardware stack levels used:    1
-   397 ;; This function calls:
-   398 ;;		Nothing
-   399 ;; This function is called by:
-   400 ;;		_main
-   401 ;; This function uses a non-reentrant model
-   402 ;;
-   403                           
-   404                           	psect	text3
-   405  003F18                     __ptext3:
-   406                           	opt stack 0
-   407  003F18                     _UARTInit:
-   408                           	opt stack 30
-   409                           
-   410                           ;uart.c: 6: TRISCbits.RC6 = 1;
+   192                           ;main.c: 61: {
+   193                           ;main.c: 62: UARTSendBytes(array, 3);
+   194  003F42  6A02               	clrf	UARTSendBytes@dataLength+1,c
+   195  003F44  0E03               	movlw	3
+   196  003F46  6E01               	movwf	UARTSendBytes@dataLength,c
+   197  003F48  0E0B               	movlw	main@array& (0+255)
+   198  003F4A  EC72  F01F         	call	_UARTSendBytes
+   199                           
+   200                           ;main.c: 63: delay_ms(1000);
+   201  003F4E  0E03               	movlw	3
+   202  003F50  6E02               	movwf	delay_ms@delay+1,c
+   203  003F52  0EE8               	movlw	232
+   204  003F54  6E01               	movwf	delay_ms@delay,c
+   205  003F56  EC5B  F01F         	call	_delay_ms	;wreg free
+   206  003F5A  D7F3               	goto	l839
+   207  003F5C                     __end_of_main:
+   208                           	opt stack 0
+   209                           tblptru	equ	0xFF8
+   210                           tblptrh	equ	0xFF7
+   211                           tblptrl	equ	0xFF6
+   212                           tablat	equ	0xFF5
+   213                           
+   214 ;; *************** function _delay_ms *****************
+   215 ;; Defined at:
+   216 ;;		line 47 in file "main.c"
+   217 ;; Parameters:    Size  Location     Type
+   218 ;;  delay           2    0[COMRAM] int 
+   219 ;; Auto vars:     Size  Location     Type
+   220 ;;  i               2    3[COMRAM] int 
+   221 ;; Return value:  Size  Location     Type
+   222 ;;		None               void
+   223 ;; Registers used:
+   224 ;;		wreg, status,2, status,0
+   225 ;; Tracked objects:
+   226 ;;		On entry : 0/0
+   227 ;;		On exit  : 0/0
+   228 ;;		Unchanged: 0/0
+   229 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2
+   230 ;;      Params:         2       0       0       0
+   231 ;;      Locals:         2       0       0       0
+   232 ;;      Temps:          1       0       0       0
+   233 ;;      Totals:         5       0       0       0
+   234 ;;Total ram usage:        5 bytes
+   235 ;; Hardware stack levels used:    1
+   236 ;; This function calls:
+   237 ;;		Nothing
+   238 ;; This function is called by:
+   239 ;;		_main
+   240 ;; This function uses a non-reentrant model
+   241 ;;
+   242                           
+   243                           	psect	text1
+   244  003EB6                     __ptext1:
+   245                           	opt stack 0
+   246  003EB6                     _delay_ms:
+   247                           	opt stack 30
+   248                           
+   249                           ;main.c: 49: int i;
+   250                           ;main.c: 50: for (i = 0; i < delay; i++)
+   251                           
+   252                           ;incstack = 0
+   253  003EB6  6A04               	clrf	delay_ms@i,c
+   254  003EB8  6A05               	clrf	delay_ms@i+1,c
+   255  003EBA  D009               	goto	l9
+   256  003EBC                     l763:
+   257                           
+   258                           ;main.c: 51: _delay((unsigned long)((1)*(40000000/4000.0)));
+   259  003EBC  0E0D               	movlw	13
+   260  003EBE  6E03               	movwf	??_delay_ms& (0+255),c
+   261  003EC0  0EFC               	movlw	252
+   262  003EC2                     u97:
+   263  003EC2  2EE8               	decfsz	wreg,f,c
+   264  003EC4  D7FE               	goto	u97
+   265  003EC6  2E03               	decfsz	??_delay_ms& (0+255),f,c
+   266  003EC8  D7FC               	goto	u97
+   267  003ECA  4A04               	infsnz	delay_ms@i,f,c
+   268  003ECC  2A05               	incf	delay_ms@i+1,f,c
+   269  003ECE                     l9:
+   270  003ECE  5001               	movf	delay_ms@delay,w,c
+   271  003ED0  5C04               	subwf	delay_ms@i,w,c
+   272  003ED2  5005               	movf	delay_ms@i+1,w,c
+   273  003ED4  0A80               	xorlw	128
+   274  003ED6  6E03               	movwf	??_delay_ms& (0+255),c
+   275  003ED8  5002               	movf	delay_ms@delay+1,w,c
+   276  003EDA  0A80               	xorlw	128
+   277  003EDC  5803               	subwfb	??_delay_ms& (0+255),w,c
+   278  003EDE  B0D8               	btfsc	status,0,c
+   279  003EE0  0012               	return		;funcret
+   280  003EE2  D7EC               	goto	l763
+   281  003EE4                     __end_of_delay_ms:
+   282                           	opt stack 0
+   283                           tblptru	equ	0xFF8
+   284                           tblptrh	equ	0xFF7
+   285                           tblptrl	equ	0xFF6
+   286                           tablat	equ	0xFF5
+   287                           wreg	equ	0xFE8
+   288                           status	equ	0xFD8
+   289                           
+   290 ;; *************** function _UARTSendBytes *****************
+   291 ;; Defined at:
+   292 ;;		line 44 in file "uart.c"
+   293 ;; Parameters:    Size  Location     Type
+   294 ;;  data            1    wreg     PTR unsigned char 
+   295 ;;		 -> main@array(3), 
+   296 ;;  dataLength      2    0[COMRAM] int 
+   297 ;; Auto vars:     Size  Location     Type
+   298 ;;  data            1    3[COMRAM] PTR unsigned char 
+   299 ;;		 -> main@array(3), 
+   300 ;;  i               2    4[COMRAM] int 
+   301 ;; Return value:  Size  Location     Type
+   302 ;;		None               void
+   303 ;; Registers used:
+   304 ;;		wreg, fsr2l, fsr2h, status,2, status,0
+   305 ;; Tracked objects:
+   306 ;;		On entry : 0/0
+   307 ;;		On exit  : 0/0
+   308 ;;		Unchanged: 0/0
+   309 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2
+   310 ;;      Params:         2       0       0       0
+   311 ;;      Locals:         3       0       0       0
+   312 ;;      Temps:          1       0       0       0
+   313 ;;      Totals:         6       0       0       0
+   314 ;;Total ram usage:        6 bytes
+   315 ;; Hardware stack levels used:    1
+   316 ;; This function calls:
+   317 ;;		Nothing
+   318 ;; This function is called by:
+   319 ;;		_main
+   320 ;; This function uses a non-reentrant model
+   321 ;;
+   322                           
+   323                           	psect	text2
+   324  003EE4                     __ptext2:
+   325                           	opt stack 0
+   326  003EE4                     _UARTSendBytes:
+   327                           	opt stack 30
+   328                           
+   329                           ;incstack = 0
+   330                           ;UARTSendBytes@data stored from wreg
+   331  003EE4  6E04               	movwf	UARTSendBytes@data,c
+   332                           
+   333                           ;uart.c: 46: int i;
+   334                           ;uart.c: 47: for (i = 0; i < dataLength; i++)
+   335  003EE6  6A05               	clrf	UARTSendBytes@i,c
+   336  003EE8  6A06               	clrf	UARTSendBytes@i+1,c
+   337  003EEA  D00B               	goto	l833
+   338  003EEC                     l57:
+   339  003EEC  A2AC               	btfss	4012,1,c	;volatile
+   340  003EEE  D7FE               	goto	l57
+   341                           
+   342                           ;uart.c: 50: PORTDbits.RD4 = 1;
+   343  003EF0  8883               	bsf	3971,4,c	;volatile
+   344                           
+   345                           ;uart.c: 51: TXREG = data[i];
+   346  003EF2  5004               	movf	UARTSendBytes@data,w,c
+   347  003EF4  2405               	addwf	UARTSendBytes@i,w,c
+   348  003EF6  6ED9               	movwf	fsr2l,c
+   349  003EF8  6ADA               	clrf	fsr2h,c
+   350  003EFA  50DF               	movf	indf2,w,c
+   351  003EFC  6EAD               	movwf	4013,c	;volatile
+   352  003EFE  4A05               	infsnz	UARTSendBytes@i,f,c
+   353  003F00  2A06               	incf	UARTSendBytes@i+1,f,c
+   354  003F02                     l833:
+   355  003F02  5001               	movf	UARTSendBytes@dataLength,w,c
+   356  003F04  5C05               	subwf	UARTSendBytes@i,w,c
+   357  003F06  5006               	movf	UARTSendBytes@i+1,w,c
+   358  003F08  0A80               	xorlw	128
+   359  003F0A  6E03               	movwf	??_UARTSendBytes& (0+255),c
+   360  003F0C  5002               	movf	UARTSendBytes@dataLength+1,w,c
+   361  003F0E  0A80               	xorlw	128
+   362  003F10  5803               	subwfb	??_UARTSendBytes& (0+255),w,c
+   363  003F12  E3EC               	bnc	l57
+   364  003F14                     l61:
+   365  003F14  A2AC               	btfss	4012,1,c	;volatile
+   366  003F16  D7FE               	goto	l61
+   367                           
+   368                           ;uart.c: 54: PORTDbits.RD4 = 0;
+   369  003F18  9883               	bcf	3971,4,c	;volatile
+   370  003F1A  0012               	return		;funcret
+   371  003F1C                     __end_of_UARTSendBytes:
+   372                           	opt stack 0
+   373                           tblptru	equ	0xFF8
+   374                           tblptrh	equ	0xFF7
+   375                           tblptrl	equ	0xFF6
+   376                           tablat	equ	0xFF5
+   377                           wreg	equ	0xFE8
+   378                           indf2	equ	0xFDF
+   379                           fsr2h	equ	0xFDA
+   380                           fsr2l	equ	0xFD9
+   381                           status	equ	0xFD8
+   382                           
+   383 ;; *************** function _UARTInit *****************
+   384 ;; Defined at:
+   385 ;;		line 4 in file "uart.c"
+   386 ;; Parameters:    Size  Location     Type
+   387 ;;  baudrate        4    0[COMRAM] unsigned long 
+   388 ;; Auto vars:     Size  Location     Type
+   389 ;;  divisor         2    8[COMRAM] unsigned int 
+   390 ;; Return value:  Size  Location     Type
+   391 ;;		None               void
+   392 ;; Registers used:
+   393 ;;		wreg, status,2, status,0
+   394 ;; Tracked objects:
+   395 ;;		On entry : 0/0
+   396 ;;		On exit  : 0/0
+   397 ;;		Unchanged: 0/0
+   398 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2
+   399 ;;      Params:         4       0       0       0
+   400 ;;      Locals:         2       0       0       0
+   401 ;;      Temps:          4       0       0       0
+   402 ;;      Totals:        10       0       0       0
+   403 ;;Total ram usage:       10 bytes
+   404 ;; Hardware stack levels used:    1
+   405 ;; This function calls:
+   406 ;;		Nothing
+   407 ;; This function is called by:
+   408 ;;		_main
+   409 ;; This function uses a non-reentrant model
+   410 ;;
    411                           
-   412                           ;incstack = 0
-   413  003F18  8C94               	bsf	3988,6,c	;volatile
-   414                           
-   415                           ;uart.c: 7: TRISCbits.RC7 = 1;
-   416  003F1A  8E94               	bsf	3988,7,c	;volatile
+   412                           	psect	text3
+   413  003F5C                     __ptext3:
+   414                           	opt stack 0
+   415  003F5C                     _UARTInit:
+   416                           	opt stack 30
    417                           
-   418                           ;uart.c: 10: TRISDbits.RD4 = 0;
-   419  003F1C  9895               	bcf	3989,4,c	;volatile
+   418                           ;uart.c: 6: unsigned int divisor;
+   419                           ;uart.c: 8: TRISCbits.RC6 = 1;
    420                           
-   421                           ;uart.c: 11: PORTDbits.RD4 = 0;
-   422  003F1E  9883               	bcf	3971,4,c	;volatile
+   421                           ;incstack = 0
+   422  003F5C  8C94               	bsf	3988,6,c	;volatile
    423                           
-   424                           ;uart.c: 13: TXSTA = 0b00100110;
-   425  003F20  0E26               	movlw	38
-   426  003F22  6EAC               	movwf	4012,c	;volatile
-   427                           
-   428                           ;uart.c: 14: RCSTA = 0b10010000;
-   429  003F24  0E90               	movlw	144
-   430  003F26  6EAB               	movwf	4011,c	;volatile
-   431                           
-   432                           ;uart.c: 16: BAUDCTLbits.BRG16 = 1;
-   433  003F28  86AA               	bsf	4010,3,c	;volatile
-   434                           
-   435                           ;uart.c: 17: BAUDCTLbits.WUE = 1;
-   436  003F2A  82AA               	bsf	4010,1,c	;volatile
-   437                           
-   438                           ;uart.c: 18: BAUDCONbits.ABDEN = 0;
-   439  003F2C  90AA               	bcf	4010,0,c	;volatile
+   424                           ;uart.c: 9: TRISCbits.RC7 = 1;
+   425  003F5E  8E94               	bsf	3988,7,c	;volatile
+   426                           
+   427                           ;uart.c: 12: TRISDbits.RD4 = 0;
+   428  003F60  9895               	bcf	3989,4,c	;volatile
+   429                           
+   430                           ;uart.c: 13: PORTDbits.RD4 = 0;
+   431  003F62  9883               	bcf	3971,4,c	;volatile
+   432                           
+   433                           ;uart.c: 15: TXSTA = 0b00100110;
+   434  003F64  0E26               	movlw	38
+   435  003F66  6EAC               	movwf	4012,c	;volatile
+   436                           
+   437                           ;uart.c: 16: RCSTA = 0b10010000;
+   438  003F68  0E90               	movlw	144
+   439  003F6A  6EAB               	movwf	4011,c	;volatile
    440                           
-   441                           ;uart.c: 20: SPBRG = 10;
-   442  003F2E  0E0A               	movlw	10
-   443  003F30  6EAF               	movwf	4015,c	;volatile
-   444                           
-   445                           ;uart.c: 21: SPBRGH = 0;
-   446  003F32  6AB0               	clrf	4016,c	;volatile
-   447  003F34  0012               	return		;funcret
-   448  003F36                     __end_of_UARTInit:
-   449                           	opt stack 0
-   450  0000                     tblptru	equ	0xFF8
-   451                           tblptrh	equ	0xFF7
-   452                           tblptrl	equ	0xFF6
-   453                           tablat	equ	0xFF5
-   454                           wreg	equ	0xFE8
-   455                           indf2	equ	0xFDF
-   456                           fsr2h	equ	0xFDA
-   457                           fsr2l	equ	0xFD9
-   458                           status	equ	0xFD8
-   459                           tblptru	equ	0xFF8
-   460                           tblptrh	equ	0xFF7
-   461                           tblptrl	equ	0xFF6
-   462                           tablat	equ	0xFF5
-   463                           wreg	equ	0xFE8
-   464                           indf2	equ	0xFDF
-   465                           fsr2h	equ	0xFDA
-   466                           fsr2l	equ	0xFD9
-   467                           status	equ	0xFD8
-   468                           
-   469                           	psect	rparam
-   470  0000                     tblptru	equ	0xFF8
-   471                           tblptrh	equ	0xFF7
-   472                           tblptrl	equ	0xFF6
-   473                           tablat	equ	0xFF5
-   474                           wreg	equ	0xFE8
-   475                           indf2	equ	0xFDF
-   476                           fsr2h	equ	0xFDA
-   477                           fsr2l	equ	0xFD9
-   478                           status	equ	0xFD8
+   441                           ;uart.c: 18: BAUDCTLbits.BRG16 = 1;
+   442  003F6C  86AA               	bsf	4010,3,c	;volatile
+   443                           
+   444                           ;uart.c: 19: BAUDCTLbits.WUE = 1;
+   445  003F6E  82AA               	bsf	4010,1,c	;volatile
+   446                           
+   447                           ;uart.c: 20: BAUDCONbits.ABDEN = 0;
+   448  003F70  90AA               	bcf	4010,0,c	;volatile
+   449                           
+   450                           ;uart.c: 22: switch (baudrate)
+   451  003F72  D012               	goto	l789
+   452  003F74                     l777:
+   453                           
+   454                           ;uart.c: 25: divisor = 1040;
+   455  003F74  0E04               	movlw	4
+   456  003F76  6E0A               	movwf	UARTInit@divisor+1,c
+   457  003F78  0E10               	movlw	16
+   458  003F7A  D00C               	goto	L4
+   459  003F7C                     l779:
+   460                           
+   461                           ;uart.c: 28: divisor = 520;
+   462  003F7C  0E02               	movlw	2
+   463  003F7E  6E0A               	movwf	UARTInit@divisor+1,c
+   464  003F80  0E08               	movlw	8
+   465  003F82  D008               	goto	L4
+   466  003F84                     l781:
+   467                           
+   468                           ;uart.c: 31: divisor = 172;
+   469  003F84  6A0A               	clrf	UARTInit@divisor+1,c
+   470  003F86  0EAC               	movlw	172
+   471  003F88  D005               	goto	L4
+   472  003F8A                     l783:
+   473                           
+   474                           ;uart.c: 34: divisor = 86;
+   475  003F8A  6A0A               	clrf	UARTInit@divisor+1,c
+   476  003F8C  0E56               	movlw	86
+   477  003F8E  D002               	goto	L4
+   478  003F90                     l785:
+   479                           
+   480                           ;uart.c: 37: divisor = 10;
+   481  003F90  6A0A               	clrf	UARTInit@divisor+1,c
+   482  003F92  0E0A               	movlw	10
+   483  003F94                     L4:
+   484  003F94  6E09               	movwf	UARTInit@divisor,c
+   485                           
+   486                           ;uart.c: 38: break;
+   487  003F96  D02F               	goto	l47
+   488  003F98                     l789:
+   489  003F98  C001  F005         	movff	UARTInit@baudrate,??_UARTInit
+   490  003F9C  C002  F006         	movff	UARTInit@baudrate+1,??_UARTInit+1
+   491  003FA0  C003  F007         	movff	UARTInit@baudrate+2,??_UARTInit+2
+   492  003FA4  C004  F008         	movff	UARTInit@baudrate+3,??_UARTInit+3
+   493                           
+   494                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 4 sub-sw
+      +                          itches
+   495                           ; Switch size 1, requested type "speed"
+   496                           ; Number of cases is 1, Range of values is 0 to 0
+   497                           ; switch strategies available:
+   498                           ; Name         Instructions Cycles
+   499                           ; simple_byte            4     3 (average)
+   500                           ;	Chosen strategy is simple_byte
+   501  003FA8  5008               	movf	??_UARTInit+3,w,c
+   502  003FAA  E01F               	bz	l885
+   503  003FAC  D024               	goto	l47
+   504  003FAE                     l879:
+   505                           
+   506                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 3 sub-sw
+      +                          itches
+   507                           ; Switch size 1, requested type "speed"
+   508                           ; Number of cases is 3, Range of values is 37 to 225
+   509                           ; switch strategies available:
+   510                           ; Name         Instructions Cycles
+   511                           ; simple_byte           10     6 (average)
+   512                           ;	Chosen strategy is simple_byte
+   513  003FAE  5006               	movf	??_UARTInit+1,w,c
+   514  003FB0  0A25               	xorlw	37	; case 37
+   515  003FB2  E005               	bz	l887
+   516  003FB4  0A6E               	xorlw	110	; case 75
+   517  003FB6  E007               	bz	l889
+   518  003FB8  0AAA               	xorlw	170	; case 225
+   519  003FBA  E008               	bz	l891
+   520  003FBC  D01C               	goto	l47
+   521  003FBE                     l887:
+   522                           
+   523                           ; Switch size 1, requested type "speed"
+   524                           ; Number of cases is 1, Range of values is 128 to 128
+   525                           ; switch strategies available:
+   526                           ; Name         Instructions Cycles
+   527                           ; simple_byte            4     3 (average)
+   528                           ;	Chosen strategy is simple_byte
+   529  003FBE  5005               	movf	??_UARTInit,w,c
+   530  003FC0  0A80               	xorlw	128	; case 128
+   531  003FC2  E0D8               	bz	l777
+   532  003FC4  D018               	goto	l47
+   533  003FC6                     l889:
+   534                           
+   535                           ; Switch size 1, requested type "speed"
+   536                           ; Number of cases is 1, Range of values is 0 to 0
+   537                           ; switch strategies available:
+   538                           ; Name         Instructions Cycles
+   539                           ; simple_byte            4     3 (average)
+   540                           ;	Chosen strategy is simple_byte
+   541  003FC6  5005               	movf	??_UARTInit,w,c
+   542  003FC8  E0D9               	bz	l779
+   543  003FCA  D015               	goto	l47
+   544  003FCC                     l891:
+   545                           
+   546                           ; Switch size 1, requested type "speed"
+   547                           ; Number of cases is 1, Range of values is 0 to 0
+   548                           ; switch strategies available:
+   549                           ; Name         Instructions Cycles
+   550                           ; simple_byte            4     3 (average)
+   551                           ;	Chosen strategy is simple_byte
+   552  003FCC  5005               	movf	??_UARTInit,w,c
+   553  003FCE  E0DA               	bz	l781
+   554  003FD0  D012               	goto	l47
+   555  003FD2                     l881:
+   556                           
+   557                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
+      +                          itches
+   558                           ; Switch size 1, requested type "speed"
+   559                           ; Number of cases is 1, Range of values is 194 to 194
+   560                           ; switch strategies available:
+   561                           ; Name         Instructions Cycles
+   562                           ; simple_byte            4     3 (average)
+   563                           ;	Chosen strategy is simple_byte
+   564  003FD2  5006               	movf	??_UARTInit+1,w,c
+   565  003FD4  0AC2               	xorlw	194	; case 194
+   566  003FD6  E10F               	bnz	l47
+   567                           
+   568                           ; Switch size 1, requested type "speed"
+   569                           ; Number of cases is 1, Range of values is 0 to 0
+   570                           ; switch strategies available:
+   571                           ; Name         Instructions Cycles
+   572                           ; simple_byte            4     3 (average)
+   573                           ;	Chosen strategy is simple_byte
+   574  003FD8  5005               	movf	??_UARTInit,w,c
+   575  003FDA  E0D7               	bz	l783
+   576  003FDC  D00C               	goto	l47
+   577  003FDE                     l883:
+   578                           
+   579                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
+      +                          itches
+   580                           ; Switch size 1, requested type "speed"
+   581                           ; Number of cases is 1, Range of values is 16 to 16
+   582                           ; switch strategies available:
+   583                           ; Name         Instructions Cycles
+   584                           ; simple_byte            4     3 (average)
+   585                           ;	Chosen strategy is simple_byte
+   586  003FDE  5006               	movf	??_UARTInit+1,w,c
+   587  003FE0  0A10               	xorlw	16	; case 16
+   588  003FE2  E109               	bnz	l47
+   589                           
+   590                           ; Switch size 1, requested type "speed"
+   591                           ; Number of cases is 1, Range of values is 0 to 0
+   592                           ; switch strategies available:
+   593                           ; Name         Instructions Cycles
+   594                           ; simple_byte            4     3 (average)
+   595                           ;	Chosen strategy is simple_byte
+   596  003FE4  5005               	movf	??_UARTInit,w,c
+   597  003FE6  E0D4               	bz	l785
+   598  003FE8  D006               	goto	l47
+   599  003FEA                     l885:
+   600                           
+   601                           ; Switch size 1, requested type "speed"
+   602                           ; Number of cases is 3, Range of values is 0 to 14
+   603                           ; switch strategies available:
+   604                           ; Name         Instructions Cycles
+   605                           ; simple_byte           10     6 (average)
+   606                           ;	Chosen strategy is simple_byte
+   607  003FEA  5007               	movf	??_UARTInit+2,w,c
+   608  003FEC  E0E0               	bz	l879
+   609  003FEE  0A01               	xorlw	1	; case 1
+   610  003FF0  E0F0               	bz	l881
+   611  003FF2  0A0F               	xorlw	15	; case 14
+   612  003FF4  E0F4               	bz	l883
+   613  003FF6                     l47:
+   614                           
+   615                           ;uart.c: 41: SPBRG = divisor;
+   616  003FF6  C009  FFAF         	movff	UARTInit@divisor,4015	;volatile
+   617                           
+   618                           ;uart.c: 42: SPBRGH = divisor >> 8;
+   619  003FFA  C00A  FFB0         	movff	UARTInit@divisor+1,4016	;volatile
+   620  003FFE  0012               	return		;funcret
+   621  004000                     __end_of_UARTInit:
+   622                           	opt stack 0
+   623  0000                     tblptru	equ	0xFF8
+   624                           tblptrh	equ	0xFF7
+   625                           tblptrl	equ	0xFF6
+   626                           tablat	equ	0xFF5
+   627                           wreg	equ	0xFE8
+   628                           indf2	equ	0xFDF
+   629                           fsr2h	equ	0xFDA
+   630                           fsr2l	equ	0xFD9
+   631                           status	equ	0xFD8
+   632                           tblptru	equ	0xFF8
+   633                           tblptrh	equ	0xFF7
+   634                           tblptrl	equ	0xFF6
+   635                           tablat	equ	0xFF5
+   636                           wreg	equ	0xFE8
+   637                           indf2	equ	0xFDF
+   638                           fsr2h	equ	0xFDA
+   639                           fsr2l	equ	0xFD9
+   640                           status	equ	0xFD8
+   641                           
+   642                           	psect	rparam
+   643  0000                     tblptru	equ	0xFF8
+   644                           tblptrh	equ	0xFF7
+   645                           tblptrl	equ	0xFF6
+   646                           tablat	equ	0xFF5
+   647                           wreg	equ	0xFE8
+   648                           indf2	equ	0xFDF
+   649                           fsr2h	equ	0xFDA
+   650                           fsr2l	equ	0xFD9
+   651                           status	equ	0xFD8
 
 
 Data Sizes:
@@ -494,7 +671,7 @@ Data Sizes:
 
 Auto Spaces:
     Space          Size  Autos    Used
-    COMRAM           95      9      12
+    COMRAM           95     13      16
     BANK0           160      0       0
     BANK1           256      0       0
     BANK2           256      0       0
@@ -507,7 +684,7 @@ Pointer List with Targets:
 
 Critical Paths under _main in COMRAM
 
-    _main->_UARTSendBytes
+    _main->_UARTInit
 
 Critical Paths under _main in BANK0
 
@@ -526,8 +703,8 @@ Call Graph Tables:
  ---------------------------------------------------------------------------------
  (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
  ---------------------------------------------------------------------------------
- (0) _main                                                 3     3      0     399
-                                              6 COMRAM     3     3      0
+ (0) _main                                                 3     3      0     471
+                                             10 COMRAM     3     3      0
                            _UARTInit
                       _UARTSendBytes
                            _delay_ms
@@ -538,8 +715,8 @@ Call Graph Tables:
  (1) _UARTSendBytes                                        6     4      2     170
                                               0 COMRAM     6     4      2
  ---------------------------------------------------------------------------------
- (1) _UARTInit                                             4     0      4      53
-                                              0 COMRAM     4     0      4
+ (1) _UARTInit                                            10     6      4     125
+                                              0 COMRAM    10     6      4
  ---------------------------------------------------------------------------------
  Estimated maximum stack depth 1
  ---------------------------------------------------------------------------------
@@ -562,54 +739,60 @@ BANK1              100      0       0       7        0.0%
 BITBANK0            A0      0       0       4        0.0%
 BANK0               A0      0       0       5        0.0%
 BITCOMRAM           5F      0       0       0        0.0%
-COMRAM              5F      9       C       1       12.6%
+COMRAM              5F      D      10       1       16.8%
 BITSFR               0      0       0      40        0.0%
 SFR                  0      0       0      40        0.0%
 STACK                0      0       0       2        0.0%
 NULL                 0      0       0       0        0.0%
-ABS                  0      0       C       3        0.0%
-DATA                 0      0       C      11        0.0%
+ABS                  0      0      10       3        0.0%
+DATA                 0      0      10      11        0.0%
 CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V1.34 build -361300703 
-Symbol Table                                                                                   Tue May 05 02:15:01 2015
+Symbol Table                                                                                   Thu May 07 01:32:38 2015
 
-       UARTInit@baudrate 0001                        l9 3F72                       l50 3F90  
-                     l54 3FB8                       u97 3F66             __CFG_CP0$OFF 000000  
-           __CFG_CP1$OFF 000000             __CFG_CP2$OFF 000000             __CFG_CP3$OFF 000000  
-                    l704 3FE6                      l674 3F60                      l696 3FA6  
-           __CFG_CPB$OFF 000000             __CFG_CPD$OFF 000000                      wreg 000FE8  
-           __CFG_IESO$ON 000000             __CFG_LVP$OFF 000000            __CFG_FCMEN$ON 000000  
-                   _main 3FC0                     fsr2h 000FDA                     indf2 000FDF  
-                   fsr2l 000FD9                     start 0000  UARTSendBytes@dataLength 0001  
-          __CFG_MCLRE$ON 000000             ___param_bank 000010                    ?_main 0001  
-                  _RCSTA 000FAB                    _SPBRG 000FAF                    _TXREG 000FAD  
-                  _TXSTA 000FAC            __CFG_WRT0$OFF 000000            __CFG_WRT1$OFF 000000  
-          __CFG_WRT2$OFF 000000            __CFG_WRT3$OFF 000000           __CFG_EBTR0$OFF 000000  
-         __CFG_EBTR1$OFF 000000           __CFG_EBTR2$OFF 000000           __CFG_EBTR3$OFF 000000  
-       __end_of_UARTInit 3F36            __CFG_WRTB$OFF 000000            __CFG_WRTC$OFF 000000  
-          __CFG_WRTD$OFF 000000           __CFG_EBTRB$OFF 000000           __CFG_BOREN$OFF 000000  
-                  tablat 000FF5                    status 000FD8          __initialization 3F36  
-         __CFG_HPOL$HIGH 000000             __end_of_main 4000           __CFG_OSC$HSPLL 000000  
-         __CFG_LPOL$HIGH 000000                   ??_main 0007            __activetblptr 000000  
-         __CFG_WDTEN$OFF 000000           __CFG_WINEN$OFF 000000                   _SPBRGH 000FB0  
-       __end_of_delay_ms 3F88           __CFG_PWRTEN$ON 000000           __CFG_SSPMX$RD1 000000  
-         __CFG_STVREN$ON 000000             __pdataCOMRAM 000A    __end_of_UARTSendBytes 3FC0  
-                 tblptrh 000FF7                   tblptrl 000FF6                   tblptru 000FF8  
-             __accesstop 0060  __end_of__initialization 3F54          __CFG_FLTAMX$RC1 000000  
-          ___rparam_used 000001          __CFG_T1OSCMX$ON 000000           __pcstackCOMRAM 0001  
-              ?_UARTInit 0001               ??_UARTInit 0005          __CFG_WDPS$32768 000000  
-         UARTSendBytes@i 0005          __CFG_PWM4MX$RB5 000000                ?_delay_ms 0001  
-        __CFG_PWMPIN$OFF 000000                  __Hparam 0000                  __Lparam 0000  
-                __pcinit 3F36                  __ramtop 0300                  __ptext0 3FC0  
-                __ptext1 3F5A                  __ptext2 3F88                  __ptext3 3F18  
-             ??_delay_ms 0003     end_of_initialization 3F54                _PORTDbits 000F83  
-              _TRISCbits 000F94                _TRISDbits 000F95                _TXSTAbits 000FAC  
-       __CFG_EXCLKMX$RC3 000000            delay_ms@delay 0001              _BAUDCONbits 000FAA  
-          __pidataCOMRAM 3F15        __size_of_UARTInit 001E              _BAUDCTLbits 000FAA  
-    start_initialization 3F36   __size_of_UARTSendBytes 0038        __size_of_delay_ms 002E  
-          _UARTSendBytes 3F88                delay_ms@i 0004                main@F4469 000A  
-               _UARTInit 3F18                main@array 0007           ?_UARTSendBytes 0001  
-      UARTSendBytes@data 0004                 __Hrparam 0000                 __Lrparam 0000  
-               _delay_ms 3F5A            __size_of_main 0040          ??_UARTSendBytes 0003  
+       UARTInit@baudrate 0001                        l9 3ECE                       l61 3F14  
+                     l47 3FF6                       l57 3EEC                       u97 3EC2  
+           __CFG_CP0$OFF 000000             __CFG_CP1$OFF 000000             __CFG_CP2$OFF 000000  
+           __CFG_CP3$OFF 000000                      l833 3F02                      l763 3EBC  
+                    l781 3F84                      l783 3F8A                      l839 3F42  
+                    l881 3FD2                      l785 3F90                      l777 3F74  
+                    l883 3FDE                      l891 3FCC                      l779 3F7C  
+                    l885 3FEA                      l789 3F98                      l887 3FBE  
+                    l879 3FAE                      l889 3FC6             __CFG_CPB$OFF 000000  
+           __CFG_CPD$OFF 000000                      wreg 000FE8             __CFG_IESO$ON 000000  
+           __CFG_LVP$OFF 000000            __CFG_FCMEN$ON 000000                     _main 3F1C  
+                   fsr2h 000FDA                     indf2 000FDF                     fsr2l 000FD9  
+                   start 0000  UARTSendBytes@dataLength 0001            __CFG_MCLRE$ON 000000  
+           ___param_bank 000010                    ?_main 0001                    _RCSTA 000FAB  
+                  _SPBRG 000FAF                    _TXREG 000FAD                    _TXSTA 000FAC  
+          __CFG_WRT0$OFF 000000            __CFG_WRT1$OFF 000000            __CFG_WRT2$OFF 000000  
+          __CFG_WRT3$OFF 000000           __CFG_EBTR0$OFF 000000           __CFG_EBTR1$OFF 000000  
+         __CFG_EBTR2$OFF 000000           __CFG_EBTR3$OFF 000000         __end_of_UARTInit 4000  
+          __CFG_WRTB$OFF 000000            __CFG_WRTC$OFF 000000            __CFG_WRTD$OFF 000000  
+         __CFG_EBTRB$OFF 000000           __CFG_BOREN$OFF 000000                    tablat 000FF5  
+                  status 000FD8          __initialization 3E8E           __CFG_HPOL$HIGH 000000  
+           __end_of_main 3F5C           __CFG_OSC$HSPLL 000000           __CFG_LPOL$HIGH 000000  
+                 ??_main 000B            __activetblptr 000002           __CFG_WDTEN$OFF 000000  
+         __CFG_WINEN$OFF 000000                   _SPBRGH 000FB0         __end_of_delay_ms 3EE4  
+         __CFG_PWRTEN$ON 000000           __CFG_SSPMX$RD1 000000           __CFG_STVREN$ON 000000  
+           __pdataCOMRAM 000E    __end_of_UARTSendBytes 3F1C                   tblptrh 000FF7  
+                 tblptrl 000FF6                   tblptru 000FF8               __accesstop 0060  
+__end_of__initialization 3EAC          __CFG_FLTAMX$RC1 000000            ___rparam_used 000001  
+        __CFG_T1OSCMX$ON 000000           __pcstackCOMRAM 0001                ?_UARTInit 0001  
+             ??_UARTInit 0005          __CFG_WDPS$32768 000000           UARTSendBytes@i 0005  
+        __CFG_PWM4MX$RB5 000000                ?_delay_ms 0001          __CFG_PWMPIN$OFF 000000  
+                __Hparam 0000                  __Lparam 0000                  __pcinit 3E8E  
+                __ramtop 0300                  __ptext0 3F1C                  __ptext1 3EB6  
+                __ptext2 3EE4                  __ptext3 3F5C               ??_delay_ms 0003  
+   end_of_initialization 3EAC            __Lmediumconst 0000                _PORTDbits 000F83  
+              _TRISCbits 000F94                _TRISDbits 000F95          UARTInit@divisor 0009  
+              _TXSTAbits 000FAC         __CFG_EXCLKMX$RC3 000000            delay_ms@delay 0001  
+            _BAUDCONbits 000FAA            __pidataCOMRAM 3E8B        __size_of_UARTInit 00A4  
+            _BAUDCTLbits 000FAA      start_initialization 3E8E   __size_of_UARTSendBytes 0038  
+      __size_of_delay_ms 002E            _UARTSendBytes 3EE4                delay_ms@i 0004  
+              main@F4469 000E                 _UARTInit 3F5C                main@array 000B  
+         ?_UARTSendBytes 0001        UARTSendBytes@data 0004                 __Hrparam 0000  
+               __Lrparam 0000                 _delay_ms 3EB6            __size_of_main 0040  
+        ??_UARTSendBytes 0003  

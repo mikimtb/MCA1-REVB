@@ -5565,7 +5565,7 @@ extern __nonreentrant void _delay3(unsigned char);
 #pragma config EBTRB = OFF
 
 # 1 "uart.h"
-void UARTInit(long);
+void UARTInit(unsigned long);
 void UARTSendBytes(unsigned char*, int);
 
 # 47 "main.c"
@@ -5579,7 +5579,7 @@ _delay((unsigned long)((1)*(40000000/4000.0)));
 int main()
 {
 unsigned char array[] = {'A','B','C'};
-UARTInit(115200);
+UARTInit(921600);
 delay_ms(1);
 
 while (1)

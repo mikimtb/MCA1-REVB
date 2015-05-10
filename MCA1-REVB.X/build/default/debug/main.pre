@@ -1,5 +1,5 @@
 
-# 1 "uart.c"
+# 1 "main.c"
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -5524,61 +5524,70 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
+
+# 6 "main.c"
+#pragma config OSC = HSPLL
+#pragma config FCMEN = ON
+#pragma config IESO = ON
+#pragma config PWRTEN = ON
+#pragma config BOREN = OFF
+#pragma config WDTEN = OFF
+#pragma config WDPS = 32768
+#pragma config WINEN = OFF
+#pragma config PWMPIN = OFF
+#pragma config LPOL = HIGH
+#pragma config HPOL = HIGH
+#pragma config T1OSCMX = ON
+#pragma config FLTAMX = RC1
+#pragma config SSPMX = RD1
+#pragma config PWM4MX = RB5
+#pragma config EXCLKMX = RC3
+#pragma config MCLRE = ON
+#pragma config STVREN = ON
+#pragma config LVP = OFF
+#pragma config CP0 = OFF
+#pragma config CP1 = OFF
+#pragma config CP2 = OFF
+#pragma config CP3 = OFF
+#pragma config CPB = OFF
+#pragma config CPD = OFF
+#pragma config WRT0 = OFF
+#pragma config WRT1 = OFF
+#pragma config WRT2 = OFF
+#pragma config WRT3 = OFF
+#pragma config WRTC = OFF
+#pragma config WRTB = OFF
+#pragma config WRTD = OFF
+#pragma config EBTR0 = OFF
+#pragma config EBTR1 = OFF
+#pragma config EBTR2 = OFF
+#pragma config EBTR3 = OFF
+#pragma config EBTRB = OFF
+
 # 1 "uart.h"
-void UARTInit(unsigned long);
+void UARTInit(long);
 void UARTSendBytes(unsigned char*, int);
 
-# 4 "uart.c"
-void UARTInit(unsigned long baudrate)
-{
-unsigned int divisor;
-
-TRISCbits.RC6 = 1;
-TRISCbits.RC7 = 1;
-
-
-TRISDbits.RD4 = 0;
-PORTDbits.RD4 = 0;
-
-TXSTA = 0b00100110;
-RCSTA = 0b10010000;
-
-BAUDCTLbits.BRG16 = 1;
-BAUDCTLbits.WUE = 1;
-BAUDCONbits.ABDEN = 0;
-
-switch (baudrate)
-{
-case 9600:
-divisor = 1040;
-break;
-case 19200:
-divisor = 520;
-break;
-case 57600:
-divisor = 172;
-break;
-case 115200:
-divisor = 86;
-break;
-case 921600:
-divisor = 10;
-break;
-}
-
-SPBRG = divisor;
-SPBRGH = divisor >> 8;
-}
-void UARTSendBytes(unsigned char *data, int dataLength)
+# 47 "main.c"
+void delay_ms(int delay)
 {
 int i;
-for (i = 0; i < dataLength; i++)
-{
-while (!TXSTAbits.TRMT);
-PORTDbits.RD4 = 1;
-TXREG = data[i];
+for (i = 0; i < delay; i++)
+_delay((unsigned long)((1)*(40000000/4000.0)));
 }
-while (!TXSTAbits.TRMT);
-PORTDbits.RD4 = 0;
 
+int main()
+{
+unsigned char array[] = {'A','B','C'};
+UARTInit(921600);
+delay_ms(1);
+
+while (1)
+{
+UARTSendBytes(array, 3);
+delay_ms(1000);
 }
+
+return 0;
+}
+

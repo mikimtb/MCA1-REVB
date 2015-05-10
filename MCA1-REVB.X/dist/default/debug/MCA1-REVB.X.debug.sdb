@@ -3,6 +3,8 @@
 [d edition pro ]
 [d chip 18F4431 ]
 [d frameptr 4065 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\aldiv.c
+[v ___aldiv __aldiv `(l  1 e 4 0 ]
 "63 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\double.c
 [v ___flpack __flpack `(d  1 e 3 0 ]
 "88 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fladd.c
@@ -31,7 +33,7 @@
 [v _main main `(i  1 e 2 0 ]
 "4 F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\uart.c
 [v _UARTInit UARTInit `(v  1 e 0 0 ]
-"44
+"28
 [v _UARTSendBytes UARTSendBytes `(v  1 e 0 0 ]
 [s S94 . 1 `uc 1 RD0 1 0 :1:0 
 `uc 1 RD1 1 0 :1:1 
@@ -160,7 +162,7 @@
 [v _main main `(i  1 e 2 0 ]
 {
 "56
-[v main@array array `[3]uc  1 a 3 10 ]
+[v main@array array `[3]uc  1 a 3 24 ]
 "55
 [v main@F4469 F4469 `[3]uc  1 s 3 F4469 ]
 "67
@@ -174,25 +176,38 @@
 [v delay_ms@delay delay `i  1 p 2 0 ]
 "52
 } 0
-"44 F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\uart.c
+"28 F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\uart.c
 [v _UARTSendBytes UARTSendBytes `(v  1 e 0 0 ]
 {
 [v UARTSendBytes@data data `*.30uc  1 a 1 wreg ]
-"46
+"30
 [v UARTSendBytes@i i `i  1 a 2 4 ]
-"44
+"28
 [v UARTSendBytes@data data `*.30uc  1 a 1 wreg ]
 [v UARTSendBytes@dataLength dataLength `i  1 p 2 0 ]
-"47
+"31
 [v UARTSendBytes@data data `*.30uc  1 a 1 3 ]
-"56
+"40
 } 0
 "4
 [v _UARTInit UARTInit `(v  1 e 0 0 ]
 {
 "6
-[v UARTInit@divisor divisor `ui  1 a 2 8 ]
+[v UARTInit@divisor divisor `ui  1 a 2 22 ]
 "4
-[v UARTInit@baudrate baudrate `ul  1 p 4 0 ]
-"43
+[v UARTInit@baudrate baudrate `l  1 p 4 14 ]
+"27
+} 0
+"8 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\aldiv.c
+[v ___aldiv __aldiv `(l  1 e 4 0 ]
+{
+"11
+[v ___aldiv@quotient quotient `l  1 a 4 10 ]
+"12
+[v ___aldiv@sign sign `uc  1 a 1 9 ]
+[v ___aldiv@counter counter `uc  1 a 1 8 ]
+"8
+[v ___aldiv@dividend dividend `l  1 p 4 0 ]
+[v ___aldiv@divisor divisor `l  1 p 4 4 ]
+"42
 } 0

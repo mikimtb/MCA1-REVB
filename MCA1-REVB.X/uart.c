@@ -1,8 +1,10 @@
 #include <xc.h>
 #include "uart.h"
 
-void UARTInit(long baudrate)
+void UARTInit(unsigned long baudrate)
 {
+    unsigned int divisor;
+    
     TRISCbits.RC6 = 1;
     TRISCbits.RC7 = 1;
     
@@ -17,8 +19,27 @@ void UARTInit(long baudrate)
     BAUDCTLbits.WUE = 1;
     BAUDCONbits.ABDEN = 0;
     
-    SPBRG = 10;
-    SPBRGH = 0;
+    switch (baudrate)
+    {
+        case 9600:
+            divisor = 1040;
+            break;
+        case 19200:
+            divisor = 520;
+            break;
+        case 57600:
+            divisor = 172;
+            break;
+        case 115200:
+            divisor = 86;
+            break;
+        case 921600:
+            divisor = 10;
+            break;
+    }
+    
+    SPBRG = divisor;
+    SPBRGH = divisor >> 8;
 }
 void UARTSendBytes(unsigned char *data, int dataLength)
 {

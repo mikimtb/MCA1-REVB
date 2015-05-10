@@ -54,7 +54,7 @@ void delay_ms(int delay)
 int main() 
 {
     unsigned char array[] = {'A','B','C'};
-    UARTInit(115200);
+    UARTInit(921600);
     delay_ms(1);
     
     while (1)

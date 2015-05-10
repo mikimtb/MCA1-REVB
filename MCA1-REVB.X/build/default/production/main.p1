@@ -5,7 +5,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p i __delay ]
 [p mainexit ]
 "1 uart.h
-[v _UARTInit `(v ~T0 @X0 0 ef1`l ]
+[v _UARTInit `(v ~T0 @X0 0 ef1`ul ]
 "2
 [v _UARTSendBytes `(v ~T0 @X0 0 ef2`*uc`i ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
@@ -4213,7 +4213,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p x EBTR3=OFF ]
 "42
 [p x EBTRB=OFF ]
-[; ;uart.h: 1: void UARTInit(long);
+[; ;uart.h: 1: void UARTInit(unsigned long);
 [; ;uart.h: 2: void UARTSendBytes(unsigned char*, int);
 "47
 [v _delay_ms `(v ~T0 @X0 1 ef1`i ]
@@ -4269,9 +4269,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _array `uc ~T0 @X0 3  a ]
 [; ;main.c: 56: unsigned char array[] = {'A','B','C'};
 [e = _array F4469 ]
-[; ;main.c: 57: UARTInit(115200);
+[; ;main.c: 57: UARTInit(921600);
 "57
-[e ( _UARTInit (1 -> 115200 `l ]
+[e ( _UARTInit (1 -> -> 921600 `l `ul ]
 [; ;main.c: 58: delay_ms(1);
 "58
 [e ( _delay_ms (1 -> 1 `i ]
