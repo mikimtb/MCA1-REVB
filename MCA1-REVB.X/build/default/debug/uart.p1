@@ -74,6 +74,40 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _SPBRG `Vuc ~T0 @X0 0 e@4015 ]
 "5132
 [v _SPBRGH `Vuc ~T0 @X0 0 e@4016 ]
+"3908
+[s S186 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S186 . TMR1IP TMR2IP CCP1IP SSPIP TXIP RCIP ADIP ]
+"3917
+[s S187 :4 `uc 1 :1 `uc 1 ]
+[n S187 . . TBIP ]
+"3921
+[s S188 :5 `uc 1 :1 `uc 1 ]
+[n S188 . . RC1IP ]
+"3925
+[s S189 :4 `uc 1 :1 `uc 1 ]
+[n S189 . . TX1IP ]
+"3907
+[u S185 `S186 1 `S187 1 `S188 1 `S189 1 ]
+[n S185 . . . . . ]
+"3930
+[v _IPR1bits `VS185 ~T0 @X0 0 e@3999 ]
+"3744
+[s S176 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S176 . TMR1IE TMR2IE CCP1IE SSPIE TXIE RCIE ADIE ]
+"3753
+[s S177 :4 `uc 1 :1 `uc 1 ]
+[n S177 . . TBIE ]
+"3757
+[s S178 :5 `uc 1 :1 `uc 1 ]
+[n S178 . . RC1IE ]
+"3761
+[s S179 :4 `uc 1 :1 `uc 1 ]
+[n S179 . . TX1IE ]
+"3743
+[u S175 `S176 1 `S177 1 `S178 1 `S179 1 ]
+[n S175 . . . . . ]
+"3766
+[v _PIE1bits `VS175 ~T0 @X0 0 e@3997 ]
 "4813
 [s S241 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S241 . TX9D TRMT BRGH SENDB SYNC TXEN TX9 CSRC ]
@@ -4245,17 +4279,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 161: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 163: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 165: extern __nonreentrant void _delay3(unsigned char);
-[; ;uart.h: 1: void UARTInit(long);
-[; ;uart.h: 2: void UARTSendBytes(unsigned char*, int);
+[; ;uart.h: 1: void UARTInit(unsigned long);
+[; ;uart.h: 2: void UartSendByte(unsigned char);
+[; ;uart.h: 3: void UARTSendBytes(unsigned char*, int);
 "4 uart.c
-[v _UARTInit `(v ~T0 @X0 1 ef1`l ]
+[v _UARTInit `(v ~T0 @X0 1 ef1`ul ]
 "5
 {
-[; ;uart.c: 4: void UARTInit(long baudrate)
+[; ;uart.c: 4: void UARTInit(unsigned long baudrate)
 [; ;uart.c: 5: {
 [e :U _UARTInit ]
 "4
-[v _baudrate `l ~T0 @X0 1 r1 ]
+[v _baudrate `ul ~T0 @X0 1 r1 ]
 "5
 [f ]
 "6
@@ -4282,83 +4317,189 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;uart.c: 18: BAUDCTLbits.BRG16 = 1;
 "18
 [e = . . _BAUDCTLbits 0 3 -> -> 1 `i `uc ]
-[; ;uart.c: 19: BAUDCTLbits.WUE = 1;
+[; ;uart.c: 19: BAUDCTLbits.WUE = 0;
 "19
-[e = . . _BAUDCTLbits 0 1 -> -> 1 `i `uc ]
+[e = . . _BAUDCTLbits 0 1 -> -> 0 `i `uc ]
 [; ;uart.c: 20: BAUDCONbits.ABDEN = 0;
 "20
 [e = . . _BAUDCONbits 0 0 -> -> 0 `i `uc ]
-[; ;uart.c: 23: divisor = (long)(40000000L /(baudrate * 4))-1;
+[; ;uart.c: 22: switch (baudrate)
+"22
+[e $U 443  ]
+[; ;uart.c: 23: {
 "23
-[e = _divisor -> - / -> 40000000 `l * _baudrate -> -> 4 `i `l -> -> 1 `i `l `ui ]
-[; ;uart.c: 24: SPBRG = divisor;
+{
+[; ;uart.c: 24: case 9600:
 "24
-[e = _SPBRG -> _divisor `uc ]
-[; ;uart.c: 26: SPBRGH = divisor >> 8;
+[e :U 444 ]
+[; ;uart.c: 25: divisor = 1040;
+"25
+[e = _divisor -> -> 1040 `i `ui ]
+[; ;uart.c: 26: break;
 "26
-[e = _SPBRGH -> >> _divisor -> 8 `i `uc ]
-[; ;uart.c: 27: }
+[e $U 442  ]
+[; ;uart.c: 27: case 19200:
 "27
+[e :U 445 ]
+[; ;uart.c: 28: divisor = 520;
+"28
+[e = _divisor -> -> 520 `i `ui ]
+[; ;uart.c: 29: break;
+"29
+[e $U 442  ]
+[; ;uart.c: 30: case 57600:
+"30
+[e :U 446 ]
+[; ;uart.c: 31: divisor = 172;
+"31
+[e = _divisor -> -> 172 `i `ui ]
+[; ;uart.c: 32: break;
+"32
+[e $U 442  ]
+[; ;uart.c: 33: case 115200:
+"33
+[e :U 447 ]
+[; ;uart.c: 34: divisor = 86;
+"34
+[e = _divisor -> -> 86 `i `ui ]
+[; ;uart.c: 35: break;
+"35
+[e $U 442  ]
+[; ;uart.c: 36: case 921600:
+"36
+[e :U 448 ]
+[; ;uart.c: 37: divisor = 10;
+"37
+[e = _divisor -> -> 10 `i `ui ]
+[; ;uart.c: 38: break;
+"38
+[e $U 442  ]
+"39
+}
+[; ;uart.c: 39: }
+[e $U 442  ]
+"22
+[e :U 443 ]
+[e [\ _baudrate , $ -> -> -> 9600 `i `l `ul 444
+ , $ -> -> -> 19200 `i `l `ul 445
+ , $ -> -> 57600 `l `ul 446
+ , $ -> -> 115200 `l `ul 447
+ , $ -> -> 921600 `l `ul 448
+ 442 ]
+"39
+[e :U 442 ]
+[; ;uart.c: 41: SPBRG = divisor;
+"41
+[e = _SPBRG -> _divisor `uc ]
+[; ;uart.c: 42: SPBRGH = divisor >> 8;
+"42
+[e = _SPBRGH -> >> _divisor -> 8 `i `uc ]
+[; ;uart.c: 44: IPR1bits.RCIP = 0;
+"44
+[e = . . _IPR1bits 0 5 -> -> 0 `i `uc ]
+[; ;uart.c: 45: PIE1bits.RCIE = 1;
+"45
+[e = . . _PIE1bits 0 5 -> -> 1 `i `uc ]
+[; ;uart.c: 46: }
+"46
 [e :UE 441 ]
 }
-"28
-[v _UARTSendBytes `(v ~T0 @X0 1 ef2`*uc`i ]
-"29
+"48
+[v _UartSendByte `(v ~T0 @X0 1 ef1`uc ]
+"49
 {
-[; ;uart.c: 28: void UARTSendBytes(unsigned char *data, int dataLength)
-[; ;uart.c: 29: {
-[e :U _UARTSendBytes ]
-"28
-[v _data `*uc ~T0 @X0 1 r1 ]
-[v _dataLength `i ~T0 @X0 1 r2 ]
-"29
+[; ;uart.c: 48: void UartSendByte(unsigned char data)
+[; ;uart.c: 49: {
+[e :U _UartSendByte ]
+"48
+[v _data `uc ~T0 @X0 1 r1 ]
+"49
 [f ]
-"30
-[v _i `i ~T0 @X0 1 a ]
-[; ;uart.c: 30: int i;
-[; ;uart.c: 31: for (i = 0; i < dataLength; i++)
-"31
-{
-[e = _i -> 0 `i ]
-[e $U 446  ]
-"32
-[e :U 443 ]
-[; ;uart.c: 32: {
-{
-[; ;uart.c: 33: while (!TXSTAbits.TRMT);
-"33
-[e $U 447  ]
-[e :U 448 ]
-[e :U 447 ]
-[e $ ! != -> . . _TXSTAbits 0 1 `i -> -> -> 0 `i `Vuc `i 448  ]
-[e :U 449 ]
-[; ;uart.c: 34: PORTDbits.RD4 = 1;
-"34
-[e = . . _PORTDbits 0 4 -> -> 1 `i `uc ]
-[; ;uart.c: 35: TXREG = data[i];
-"35
-[e = _TXREG *U + _data * -> _i `x -> -> # *U _data `i `x ]
-"36
-}
-"31
-[e ++ _i -> 1 `i ]
-[e :U 446 ]
-[e $ < _i _dataLength 443  ]
-[e :U 444 ]
-"36
-}
-[; ;uart.c: 36: }
-[; ;uart.c: 37: while (!TXSTAbits.TRMT);
-"37
+[; ;uart.c: 50: while (!TXSTAbits.TRMT);
+"50
 [e $U 450  ]
 [e :U 451 ]
 [e :U 450 ]
 [e $ ! != -> . . _TXSTAbits 0 1 `i -> -> -> 0 `i `Vuc `i 451  ]
 [e :U 452 ]
-[; ;uart.c: 38: PORTDbits.RD4 = 0;
-"38
+[; ;uart.c: 51: PORTDbits.RD4 = 1;
+"51
+[e = . . _PORTDbits 0 4 -> -> 1 `i `uc ]
+[; ;uart.c: 52: TXREG = data;
+"52
+[e = _TXREG _data ]
+[; ;uart.c: 53: while (!TXSTAbits.TRMT);
+"53
+[e $U 453  ]
+[e :U 454 ]
+[e :U 453 ]
+[e $ ! != -> . . _TXSTAbits 0 1 `i -> -> -> 0 `i `Vuc `i 454  ]
+[e :U 455 ]
+[; ;uart.c: 54: PORTDbits.RD4 = 0;
+"54
 [e = . . _PORTDbits 0 4 -> -> 0 `i `uc ]
-[; ;uart.c: 40: }
-"40
-[e :UE 442 ]
+[; ;uart.c: 55: }
+"55
+[e :UE 449 ]
+}
+"57
+[v _UARTSendBytes `(v ~T0 @X0 1 ef2`*uc`i ]
+"58
+{
+[; ;uart.c: 57: void UARTSendBytes(unsigned char *data, int dataLength)
+[; ;uart.c: 58: {
+[e :U _UARTSendBytes ]
+"57
+[v _data `*uc ~T0 @X0 1 r1 ]
+[v _dataLength `i ~T0 @X0 1 r2 ]
+"58
+[f ]
+"59
+[v _i `i ~T0 @X0 1 a ]
+[; ;uart.c: 59: int i;
+[; ;uart.c: 60: for (i = 0; i < dataLength; i++)
+"60
+{
+[e = _i -> 0 `i ]
+[e $U 460  ]
+"61
+[e :U 457 ]
+[; ;uart.c: 61: {
+{
+[; ;uart.c: 62: while (!TXSTAbits.TRMT);
+"62
+[e $U 461  ]
+[e :U 462 ]
+[e :U 461 ]
+[e $ ! != -> . . _TXSTAbits 0 1 `i -> -> -> 0 `i `Vuc `i 462  ]
+[e :U 463 ]
+[; ;uart.c: 63: PORTDbits.RD4 = 1;
+"63
+[e = . . _PORTDbits 0 4 -> -> 1 `i `uc ]
+[; ;uart.c: 64: TXREG = data[i];
+"64
+[e = _TXREG *U + _data * -> _i `x -> -> # *U _data `i `x ]
+"65
+}
+"60
+[e ++ _i -> 1 `i ]
+[e :U 460 ]
+[e $ < _i _dataLength 457  ]
+[e :U 458 ]
+"65
+}
+[; ;uart.c: 65: }
+[; ;uart.c: 66: while (!TXSTAbits.TRMT);
+"66
+[e $U 464  ]
+[e :U 465 ]
+[e :U 464 ]
+[e $ ! != -> . . _TXSTAbits 0 1 `i -> -> -> 0 `i `Vuc `i 465  ]
+[e :U 466 ]
+[; ;uart.c: 67: PORTDbits.RD4 = 0;
+"67
+[e = . . _PORTDbits 0 4 -> -> 0 `i `uc ]
+[; ;uart.c: 69: }
+"69
+[e :UE 456 ]
 }

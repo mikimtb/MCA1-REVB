@@ -5526,6 +5526,7 @@ extern __nonreentrant void _delay3(unsigned char);
 
 # 1 "uart.h"
 void UARTInit(unsigned long);
+void UartSendByte(unsigned char);
 void UARTSendBytes(unsigned char*, int);
 
 # 4 "uart.c"
@@ -5544,7 +5545,7 @@ TXSTA = 0b00100110;
 RCSTA = 0b10010000;
 
 BAUDCTLbits.BRG16 = 1;
-BAUDCTLbits.WUE = 1;
+BAUDCTLbits.WUE = 0;
 BAUDCONbits.ABDEN = 0;
 
 switch (baudrate)
@@ -5568,7 +5569,20 @@ break;
 
 SPBRG = divisor;
 SPBRGH = divisor >> 8;
+
+IPR1bits.RCIP = 0;
+PIE1bits.RCIE = 1;
 }
+
+void UartSendByte(unsigned char data)
+{
+while (!TXSTAbits.TRMT);
+PORTDbits.RD4 = 1;
+TXREG = data;
+while (!TXSTAbits.TRMT);
+PORTDbits.RD4 = 0;
+}
+
 void UARTSendBytes(unsigned char *data, int dataLength)
 {
 int i;

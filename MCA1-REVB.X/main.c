@@ -44,6 +44,20 @@
 
 #include "uart.h"
 
+void interrupt low_priority LowIsr(void)
+{
+    if (PIR1bits.RCIF && PIE1bits.RCIE)                                         // UART Receive interrupt
+    {
+        UartSendByte(RCREG);
+        //PIR1bits.RCIF = 0;                                                      // Clear interrupt flag
+    }
+}
+
+void interrupt HighIsr(void)
+{
+    
+}
+
 void delay_ms(int delay)
 {
     int i;
@@ -55,11 +69,16 @@ int main()
 {
     unsigned char array[] = {'A','B','C'};
     UARTInit(921600);
+    
+    RCONbits.IPEN = 1;                                                          // Interrupts priority enabled
+    INTCONbits.GIEH = 1;                                                        // Enable All High Priority Interrupts
+    INTCONbits.GIEL = 1;                                                        // Enable All Low Priority Interrupts
+    
     delay_ms(1);
     
     while (1)
     {
-        UARTSendBytes(array, 3);
+        //UARTSendBytes(array, 3);
         delay_ms(1000);
     }
     

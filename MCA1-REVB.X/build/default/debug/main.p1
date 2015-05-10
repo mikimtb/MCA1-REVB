@@ -1,13 +1,98 @@
 Version 3.2 HI-TECH Software Intermediate Code
+"3826 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f4431.h
+[s S181 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S181 . TMR1IF TMR2IF CCP1IF SSPIF TXIF RCIF ADIF ]
+"3835
+[s S182 :4 `uc 1 :1 `uc 1 ]
+[n S182 . . TBIF ]
+"3839
+[s S183 :5 `uc 1 :1 `uc 1 ]
+[n S183 . . RC1IF ]
+"3843
+[s S184 :4 `uc 1 :1 `uc 1 ]
+[n S184 . . TX1IF ]
+"3825
+[u S180 `S181 1 `S182 1 `S183 1 `S184 1 ]
+[n S180 . . . . . ]
+"3848
+[v _PIR1bits `VS180 ~T0 @X0 0 e@3998 ]
+"3744
+[s S176 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S176 . TMR1IE TMR2IE CCP1IE SSPIE TXIE RCIE ADIE ]
+"3753
+[s S177 :4 `uc 1 :1 `uc 1 ]
+[n S177 . . TBIE ]
+"3757
+[s S178 :5 `uc 1 :1 `uc 1 ]
+[n S178 . . RC1IE ]
+"3761
+[s S179 :4 `uc 1 :1 `uc 1 ]
+[n S179 . . TX1IE ]
+"3743
+[u S175 `S176 1 `S177 1 `S178 1 `S179 1 ]
+[n S175 . . . . . ]
+"3766
+[v _PIE1bits `VS175 ~T0 @X0 0 e@3997 ]
+"2 uart.h
+[v _UartSendByte `(v ~T0 @X0 0 ef1`uc ]
+"5110 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f4431.h
+[v _RCREG `Vuc ~T0 @X0 0 e@4014 ]
 [v F4451 `(v ~T0 @X0 1 tf1`ul ]
 "161 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18.h
 [v __delay `JF4451 ~T0 @X0 0 e ]
 [p i __delay ]
 [p mainexit ]
 "1 uart.h
-[v _UARTInit `(v ~T0 @X0 0 ef1`l ]
-"2
-[v _UARTSendBytes `(v ~T0 @X0 0 ef2`*uc`i ]
+[v _UARTInit `(v ~T0 @X0 0 ef1`ul ]
+"6738 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f4431.h
+[s S363 :1 `uc 1 ]
+[n S363 . NOT_BOR ]
+"6741
+[s S364 :1 `uc 1 :1 `uc 1 ]
+[n S364 . . NOT_POR ]
+"6745
+[s S365 :2 `uc 1 :1 `uc 1 ]
+[n S365 . . NOT_PD ]
+"6749
+[s S366 :3 `uc 1 :1 `uc 1 ]
+[n S366 . . NOT_TO ]
+"6753
+[s S367 :4 `uc 1 :1 `uc 1 ]
+[n S367 . . NOT_RI ]
+"6757
+[s S368 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S368 . nBOR nPOR nPD nTO nRI . IPEN ]
+"6766
+[s S369 :7 `uc 1 :1 `uc 1 ]
+[n S369 . . NOT_IPEN ]
+"6770
+[s S370 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S370 . BOR POR PD TO RI . nIPEN ]
+"6737
+[u S362 `S363 1 `S364 1 `S365 1 `S366 1 `S367 1 `S368 1 `S369 1 `S370 1 ]
+[n S362 . . . . . . . . . ]
+"6780
+[v _RCONbits `VS362 ~T0 @X0 0 e@4048 ]
+"7549
+[s S397 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S397 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
+"7559
+[s S398 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S398 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE GIE ]
+"7569
+[s S399 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S399 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE GIEL GIEH ]
+"7579
+[s S400 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S400 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
+"7589
+[s S401 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S401 . . GIEL GIEH ]
+"7548
+[u S396 `S397 1 `S398 1 `S399 1 `S400 1 `S401 1 ]
+[n S396 . . . . . . ]
+"7595
+[v _INTCONbits `VS396 ~T0 @X0 0 e@4082 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f4431.h: 49: extern volatile unsigned char DFLTCON @ 0xF60;
@@ -4213,92 +4298,141 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p x EBTR3=OFF ]
 "42
 [p x EBTRB=OFF ]
-[; ;uart.h: 1: void UARTInit(long);
-[; ;uart.h: 2: void UARTSendBytes(unsigned char*, int);
+[; ;uart.h: 1: void UARTInit(unsigned long);
+[; ;uart.h: 2: void UartSendByte(unsigned char);
+[; ;uart.h: 3: void UARTSendBytes(unsigned char*, int);
+[v F4467 `(v ~T0 @X0 1 tf ]
 "47
-[v _delay_ms `(v ~T0 @X0 1 ef1`i ]
+[v _LowIsr `ILF4467 ~T0 @X0 1 e ]
 "48
 {
-[; ;main.c: 47: void delay_ms(int delay)
+[; ;main.c: 47: void interrupt low_priority LowIsr(void)
 [; ;main.c: 48: {
-[e :U _delay_ms ]
-"47
-[v _delay `i ~T0 @X0 1 r1 ]
-"48
+[e :U _LowIsr ]
 [f ]
+[; ;main.c: 49: if (PIR1bits.RCIF && PIE1bits.RCIE)
 "49
-[v _i `i ~T0 @X0 1 a ]
-[; ;main.c: 49: int i;
-[; ;main.c: 50: for (i = 0; i < delay; i++)
+[e $ ! && != -> . . _PIR1bits 0 5 `i -> -> -> 0 `i `Vuc `i != -> . . _PIE1bits 0 5 `i -> -> -> 0 `i `Vuc `i 442  ]
+[; ;main.c: 50: {
 "50
 {
-[e = _i -> 0 `i ]
-[e $U 445  ]
+[; ;main.c: 51: UartSendByte(RCREG);
 "51
-[e :U 442 ]
-[; ;main.c: 51: _delay((unsigned long)((1)*(40000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 40000000 `l `d .4000.0 `ul ]
-"50
-[e ++ _i -> 1 `i ]
-[e :U 445 ]
-[e $ < _i _delay 442  ]
-[e :U 443 ]
-"51
-}
-[; ;main.c: 52: }
+[e ( _UartSendByte (1 _RCREG ]
+[; ;main.c: 52: PIR1bits.RCIF = 0;
 "52
+[e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
+"53
+}
+[e :U 442 ]
+[; ;main.c: 53: }
+[; ;main.c: 54: }
+"54
 [e :UE 441 ]
 }
-"54
-[v _main `(i ~T0 @X0 1 ef ]
-"55
+[v F4470 `(v ~T0 @X0 1 tf ]
+"56
+[v _HighIsr `IF4470 ~T0 @X0 1 e ]
+"57
 {
-[; ;main.c: 54: int main()
-[; ;main.c: 55: {
+[; ;main.c: 56: void interrupt HighIsr(void)
+[; ;main.c: 57: {
+[e :U _HighIsr ]
+[f ]
+[; ;main.c: 59: }
+"59
+[e :UE 443 ]
+}
+"61
+[v _delay_ms `(v ~T0 @X0 1 ef1`i ]
+"62
+{
+[; ;main.c: 61: void delay_ms(int delay)
+[; ;main.c: 62: {
+[e :U _delay_ms ]
+"61
+[v _delay `i ~T0 @X0 1 r1 ]
+"62
+[f ]
+"63
+[v _i `i ~T0 @X0 1 a ]
+[; ;main.c: 63: int i;
+[; ;main.c: 64: for (i = 0; i < delay; i++)
+"64
+{
+[e = _i -> 0 `i ]
+[e $U 448  ]
+"65
+[e :U 445 ]
+[; ;main.c: 65: _delay((unsigned long)((1)*(40000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 40000000 `l `d .4000.0 `ul ]
+"64
+[e ++ _i -> 1 `i ]
+[e :U 448 ]
+[e $ < _i _delay 445  ]
+[e :U 446 ]
+"65
+}
+[; ;main.c: 66: }
+"66
+[e :UE 444 ]
+}
+"68
+[v _main `(i ~T0 @X0 1 ef ]
+"69
+{
+[; ;main.c: 68: int main()
+[; ;main.c: 69: {
 [e :U _main ]
 [f ]
-[v F4469 `uc ~T0 @X0 -> 0 `x s ]
-[i F4469
+[v F4477 `uc ~T0 @X0 -> 0 `x s ]
+[i F4477
 :U ..
-"56
+"70
 -> -> 65 `ui `uc
 -> -> 66 `ui `uc
 -> -> 67 `ui `uc
 ..
 ]
 [v _array `uc ~T0 @X0 3  a ]
-[; ;main.c: 56: unsigned char array[] = {'A','B','C'};
-[e = _array F4469 ]
-[; ;main.c: 57: UARTInit(921600);
-"57
-[e ( _UARTInit (1 -> 921600 `l ]
-[; ;main.c: 58: delay_ms(1);
-"58
+[; ;main.c: 70: unsigned char array[] = {'A','B','C'};
+[e = _array F4477 ]
+[; ;main.c: 71: UARTInit(115200);
+"71
+[e ( _UARTInit (1 -> -> 115200 `l `ul ]
+[; ;main.c: 73: RCONbits.IPEN = 1;
+"73
+[e = . . _RCONbits 5 6 -> -> 1 `i `uc ]
+[; ;main.c: 74: INTCONbits.GIEH = 1;
+"74
+[e = . . _INTCONbits 2 7 -> -> 1 `i `uc ]
+[; ;main.c: 75: INTCONbits.GIEL = 1;
+"75
+[e = . . _INTCONbits 2 6 -> -> 1 `i `uc ]
+[; ;main.c: 77: delay_ms(1);
+"77
 [e ( _delay_ms (1 -> 1 `i ]
-[; ;main.c: 60: while (1)
-"60
-[e :U 448 ]
-[; ;main.c: 61: {
-"61
+[; ;main.c: 79: while (1)
+"79
+[e :U 451 ]
+[; ;main.c: 80: {
+"80
 {
-[; ;main.c: 62: UARTSendBytes(array, 3);
-"62
-[e ( _UARTSendBytes (2 , &U _array -> 3 `i ]
-[; ;main.c: 63: delay_ms(1000);
-"63
+[; ;main.c: 82: delay_ms(1000);
+"82
 [e ( _delay_ms (1 -> 1000 `i ]
-"64
+"83
 }
-[e :U 447 ]
-"60
-[e $U 448  ]
-[e :U 449 ]
-[; ;main.c: 64: }
-[; ;main.c: 66: return 0;
-"66
+[e :U 450 ]
+"79
+[e $U 451  ]
+[e :U 452 ]
+[; ;main.c: 83: }
+[; ;main.c: 85: return 0;
+"85
 [e ) -> 0 `i ]
-[e $UE 446  ]
-[; ;main.c: 67: }
-"67
-[e :UE 446 ]
+[e $UE 449  ]
+[; ;main.c: 86: }
+"86
+[e :UE 449 ]
 }

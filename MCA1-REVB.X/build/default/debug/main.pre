@@ -5565,10 +5565,25 @@ extern __nonreentrant void _delay3(unsigned char);
 #pragma config EBTRB = OFF
 
 # 1 "uart.h"
-void UARTInit(long);
+void UARTInit(unsigned long);
+void UartSendByte(unsigned char);
 void UARTSendBytes(unsigned char*, int);
 
 # 47 "main.c"
+void interrupt low_priority LowIsr(void)
+{
+if (PIR1bits.RCIF && PIE1bits.RCIE)
+{
+UartSendByte(RCREG);
+PIR1bits.RCIF = 0;
+}
+}
+
+void interrupt HighIsr(void)
+{
+
+}
+
 void delay_ms(int delay)
 {
 int i;
@@ -5579,12 +5594,17 @@ _delay((unsigned long)((1)*(40000000/4000.0)));
 int main()
 {
 unsigned char array[] = {'A','B','C'};
-UARTInit(921600);
+UARTInit(115200);
+
+RCONbits.IPEN = 1;
+INTCONbits.GIEH = 1;
+INTCONbits.GIEL = 1;
+
 delay_ms(1);
 
 while (1)
 {
-UARTSendBytes(array, 3);
+
 delay_ms(1000);
 }
 

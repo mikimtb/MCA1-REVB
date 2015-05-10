@@ -1,5 +1,5 @@
 
-# 1 "main.c"
+# 1 "interrupts.c"
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -5524,90 +5524,26 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
+# 1 "interrupts.h"
+volatile enum t_interruptsID { GIEH_b, GIEL_b, RCIE_b } intID;
+volatile enum t_InterruptsFlag { }
 
-# 6 "main.c"
-#pragma config OSC = HSPLL
-#pragma config FCMEN = ON
-#pragma config IESO = ON
-#pragma config PWRTEN = ON
-#pragma config BOREN = OFF
-#pragma config WDTEN = OFF
-#pragma config WDPS = 32768
-#pragma config WINEN = OFF
-#pragma config PWMPIN = OFF
-#pragma config LPOL = HIGH
-#pragma config HPOL = HIGH
-#pragma config T1OSCMX = ON
-#pragma config FLTAMX = RC1
-#pragma config SSPMX = RD1
-#pragma config PWM4MX = RB5
-#pragma config EXCLKMX = RC3
-#pragma config MCLRE = ON
-#pragma config STVREN = ON
-#pragma config LVP = OFF
-#pragma config CP0 = OFF
-#pragma config CP1 = OFF
-#pragma config CP2 = OFF
-#pragma config CP3 = OFF
-#pragma config CPB = OFF
-#pragma config CPD = OFF
-#pragma config WRT0 = OFF
-#pragma config WRT1 = OFF
-#pragma config WRT2 = OFF
-#pragma config WRT3 = OFF
-#pragma config WRTC = OFF
-#pragma config WRTB = OFF
-#pragma config WRTD = OFF
-#pragma config EBTR0 = OFF
-#pragma config EBTR1 = OFF
-#pragma config EBTR2 = OFF
-#pragma config EBTR3 = OFF
-#pragma config EBTRB = OFF
+void InterruptEnable(enum t_interruptsID);
 
-# 1 "uart.h"
-void UARTInit(unsigned long);
-void UartSendByte(unsigned char);
-void UARTSendBytes(unsigned char*, int);
-
-# 47 "main.c"
-void interrupt low_priority LowIsr(void)
-{
-if (PIR1bits.RCIF && PIE1bits.RCIE)
-{
-UartSendByte(RCREG);
-
-}
-}
-
-void interrupt HighIsr(void)
+# 7 "interrupts.c"
+void InterruptEnable(enum t_interruptsID intID)
 {
 
-}
-
-void delay_ms(int delay)
+switch (intID)
 {
-int i;
-for (i = 0; i < delay; i++)
-_delay((unsigned long)((1)*(40000000/4000.0)));
-}
-
-int main()
-{
-unsigned char array[] = {'A','B','C'};
-UARTInit(921600);
-
-RCONbits.IPEN = 1;
+case GIEH_b:
 INTCONbits.GIEH = 1;
+break;
+case GIEL_b:
 INTCONbits.GIEL = 1;
-
-delay_ms(1);
-
-while (1)
-{
-
-delay_ms(1000);
+break;
+case RCIE_b:
+PIE1bits.RCIE = 1;
+break;
 }
-
-return 0;
 }
-

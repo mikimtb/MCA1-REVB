@@ -5525,11 +5525,12 @@ extern __nonreentrant void _delaywdt(unsigned long);
 extern __nonreentrant void _delay3(unsigned char);
 
 # 1 "uart.h"
-void UARTInit(long);
+void UARTInit(unsigned long);
+void UartSendByte(unsigned char);
 void UARTSendBytes(unsigned char*, int);
 
 # 4 "uart.c"
-void UARTInit(long baudrate)
+void UARTInit(unsigned long baudrate)
 {
 unsigned int divisor;
 
@@ -5544,15 +5545,44 @@ TXSTA = 0b00100110;
 RCSTA = 0b10010000;
 
 BAUDCTLbits.BRG16 = 1;
-BAUDCTLbits.WUE = 1;
+BAUDCTLbits.WUE = 0;
 BAUDCONbits.ABDEN = 0;
 
-
-divisor = (long)(40000000L /(baudrate * 4))-1;
-SPBRG = divisor;
-
-SPBRGH = divisor >> 8;
+switch (baudrate)
+{
+case 9600:
+divisor = 1040;
+break;
+case 19200:
+divisor = 520;
+break;
+case 57600:
+divisor = 172;
+break;
+case 115200:
+divisor = 86;
+break;
+case 921600:
+divisor = 10;
+break;
 }
+
+SPBRG = divisor;
+SPBRGH = divisor >> 8;
+
+IPR1bits.RCIP = 0;
+PIE1bits.RCIE = 1;
+}
+
+void UartSendByte(unsigned char data)
+{
+while (!TXSTAbits.TRMT);
+PORTDbits.RD4 = 1;
+TXREG = data;
+while (!TXSTAbits.TRMT);
+PORTDbits.RD4 = 0;
+}
+
 void UARTSendBytes(unsigned char *data, int dataLength)
 {
 int i;
