@@ -2,6 +2,9 @@
 
 #include <xc.h>
 
+#define Y   89
+#define N   78
+
 // Project config for PIC18F4431
 #pragma config OSC = HSPLL      // Oscillator Selection bits (HS oscillator, PLL enabled (clock frequency = 4 x FOSC1))
 #pragma config FCMEN = ON       // Fail-Safe Clock Monitor Enable bit (Fail-Safe Clock Monitor enabled)
@@ -43,13 +46,23 @@
 // End of project config for PIC18F4431
 
 #include "uart.h"
+#include "input.h"
 
 void interrupt low_priority LowIsr(void)
 {
     if (PIR1bits.RCIF && PIE1bits.RCIE)                                         // UART Receive interrupt
     {
-        UartSendByte(RCREG);
-        //PIR1bits.RCIF = 0;                                                      // Clear interrupt flag
+        int a = RCREG;
+        
+        if (InputC1())
+            UartSendByte(Y);
+        else
+            UartSendByte(N);
+        
+        if (InputC2())
+            UartSendByte(Y);
+        else
+            UartSendByte(N);
     }
 }
 
@@ -58,7 +71,11 @@ void interrupt HighIsr(void)
     
 }
 
-void delay_ms(int delay)
+/**
+ * Delay in milliseconds
+ * @param delay - unsigned integer in range of 0 - 65535
+ */
+void delay_ms(unsigned int delay)
 {
     int i;
     for (i = 0; i < delay; i++)
@@ -69,11 +86,13 @@ int main()
 {
     unsigned char array[] = {'A','B','C'};
     UARTInit(921600);
+    UARTAddressDetection_OFF();
+    InputInit();
     
     RCONbits.IPEN = 1;                                                          // Interrupts priority enabled
     INTCONbits.GIEH = 1;                                                        // Enable All High Priority Interrupts
     INTCONbits.GIEL = 1;                                                        // Enable All Low Priority Interrupts
-    
+
     delay_ms(1);
     
     while (1)

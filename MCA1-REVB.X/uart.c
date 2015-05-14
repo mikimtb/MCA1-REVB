@@ -1,6 +1,10 @@
 #include <xc.h>
 #include "uart.h"
 
+/**
+ * UART Initialization
+ * @param baudrate - Supported speeds: 9600, 19200, 57600, 115200, 921600
+ */
 void UARTInit(unsigned long baudrate)
 {
     unsigned int divisor;
@@ -13,7 +17,7 @@ void UARTInit(unsigned long baudrate)
     PORTDbits.RD4 = 0;                                                          // Enable RS-485 receiver
     
     TXSTA = 0b00100110;
-    RCSTA = 0b10010000;
+    RCSTA = 0b11010000;                                                         
     
     BAUDCTLbits.BRG16 = 1;
     BAUDCTLbits.WUE = 0;
@@ -45,6 +49,10 @@ void UARTInit(unsigned long baudrate)
     PIE1bits.RCIE = 1;                                                          // Enable UART RX Interrupt
 }
 
+/**
+ * Send one byte over UART
+ * @param data - Byte value that have to be sent
+ */
 void UartSendByte(unsigned char data)
 {
     while (!TXSTAbits.TRMT);
@@ -54,6 +62,11 @@ void UartSendByte(unsigned char data)
     PORTDbits.RD4 = 0;
 }
 
+/**
+ * Send array of bytes over UART
+ * @param data - Pointer to array with data
+ * @param dataLength - Number of bytes that have been sent
+ */
 void UARTSendBytes(unsigned char *data, int dataLength)
 {
     int i;
@@ -66,4 +79,20 @@ void UARTSendBytes(unsigned char *data, int dataLength)
     while (!TXSTAbits.TRMT);
     PORTDbits.RD4 = 0;
 
+}
+
+/**
+ * Enable UART Address detection
+ */
+void UARTAddressDetection_ON()
+{
+    RCSTAbits.ADDEN = 1;
+}
+
+/**
+ * Disable UART address detection
+ */
+void UARTAddressDetection_OFF()
+{
+    RCSTAbits.ADDEN = 0;
 }
