@@ -47,6 +47,7 @@
 
 #include "uart.h"
 #include "input.h"
+#include "dc_brake.h"
 
 void interrupt low_priority LowIsr(void)
 {
@@ -87,7 +88,14 @@ int main()
     unsigned char array[] = {'A','B','C'};
     UARTInit(921600);
     UARTAddressDetection_OFF();
+    
+    // Initialize C1 and C2 inputs
     InputInit();
+    
+    //Initialize DC Brake PWM generator
+    CCP1PWMInit();
+    
+    SetDCBrakeNominalVoltage(24, 26);
     
     RCONbits.IPEN = 1;                                                          // Interrupts priority enabled
     INTCONbits.GIEH = 1;                                                        // Enable All High Priority Interrupts
@@ -97,8 +105,7 @@ int main()
     
     while (1)
     {
-        //UARTSendBytes(array, 3);
-        delay_ms(1000);
+        
     }
     
     return 0;

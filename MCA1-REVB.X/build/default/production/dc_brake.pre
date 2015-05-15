@@ -1,5 +1,5 @@
 
-# 1 "interrupts.c"
+# 1 "dc_brake.c"
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -5524,26 +5524,52 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 1 "interrupts.h"
-volatile enum t_interruptsID { GIEH_b, GIEL_b, RCIE_b } intID;
-volatile enum t_InterruptsFlag { }
+# 1 "dc_brake.h"
+void CCP1PWMInit(void);
+void SetCCP1PWMDuty(unsigned int);
+void DCBrake_Release(void);
+void DCBrake_Catch(void);
+int SetDCBrakeNominalVoltage(unsigned short, unsigned short);
 
-void InterruptEnable(enum t_interruptsID);
-
-# 7 "interrupts.c"
-void InterruptEnable(enum t_interruptsID intID)
+# 8 "dc_brake.c"
+void CCP1PWMInit()
 {
-
-switch (intID)
-{
-case GIEH_b:
-INTCONbits.GIEH = 1;
-break;
-case GIEL_b:
-INTCONbits.GIEL = 1;
-break;
-case RCIE_b:
-PIE1bits.RCIE = 1;
-break;
+TRISCbits.RC2 = 1;
+PR2 = 127;
+CCP1CON = 0b00001100;
+CCPR1L = 0x00;
+T2CON = 0b00000101;
+TRISCbits.RC2 = 0;
 }
+
+# 22
+void SetCCP1PWMDuty(unsigned int duty)
+{
+CCP1CONbits.DC1B0 = duty & 1;
+CCP1CONbits.DC1B1 = (duty >> 1) & 1;
+CCPR1L = (duty >> 2);
+}
+
+# 32
+void DCBrake_Release()
+{
+TRISCbits.RC2 = 0;
+}
+
+# 40
+void DCBrake_Catch()
+{
+TRISCbits.RC2 = 1;
+}
+
+# 51
+int SetDCBrakeNominalVoltage(unsigned short DCBrakeNominalVoltage, unsigned short HVSupplyVoltage)
+{
+if (DCBrakeNominalVoltage >= HVSupplyVoltage)
+return 1;
+
+float sPWMQuantum = HVSupplyVoltage / 512.0;
+SetCCP1PWMDuty(DCBrakeNominalVoltage / sPWMQuantum);
+
+return 0;
 }

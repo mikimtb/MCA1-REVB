@@ -5528,8 +5528,10 @@ extern __nonreentrant void _delay3(unsigned char);
 void UARTInit(unsigned long);
 void UartSendByte(unsigned char);
 void UARTSendBytes(unsigned char*, int);
+void UARTAddressDetection_ON(void);
+void UARTAddressDetection_OFF(void);
 
-# 4 "uart.c"
+# 8 "uart.c"
 void UARTInit(unsigned long baudrate)
 {
 unsigned int divisor;
@@ -5542,7 +5544,7 @@ TRISDbits.RD4 = 0;
 PORTDbits.RD4 = 0;
 
 TXSTA = 0b00100110;
-RCSTA = 0b10010000;
+RCSTA = 0b11010000;
 
 BAUDCTLbits.BRG16 = 1;
 BAUDCTLbits.WUE = 0;
@@ -5574,6 +5576,7 @@ IPR1bits.RCIP = 0;
 PIE1bits.RCIE = 1;
 }
 
+# 56
 void UartSendByte(unsigned char data)
 {
 while (!TXSTAbits.TRMT);
@@ -5583,6 +5586,7 @@ while (!TXSTAbits.TRMT);
 PORTDbits.RD4 = 0;
 }
 
+# 70
 void UARTSendBytes(unsigned char *data, int dataLength)
 {
 int i;
@@ -5595,4 +5599,16 @@ TXREG = data[i];
 while (!TXSTAbits.TRMT);
 PORTDbits.RD4 = 0;
 
+}
+
+# 87
+void UARTAddressDetection_ON()
+{
+RCSTAbits.ADDEN = 1;
+}
+
+# 95
+void UARTAddressDetection_OFF()
+{
+RCSTAbits.ADDEN = 0;
 }

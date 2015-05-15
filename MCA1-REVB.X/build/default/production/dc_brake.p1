@@ -10,167 +10,28 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S147 . . . ]
 "2962
 [v _TRISCbits `VS147 ~T0 @X0 0 e@3988 ]
-"3162
-[s S154 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S154 . TRISD0 TRISD1 TRISD2 TRISD3 TRISD4 TRISD5 TRISD6 TRISD7 ]
-"3172
-[s S155 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S155 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
-"3161
-[u S153 `S154 1 `S155 1 ]
-[n S153 . . . ]
-"3183
-[v _TRISDbits `VS153 ~T0 @X0 0 e@3989 ]
-"1507
-[s S57 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S57 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
-"1517
-[s S58 :7 `uc 1 :1 `uc 1 ]
-[n S58 . . SS2 ]
-"1506
-[u S56 `S57 1 `S58 1 ]
-[n S56 . . . ]
-"1522
-[v _PORTDbits `VS56 ~T0 @X0 0 e@3971 ]
-"4802
-[v _TXSTA `Vuc ~T0 @X0 0 e@4012 ]
-"4593
-[v _RCSTA `Vuc ~T0 @X0 0 e@4011 ]
-"4509
-[s S222 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S222 . ABDEN WUE . BRG16 TXCKP RXDTP RCIDL ABDOVF ]
-"4519
-[s S223 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S223 . . SCKP . RCMT ]
-"4525
-[s S224 :5 `uc 1 :1 `uc 1 ]
-[n S224 . . RXCKP ]
-"4529
-[s S225 :1 `uc 1 :1 `uc 1 ]
-[n S225 . . W4E ]
-"4508
-[u S221 `S222 1 `S223 1 `S224 1 `S225 1 ]
-[n S221 . . . . . ]
-"4534
-[v _BAUDCTLbits `VS221 ~T0 @X0 0 e@4010 ]
-"4425
-[s S217 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S217 . ABDEN WUE . BRG16 TXCKP RXDTP RCIDL ABDOVF ]
-"4435
-[s S218 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S218 . . SCKP . RCMT ]
-"4441
-[s S219 :5 `uc 1 :1 `uc 1 ]
-[n S219 . . RXCKP ]
-"4445
-[s S220 :1 `uc 1 :1 `uc 1 ]
-[n S220 . . W4E ]
-"4424
-[u S216 `S217 1 `S218 1 `S219 1 `S220 1 ]
-[n S216 . . . . . ]
-"4450
-[v _BAUDCONbits `VS216 ~T0 @X0 0 e@4010 ]
-"5121
-[v _SPBRG `Vuc ~T0 @X0 0 e@4015 ]
-"5132
-[v _SPBRGH `Vuc ~T0 @X0 0 e@4016 ]
-"3908
-[s S186 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S186 . TMR1IP TMR2IP CCP1IP SSPIP TXIP RCIP ADIP ]
-"3917
-[s S187 :4 `uc 1 :1 `uc 1 ]
-[n S187 . . TBIP ]
-"3921
-[s S188 :5 `uc 1 :1 `uc 1 ]
-[n S188 . . RC1IP ]
-"3925
-[s S189 :4 `uc 1 :1 `uc 1 ]
-[n S189 . . TX1IP ]
-"3907
-[u S185 `S186 1 `S187 1 `S188 1 `S189 1 ]
-[n S185 . . . . . ]
-"3930
-[v _IPR1bits `VS185 ~T0 @X0 0 e@3999 ]
-"3744
-[s S176 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S176 . TMR1IE TMR2IE CCP1IE SSPIE TXIE RCIE ADIE ]
-"3753
-[s S177 :4 `uc 1 :1 `uc 1 ]
-[n S177 . . TBIE ]
-"3757
-[s S178 :5 `uc 1 :1 `uc 1 ]
-[n S178 . . RC1IE ]
-"3761
-[s S179 :4 `uc 1 :1 `uc 1 ]
-[n S179 . . TX1IE ]
-"3743
-[u S175 `S176 1 `S177 1 `S178 1 `S179 1 ]
-[n S175 . . . . . ]
-"3766
-[v _PIE1bits `VS175 ~T0 @X0 0 e@3997 ]
-"4813
-[s S241 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S241 . TX9D TRMT BRGH SENDB SYNC TXEN TX9 CSRC ]
-"4823
-[s S242 :2 `uc 1 :1 `uc 1 ]
-[n S242 . . BRGH1 ]
-"4827
-[s S243 :7 `uc 1 :1 `uc 1 ]
-[n S243 . . CSRC1 ]
-"4831
-[s S244 :3 `uc 1 :1 `uc 1 ]
-[n S244 . . SENDB1 ]
-"4835
-[s S245 :4 `uc 1 :1 `uc 1 ]
-[n S245 . . SYNC1 ]
-"4839
-[s S246 :1 `uc 1 :1 `uc 1 ]
-[n S246 . . TRMT1 ]
-"4843
-[s S247 :6 `uc 1 :1 `uc 1 ]
-[n S247 . . TX91 ]
-"4847
-[s S248 :1 `uc 1 ]
-[n S248 . TX9D1 ]
-"4850
-[s S249 :5 `uc 1 :1 `uc 1 ]
-[n S249 . . TXEN1 ]
-"4854
-[s S250 :6 `uc 1 :1 `uc 1 ]
-[n S250 . . TX8_9 ]
-"4858
-[s S251 :1 `uc 1 ]
-[n S251 . TXD8 ]
-"4812
-[u S240 `S241 1 `S242 1 `S243 1 `S244 1 `S245 1 `S246 1 `S247 1 `S248 1 `S249 1 `S250 1 `S251 1 ]
-[n S240 . . . . . . . . . . . . ]
-"4862
-[v _TXSTAbits `VS240 ~T0 @X0 0 e@4012 ]
-"5099
-[v _TXREG `Vuc ~T0 @X0 0 e@4013 ]
-"4604
-[s S227 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S227 . RX9D OERR FERR ADDEN CREN SREN RX9 SPEN ]
-"4614
-[s S228 :3 `uc 1 :1 `uc 1 ]
-[n S228 . . ADEN ]
-"4618
-[s S229 :5 `uc 1 :1 `uc 1 ]
-[n S229 . . SRENA ]
-"4622
-[s S230 :6 `uc 1 :1 `uc 1 ]
-[n S230 . . RC8_9 ]
-"4626
-[s S231 :6 `uc 1 :1 `uc 1 ]
-[n S231 . . RC9 ]
-"4630
-[s S232 :1 `uc 1 ]
-[n S232 . RCD8 ]
-"4603
-[u S226 `S227 1 `S228 1 `S229 1 `S230 1 `S231 1 `S232 1 ]
-[n S226 . . . . . . . ]
-"4634
-[v _RCSTAbits `VS226 ~T0 @X0 0 e@4011 ]
+"6486
+[v _PR2 `Vuc ~T0 @X0 0 e@4043 ]
+"5592
+[v _CCP1CON `Vuc ~T0 @X0 0 e@4029 ]
+"5676
+[v _CCPR1L `Vuc ~T0 @X0 0 e@4030 ]
+"6389
+[v _T2CON `Vuc ~T0 @X0 0 e@4042 ]
+"5598
+[s S292 :4 `uc 1 :2 `uc 1 ]
+[n S292 . CCP1M DC1B ]
+"5602
+[s S293 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S293 . CCP1M0 CCP1M1 CCP1M2 CCP1M3 CCP1Y CCP1X ]
+"5610
+[s S294 :4 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S294 . . DC1B0 DC1B1 ]
+"5597
+[u S291 `S292 1 `S293 1 `S294 1 ]
+[n S291 . . . . ]
+"5616
+[v _CCP1CONbits `VS291 ~T0 @X0 0 e@4029 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f4431.h: 49: extern volatile unsigned char DFLTCON @ 0xF60;
@@ -4302,259 +4163,127 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 161: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 163: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 165: extern __nonreentrant void _delay3(unsigned char);
-[; ;uart.h: 1: void UARTInit(unsigned long);
-[; ;uart.h: 2: void UartSendByte(unsigned char);
-[; ;uart.h: 3: void UARTSendBytes(unsigned char*, int);
-[; ;uart.h: 4: void UARTAddressDetection_ON(void);
-[; ;uart.h: 5: void UARTAddressDetection_OFF(void);
-"8 uart.c
-[v _UARTInit `(v ~T0 @X0 1 ef1`ul ]
+[; ;dc_brake.h: 1: void CCP1PWMInit(void);
+[; ;dc_brake.h: 2: void SetCCP1PWMDuty(unsigned int);
+[; ;dc_brake.h: 3: void DCBrake_Release(void);
+[; ;dc_brake.h: 4: void DCBrake_Catch(void);
+[; ;dc_brake.h: 5: int SetDCBrakeNominalVoltage(unsigned short, unsigned short);
+"8 dc_brake.c
+[v _CCP1PWMInit `(v ~T0 @X0 1 ef ]
 "9
 {
-[; ;uart.c: 8: void UARTInit(unsigned long baudrate)
-[; ;uart.c: 9: {
-[e :U _UARTInit ]
-"8
-[v _baudrate `ul ~T0 @X0 1 r1 ]
-"9
+[; ;dc_brake.c: 8: void CCP1PWMInit()
+[; ;dc_brake.c: 9: {
+[e :U _CCP1PWMInit ]
 [f ]
+[; ;dc_brake.c: 10: TRISCbits.RC2 = 1;
 "10
-[v _divisor `ui ~T0 @X0 1 a ]
-[; ;uart.c: 10: unsigned int divisor;
-[; ;uart.c: 12: TRISCbits.RC6 = 1;
+[e = . . _TRISCbits 1 2 -> -> 1 `i `uc ]
+[; ;dc_brake.c: 11: PR2 = 127;
+"11
+[e = _PR2 -> -> 127 `i `uc ]
+[; ;dc_brake.c: 12: CCP1CON = 0b00001100;
 "12
-[e = . . _TRISCbits 1 6 -> -> 1 `i `uc ]
-[; ;uart.c: 13: TRISCbits.RC7 = 1;
+[e = _CCP1CON -> -> 12 `i `uc ]
+[; ;dc_brake.c: 13: CCPR1L = 0x00;
 "13
-[e = . . _TRISCbits 1 7 -> -> 1 `i `uc ]
-[; ;uart.c: 16: TRISDbits.RD4 = 0;
+[e = _CCPR1L -> -> 0 `i `uc ]
+[; ;dc_brake.c: 14: T2CON = 0b00000101;
+"14
+[e = _T2CON -> -> 5 `i `uc ]
+[; ;dc_brake.c: 15: TRISCbits.RC2 = 0;
+"15
+[e = . . _TRISCbits 1 2 -> -> 0 `i `uc ]
+[; ;dc_brake.c: 16: }
 "16
-[e = . . _TRISDbits 1 4 -> -> 0 `i `uc ]
-[; ;uart.c: 17: PORTDbits.RD4 = 0;
-"17
-[e = . . _PORTDbits 0 4 -> -> 0 `i `uc ]
-[; ;uart.c: 19: TXSTA = 0b00100110;
-"19
-[e = _TXSTA -> -> 38 `i `uc ]
-[; ;uart.c: 20: RCSTA = 0b11010000;
-"20
-[e = _RCSTA -> -> 208 `i `uc ]
-[; ;uart.c: 22: BAUDCTLbits.BRG16 = 1;
-"22
-[e = . . _BAUDCTLbits 0 3 -> -> 1 `i `uc ]
-[; ;uart.c: 23: BAUDCTLbits.WUE = 0;
-"23
-[e = . . _BAUDCTLbits 0 1 -> -> 0 `i `uc ]
-[; ;uart.c: 24: BAUDCONbits.ABDEN = 0;
-"24
-[e = . . _BAUDCONbits 0 0 -> -> 0 `i `uc ]
-[; ;uart.c: 26: switch (baudrate)
-"26
-[e $U 443  ]
-[; ;uart.c: 27: {
-"27
-{
-[; ;uart.c: 28: case 9600:
-"28
-[e :U 444 ]
-[; ;uart.c: 29: divisor = 1040;
-"29
-[e = _divisor -> -> 1040 `i `ui ]
-[; ;uart.c: 30: break;
-"30
-[e $U 442  ]
-[; ;uart.c: 31: case 19200:
-"31
-[e :U 445 ]
-[; ;uart.c: 32: divisor = 520;
-"32
-[e = _divisor -> -> 520 `i `ui ]
-[; ;uart.c: 33: break;
-"33
-[e $U 442  ]
-[; ;uart.c: 34: case 57600:
-"34
-[e :U 446 ]
-[; ;uart.c: 35: divisor = 172;
-"35
-[e = _divisor -> -> 172 `i `ui ]
-[; ;uart.c: 36: break;
-"36
-[e $U 442  ]
-[; ;uart.c: 37: case 115200:
-"37
-[e :U 447 ]
-[; ;uart.c: 38: divisor = 86;
-"38
-[e = _divisor -> -> 86 `i `ui ]
-[; ;uart.c: 39: break;
-"39
-[e $U 442  ]
-[; ;uart.c: 40: case 921600:
-"40
-[e :U 448 ]
-[; ;uart.c: 41: divisor = 10;
-"41
-[e = _divisor -> -> 10 `i `ui ]
-[; ;uart.c: 42: break;
-"42
-[e $U 442  ]
-"43
-}
-[; ;uart.c: 43: }
-[e $U 442  ]
-"26
-[e :U 443 ]
-[e [\ _baudrate , $ -> -> -> 9600 `i `l `ul 444
- , $ -> -> -> 19200 `i `l `ul 445
- , $ -> -> 57600 `l `ul 446
- , $ -> -> 115200 `l `ul 447
- , $ -> -> 921600 `l `ul 448
- 442 ]
-"43
-[e :U 442 ]
-[; ;uart.c: 45: SPBRG = divisor;
-"45
-[e = _SPBRG -> _divisor `uc ]
-[; ;uart.c: 46: SPBRGH = divisor >> 8;
-"46
-[e = _SPBRGH -> >> _divisor -> 8 `i `uc ]
-[; ;uart.c: 48: IPR1bits.RCIP = 0;
-"48
-[e = . . _IPR1bits 0 5 -> -> 0 `i `uc ]
-[; ;uart.c: 49: PIE1bits.RCIE = 1;
-"49
-[e = . . _PIE1bits 0 5 -> -> 1 `i `uc ]
-[; ;uart.c: 50: }
-"50
 [e :UE 441 ]
 }
-"56
-[v _UartSendByte `(v ~T0 @X0 1 ef1`uc ]
-"57
+"22
+[v _SetCCP1PWMDuty `(v ~T0 @X0 1 ef1`ui ]
+"23
 {
-[; ;uart.c: 56: void UartSendByte(unsigned char data)
-[; ;uart.c: 57: {
-[e :U _UartSendByte ]
-"56
-[v _data `uc ~T0 @X0 1 r1 ]
-"57
+[; ;dc_brake.c: 22: void SetCCP1PWMDuty(unsigned int duty)
+[; ;dc_brake.c: 23: {
+[e :U _SetCCP1PWMDuty ]
+"22
+[v _duty `ui ~T0 @X0 1 r1 ]
+"23
 [f ]
-[; ;uart.c: 58: while (!TXSTAbits.TRMT);
-"58
-[e $U 450  ]
-[e :U 451 ]
-[e :U 450 ]
-[e $ ! != -> . . _TXSTAbits 0 1 `i -> -> -> 0 `i `Vuc `i 451  ]
-[e :U 452 ]
-[; ;uart.c: 59: PORTDbits.RD4 = 1;
+[; ;dc_brake.c: 24: CCP1CONbits.DC1B0 = duty & 1;
+"24
+[e = . . _CCP1CONbits 2 1 -> & _duty -> -> 1 `i `ui `uc ]
+[; ;dc_brake.c: 25: CCP1CONbits.DC1B1 = (duty >> 1) & 1;
+"25
+[e = . . _CCP1CONbits 2 2 -> & >> _duty -> 1 `i -> -> 1 `i `ui `uc ]
+[; ;dc_brake.c: 26: CCPR1L = (duty >> 2);
+"26
+[e = _CCPR1L -> >> _duty -> 2 `i `uc ]
+[; ;dc_brake.c: 27: }
+"27
+[e :UE 442 ]
+}
+"32
+[v _DCBrake_Release `(v ~T0 @X0 1 ef ]
+"33
+{
+[; ;dc_brake.c: 32: void DCBrake_Release()
+[; ;dc_brake.c: 33: {
+[e :U _DCBrake_Release ]
+[f ]
+[; ;dc_brake.c: 34: TRISCbits.RC2 = 0;
+"34
+[e = . . _TRISCbits 1 2 -> -> 0 `i `uc ]
+[; ;dc_brake.c: 35: }
+"35
+[e :UE 443 ]
+}
+"40
+[v _DCBrake_Catch `(v ~T0 @X0 1 ef ]
+"41
+{
+[; ;dc_brake.c: 40: void DCBrake_Catch()
+[; ;dc_brake.c: 41: {
+[e :U _DCBrake_Catch ]
+[f ]
+[; ;dc_brake.c: 42: TRISCbits.RC2 = 1;
+"42
+[e = . . _TRISCbits 1 2 -> -> 1 `i `uc ]
+[; ;dc_brake.c: 43: }
+"43
+[e :UE 444 ]
+}
+"51
+[v _SetDCBrakeNominalVoltage `(i ~T0 @X0 1 ef2`us`us ]
+"52
+{
+[; ;dc_brake.c: 51: int SetDCBrakeNominalVoltage(unsigned short DCBrakeNominalVoltage, unsigned short HVSupplyVoltage)
+[; ;dc_brake.c: 52: {
+[e :U _SetDCBrakeNominalVoltage ]
+"51
+[v _DCBrakeNominalVoltage `us ~T0 @X0 1 r1 ]
+[v _HVSupplyVoltage `us ~T0 @X0 1 r2 ]
+"52
+[f ]
+[; ;dc_brake.c: 53: if (DCBrakeNominalVoltage >= HVSupplyVoltage)
+"53
+[e $ ! >= -> _DCBrakeNominalVoltage `ui -> _HVSupplyVoltage `ui 446  ]
+[; ;dc_brake.c: 54: return 1;
+"54
+[e ) -> 1 `i ]
+[e $UE 445  ]
+[e :U 446 ]
+"56
+[v _sPWMQuantum `f ~T0 @X0 1 a ]
+[; ;dc_brake.c: 56: float sPWMQuantum = HVSupplyVoltage / 512.0;
+[e = _sPWMQuantum -> / -> _HVSupplyVoltage `d .512.0 `f ]
+[; ;dc_brake.c: 57: SetCCP1PWMDuty(DCBrakeNominalVoltage / sPWMQuantum);
+"57
+[e ( _SetCCP1PWMDuty (1 -> / -> _DCBrakeNominalVoltage `f _sPWMQuantum `ui ]
+[; ;dc_brake.c: 59: return 0;
 "59
-[e = . . _PORTDbits 0 4 -> -> 1 `i `uc ]
-[; ;uart.c: 60: TXREG = data;
+[e ) -> 0 `i ]
+[e $UE 445  ]
+[; ;dc_brake.c: 60: }
 "60
-[e = _TXREG _data ]
-[; ;uart.c: 61: while (!TXSTAbits.TRMT);
-"61
-[e $U 453  ]
-[e :U 454 ]
-[e :U 453 ]
-[e $ ! != -> . . _TXSTAbits 0 1 `i -> -> -> 0 `i `Vuc `i 454  ]
-[e :U 455 ]
-[; ;uart.c: 62: PORTDbits.RD4 = 0;
-"62
-[e = . . _PORTDbits 0 4 -> -> 0 `i `uc ]
-[; ;uart.c: 63: }
-"63
-[e :UE 449 ]
-}
-"70
-[v _UARTSendBytes `(v ~T0 @X0 1 ef2`*uc`i ]
-"71
-{
-[; ;uart.c: 70: void UARTSendBytes(unsigned char *data, int dataLength)
-[; ;uart.c: 71: {
-[e :U _UARTSendBytes ]
-"70
-[v _data `*uc ~T0 @X0 1 r1 ]
-[v _dataLength `i ~T0 @X0 1 r2 ]
-"71
-[f ]
-"72
-[v _i `i ~T0 @X0 1 a ]
-[; ;uart.c: 72: int i;
-[; ;uart.c: 73: for (i = 0; i < dataLength; i++)
-"73
-{
-[e = _i -> 0 `i ]
-[e $U 460  ]
-"74
-[e :U 457 ]
-[; ;uart.c: 74: {
-{
-[; ;uart.c: 75: while (!TXSTAbits.TRMT);
-"75
-[e $U 461  ]
-[e :U 462 ]
-[e :U 461 ]
-[e $ ! != -> . . _TXSTAbits 0 1 `i -> -> -> 0 `i `Vuc `i 462  ]
-[e :U 463 ]
-[; ;uart.c: 76: PORTDbits.RD4 = 1;
-"76
-[e = . . _PORTDbits 0 4 -> -> 1 `i `uc ]
-[; ;uart.c: 77: TXREG = data[i];
-"77
-[e = _TXREG *U + _data * -> _i `x -> -> # *U _data `i `x ]
-"78
-}
-"73
-[e ++ _i -> 1 `i ]
-[e :U 460 ]
-[e $ < _i _dataLength 457  ]
-[e :U 458 ]
-"78
-}
-[; ;uart.c: 78: }
-[; ;uart.c: 79: while (!TXSTAbits.TRMT);
-"79
-[e $U 464  ]
-[e :U 465 ]
-[e :U 464 ]
-[e $ ! != -> . . _TXSTAbits 0 1 `i -> -> -> 0 `i `Vuc `i 465  ]
-[e :U 466 ]
-[; ;uart.c: 80: PORTDbits.RD4 = 0;
-"80
-[e = . . _PORTDbits 0 4 -> -> 0 `i `uc ]
-[; ;uart.c: 82: }
-"82
-[e :UE 456 ]
-}
-"87
-[v _UARTAddressDetection_ON `(v ~T0 @X0 1 ef ]
-"88
-{
-[; ;uart.c: 87: void UARTAddressDetection_ON()
-[; ;uart.c: 88: {
-[e :U _UARTAddressDetection_ON ]
-[f ]
-[; ;uart.c: 89: RCSTAbits.ADDEN = 1;
-"89
-[e = . . _RCSTAbits 0 3 -> -> 1 `i `uc ]
-[; ;uart.c: 90: }
-"90
-[e :UE 467 ]
-}
-"95
-[v _UARTAddressDetection_OFF `(v ~T0 @X0 1 ef ]
-"96
-{
-[; ;uart.c: 95: void UARTAddressDetection_OFF()
-[; ;uart.c: 96: {
-[e :U _UARTAddressDetection_OFF ]
-[f ]
-[; ;uart.c: 97: RCSTAbits.ADDEN = 0;
-"97
-[e = . . _RCSTAbits 0 3 -> -> 0 `i `uc ]
-[; ;uart.c: 98: }
-"98
-[e :UE 468 ]
+[e :UE 445 ]
 }
