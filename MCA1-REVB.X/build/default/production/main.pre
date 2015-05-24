@@ -5583,7 +5583,12 @@ void DCBrake_Release(void);
 void DCBrake_Catch(void);
 int SetDCBrakeNominalVoltage(unsigned short, unsigned short);
 
-# 52 "main.c"
+# 1 "pcpwm.h"
+void InitPCPWM(void);
+void SetPWM1Duty(unsigned int);
+void SetPWM2Duty(unsigned int);
+
+# 53 "main.c"
 void interrupt low_priority LowIsr(void)
 {
 if (PIR1bits.RCIF && PIE1bits.RCIE)
@@ -5607,7 +5612,7 @@ void interrupt HighIsr(void)
 
 }
 
-# 79
+# 80
 void delay_ms(unsigned int delay)
 {
 int i;
@@ -5628,6 +5633,11 @@ InputInit();
 CCP1PWMInit();
 
 SetDCBrakeNominalVoltage(24, 26);
+
+InitPCPWM();
+SetPWM1Duty(512);
+SetPWM2Duty(1536);
+
 
 RCONbits.IPEN = 1;
 INTCONbits.GIEH = 1;

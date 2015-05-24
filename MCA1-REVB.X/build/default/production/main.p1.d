@@ -3,4 +3,5 @@
  main.c  \
 input.h  \
 uart.h  \
+pcpwm.h  \
 dc_brake.h 

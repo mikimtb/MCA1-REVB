@@ -48,6 +48,7 @@
 #include "uart.h"
 #include "input.h"
 #include "dc_brake.h"
+#include "pcpwm.h"
 
 void interrupt low_priority LowIsr(void)
 {
@@ -96,6 +97,11 @@ int main()
     CCP1PWMInit();
     
     SetDCBrakeNominalVoltage(24, 26);
+    
+    InitPCPWM();
+    SetPWM1Duty(512);
+    SetPWM2Duty(1536);
+    
     
     RCONbits.IPEN = 1;                                                          // Interrupts priority enabled
     INTCONbits.GIEH = 1;                                                        // Enable All High Priority Interrupts

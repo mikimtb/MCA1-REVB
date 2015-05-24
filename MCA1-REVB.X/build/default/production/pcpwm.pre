@@ -5524,8 +5524,65 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 4 "pcpwm.c"
+# 1 "pcpwm.h"
+void InitPCPWM(void);
+void SetPWM1Duty(unsigned int);
+void SetPWM2Duty(unsigned int);
+
+# 6 "pcpwm.c"
 void InitPCPWM()
 {
 
+TRISB = 0x00;
+
+# 14
+PTCON0 = 0b00000010;
+
+# 18
+PWMCON0 = 0b00110000;
+
+# 25
+PWMCON1 = 0b00000000;
+
+# 29
+OVDCOND = 0b11111111;
+
+# 33
+OVDCONS = 0b00000000;
+
+# 38
+FLTCONFIG = 0b00000000;
+
+# 42
+PTPERL = 0x00;
+PTPERH = 0x02;
+
+# 47
+DTCON = 0b00101000;
+
+# 51
+PDC0H = 0x03;
+PDC0L = 0xff;
+
+# 56
+PDC1H = 0x03;
+PDC1L = 0xff;
+
+# 61
+PTCON1bits.PTEN = 1;
+}
+
+# 68
+void SetPWM1Duty(unsigned int _PDC0)
+{
+PDC0L = _PDC0 & 0x00ff;
+PDC0H = _PDC0 >> 8;
+
+}
+
+# 78
+void SetPWM2Duty(unsigned int _PDC1)
+{
+PDC0L = _PDC1 & 0x00ff;
+PDC0H = _PDC1 >> 8;
 }

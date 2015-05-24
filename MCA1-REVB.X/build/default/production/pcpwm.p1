@@ -1,4 +1,40 @@
 Version 3.2 HI-TECH Software Intermediate Code
+"2709 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f4431.h
+[v _TRISB `Vuc ~T0 @X0 0 e@3987 ]
+"920
+[v _PTCON0 `Vuc ~T0 @X0 0 e@3967 ]
+"741
+[v _PWMCON0 `Vuc ~T0 @X0 0 e@3951 ]
+"676
+[v _PWMCON1 `Vuc ~T0 @X0 0 e@3950 ]
+"421
+[v _OVDCOND `Vuc ~T0 @X0 0 e@3947 ]
+"352
+[v _OVDCONS `Vuc ~T0 @X0 0 e@3946 ]
+"490
+[v _FLTCONFIG `Vuc ~T0 @X0 0 e@3948 ]
+"876
+[v _PTPERL `Vuc ~T0 @X0 0 e@3963 ]
+"870
+[v _PTPERH `Vuc ~T0 @X0 0 e@3962 ]
+"551
+[v _DTCON `Vuc ~T0 @X0 0 e@3949 ]
+"858
+[v _PDC0H `Vuc ~T0 @X0 0 e@3960 ]
+"864
+[v _PDC0L `Vuc ~T0 @X0 0 e@3961 ]
+"846
+[v _PDC1H `Vuc ~T0 @X0 0 e@3958 ]
+"852
+[v _PDC1L `Vuc ~T0 @X0 0 e@3959 ]
+"900
+[s S32 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S32 . . PTDIR PTEN ]
+"899
+[u S31 `S32 1 ]
+[n S31 . . ]
+"906
+[v _PTCON1bits `VS31 ~T0 @X0 0 e@3966 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f4431.h: 49: extern volatile unsigned char DFLTCON @ 0xF60;
@@ -4130,15 +4166,105 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 161: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 163: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 165: extern __nonreentrant void _delay3(unsigned char);
-"4 pcpwm.c
+[; ;pcpwm.h: 1: void InitPCPWM(void);
+[; ;pcpwm.h: 2: void SetPWM1Duty(unsigned int);
+[; ;pcpwm.h: 3: void SetPWM2Duty(unsigned int);
+"6 pcpwm.c
 [v _InitPCPWM `(v ~T0 @X0 1 ef ]
-"5
+"7
 {
-[; ;pcpwm.c: 4: void InitPCPWM()
-[; ;pcpwm.c: 5: {
+[; ;pcpwm.c: 6: void InitPCPWM()
+[; ;pcpwm.c: 7: {
 [e :U _InitPCPWM ]
 [f ]
-[; ;pcpwm.c: 7: }
-"7
+[; ;pcpwm.c: 9: TRISB = 0x00;
+"9
+[e = _TRISB -> -> 0 `i `uc ]
+[; ;pcpwm.c: 14: PTCON0 = 0b00000010;
+"14
+[e = _PTCON0 -> -> 2 `i `uc ]
+[; ;pcpwm.c: 18: PWMCON0 = 0b00110000;
+"18
+[e = _PWMCON0 -> -> 48 `i `uc ]
+[; ;pcpwm.c: 25: PWMCON1 = 0b00000000;
+"25
+[e = _PWMCON1 -> -> 0 `i `uc ]
+[; ;pcpwm.c: 29: OVDCOND = 0b11111111;
+"29
+[e = _OVDCOND -> -> 255 `i `uc ]
+[; ;pcpwm.c: 33: OVDCONS = 0b00000000;
+"33
+[e = _OVDCONS -> -> 0 `i `uc ]
+[; ;pcpwm.c: 38: FLTCONFIG = 0b00000000;
+"38
+[e = _FLTCONFIG -> -> 0 `i `uc ]
+[; ;pcpwm.c: 42: PTPERL = 0x00;
+"42
+[e = _PTPERL -> -> 0 `i `uc ]
+[; ;pcpwm.c: 43: PTPERH = 0x02;
+"43
+[e = _PTPERH -> -> 2 `i `uc ]
+[; ;pcpwm.c: 47: DTCON = 0b00101000;
+"47
+[e = _DTCON -> -> 40 `i `uc ]
+[; ;pcpwm.c: 51: PDC0H = 0x03;
+"51
+[e = _PDC0H -> -> 3 `i `uc ]
+[; ;pcpwm.c: 52: PDC0L = 0xff;
+"52
+[e = _PDC0L -> -> 255 `i `uc ]
+[; ;pcpwm.c: 56: PDC1H = 0x03;
+"56
+[e = _PDC1H -> -> 3 `i `uc ]
+[; ;pcpwm.c: 57: PDC1L = 0xff;
+"57
+[e = _PDC1L -> -> 255 `i `uc ]
+[; ;pcpwm.c: 61: PTCON1bits.PTEN = 1;
+"61
+[e = . . _PTCON1bits 0 2 -> -> 1 `i `uc ]
+[; ;pcpwm.c: 62: }
+"62
 [e :UE 441 ]
+}
+"68
+[v _SetPWM1Duty `(v ~T0 @X0 1 ef1`ui ]
+"69
+{
+[; ;pcpwm.c: 68: void SetPWM1Duty(unsigned int _PDC0)
+[; ;pcpwm.c: 69: {
+[e :U _SetPWM1Duty ]
+"68
+[v __PDC0 `ui ~T0 @X0 1 r1 ]
+"69
+[f ]
+[; ;pcpwm.c: 70: PDC0L = _PDC0 & 0x00ff;
+"70
+[e = _PDC0L -> & __PDC0 -> -> 255 `i `ui `uc ]
+[; ;pcpwm.c: 71: PDC0H = _PDC0 >> 8;
+"71
+[e = _PDC0H -> >> __PDC0 -> 8 `i `uc ]
+[; ;pcpwm.c: 73: }
+"73
+[e :UE 442 ]
+}
+"78
+[v _SetPWM2Duty `(v ~T0 @X0 1 ef1`ui ]
+"79
+{
+[; ;pcpwm.c: 78: void SetPWM2Duty(unsigned int _PDC1)
+[; ;pcpwm.c: 79: {
+[e :U _SetPWM2Duty ]
+"78
+[v __PDC1 `ui ~T0 @X0 1 r1 ]
+"79
+[f ]
+[; ;pcpwm.c: 80: PDC0L = _PDC1 & 0x00ff;
+"80
+[e = _PDC0L -> & __PDC1 -> -> 255 `i `ui `uc ]
+[; ;pcpwm.c: 81: PDC0H = _PDC1 >> 8;
+"81
+[e = _PDC0H -> >> __PDC1 -> 8 `i `uc ]
+[; ;pcpwm.c: 82: }
+"82
+[e :UE 443 ]
 }
