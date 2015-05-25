@@ -4,4 +4,5 @@
 input.h  \
 uart.h  \
 pcpwm.h  \
+qei.h  \
 dc_brake.h 

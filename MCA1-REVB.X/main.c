@@ -49,6 +49,7 @@
 #include "input.h"
 #include "dc_brake.h"
 #include "pcpwm.h"
+#include "qei.h"
 
 void interrupt low_priority LowIsr(void)
 {
@@ -57,14 +58,14 @@ void interrupt low_priority LowIsr(void)
         int a = RCREG;
         
         if (InputC1())
-            UartSendByte(Y);
+            UARTSendByte(Y);
         else
-            UartSendByte(N);
+            UARTSendByte(N);
         
         if (InputC2())
-            UartSendByte(Y);
+            UARTSendByte(Y);
         else
-            UartSendByte(N);
+            UARTSendByte(N);
     }
 }
 
@@ -86,7 +87,7 @@ void delay_ms(unsigned int delay)
 
 int main() 
 {
-    unsigned char array[] = {'A','B','C'};
+    unsigned char array[2];
     UARTInit(921600);
     UARTAddressDetection_OFF();
     
@@ -97,11 +98,16 @@ int main()
     CCP1PWMInit();
     
     SetDCBrakeNominalVoltage(24, 26);
+    DCBrake_Release();
     
     InitPCPWM();
-    SetPWM1Duty(512);
-    SetPWM2Duty(1536);
+    SetPWM1Duty(1023);
+    SetPWM2Duty(1023);
+    IR2110Disable();
     
+    InitQEI(VELOCITY_MODE_DISABLE | QEI_4X_RESET_ON_MAXCNT | VELOCITY_POSTCALER_1, T5CKI_FILTER_DISABLE, 255);
+    
+    DCBrake_Release();
     
     RCONbits.IPEN = 1;                                                          // Interrupts priority enabled
     INTCONbits.GIEH = 1;                                                        // Enable All High Priority Interrupts
@@ -112,6 +118,7 @@ int main()
     while (1)
     {
         
+
     }
     
     return 0;

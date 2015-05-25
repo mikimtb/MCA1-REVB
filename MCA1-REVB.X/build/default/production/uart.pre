@@ -5526,7 +5526,7 @@ extern __nonreentrant void _delay3(unsigned char);
 
 # 1 "uart.h"
 void UARTInit(unsigned long);
-void UartSendByte(unsigned char);
+void UARTSendByte(unsigned char);
 void UARTSendBytes(unsigned char*, int);
 void UARTAddressDetection_ON(void);
 void UARTAddressDetection_OFF(void);
@@ -5577,7 +5577,7 @@ PIE1bits.RCIE = 1;
 }
 
 # 56
-void UartSendByte(unsigned char data)
+void UARTSendByte(unsigned char data)
 {
 while (!TXSTAbits.TRMT);
 PORTDbits.RD4 = 1;

@@ -12,7 +12,7 @@ void CCP1PWMInit()
     CCP1CON = 0b00001100;                                                       // Setup for PWM mode 5:4 are PWM Duty Cycle LSB 
     CCPR1L = 0x00;                                                              // Eight high bits of duty cycle 
     T2CON = 0b00000101;                                                         // Timer2 On, 1:1 Post, 4x prescale
-    TRISCbits.RC2 = 0;                                                          // Turn ON PWM by making RC2 as output pin 
+    //TRISCbits.RC2 = 0;                                                          // Turn ON PWM by making RC2 as output pin 
 }
 
 /**

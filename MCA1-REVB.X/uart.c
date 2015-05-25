@@ -53,7 +53,7 @@ void UARTInit(unsigned long baudrate)
  * Send one byte over UART
  * @param data - Byte value that have to be sent
  */
-void UartSendByte(unsigned char data)
+void UARTSendByte(unsigned char data)
 {
     while (!TXSTAbits.TRMT);
     PORTDbits.RD4 = 1;

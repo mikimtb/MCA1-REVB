@@ -1,6 +1,28 @@
 Version 3.2 HI-TECH Software Intermediate Code
 "2709 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f4431.h
 [v _TRISB `Vuc ~T0 @X0 0 e@3987 ]
+"3162
+[s S154 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S154 . TRISD0 TRISD1 TRISD2 TRISD3 TRISD4 TRISD5 TRISD6 TRISD7 ]
+"3172
+[s S155 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S155 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
+"3161
+[u S153 `S154 1 `S155 1 ]
+[n S153 . . . ]
+"3183
+[v _TRISDbits `VS153 ~T0 @X0 0 e@3989 ]
+"1507
+[s S57 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S57 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
+"1517
+[s S58 :7 `uc 1 :1 `uc 1 ]
+[n S58 . . SS2 ]
+"1506
+[u S56 `S57 1 `S58 1 ]
+[n S56 . . . ]
+"1522
+[v _PORTDbits `VS56 ~T0 @X0 0 e@3971 ]
 "920
 [v _PTCON0 `Vuc ~T0 @X0 0 e@3967 ]
 "741
@@ -4166,9 +4188,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 161: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 163: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 165: extern __nonreentrant void _delay3(unsigned char);
-[; ;pcpwm.h: 1: void InitPCPWM(void);
-[; ;pcpwm.h: 2: void SetPWM1Duty(unsigned int);
-[; ;pcpwm.h: 3: void SetPWM2Duty(unsigned int);
+[; ;pcpwm.h: 5: void InitPCPWM(void);
+[; ;pcpwm.h: 6: void SetPWM1Duty(unsigned int);
+[; ;pcpwm.h: 7: void SetPWM2Duty(unsigned int);
+[; ;pcpwm.h: 8: void IR2110Enable(void);
+[; ;pcpwm.h: 9: void IR2110Disable(void);
 "6 pcpwm.c
 [v _InitPCPWM `(v ~T0 @X0 1 ef ]
 "7
@@ -4180,91 +4204,127 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pcpwm.c: 9: TRISB = 0x00;
 "9
 [e = _TRISB -> -> 0 `i `uc ]
-[; ;pcpwm.c: 14: PTCON0 = 0b00000010;
-"14
-[e = _PTCON0 -> -> 2 `i `uc ]
-[; ;pcpwm.c: 18: PWMCON0 = 0b00110000;
+[; ;pcpwm.c: 11: TRISDbits.RD7 = 0;
+"11
+[e = . . _TRISDbits 1 7 -> -> 0 `i `uc ]
+[; ;pcpwm.c: 13: PORTDbits.RD7 = 0;
+"13
+[e = . . _PORTDbits 0 7 -> -> 0 `i `uc ]
+[; ;pcpwm.c: 18: PTCON0 = 0b00000010;
 "18
+[e = _PTCON0 -> -> 2 `i `uc ]
+[; ;pcpwm.c: 22: PWMCON0 = 0b00110000;
+"22
 [e = _PWMCON0 -> -> 48 `i `uc ]
-[; ;pcpwm.c: 25: PWMCON1 = 0b00000000;
-"25
-[e = _PWMCON1 -> -> 0 `i `uc ]
-[; ;pcpwm.c: 29: OVDCOND = 0b11111111;
+[; ;pcpwm.c: 29: PWMCON1 = 0b00000000;
 "29
-[e = _OVDCOND -> -> 255 `i `uc ]
-[; ;pcpwm.c: 33: OVDCONS = 0b00000000;
+[e = _PWMCON1 -> -> 0 `i `uc ]
+[; ;pcpwm.c: 33: OVDCOND = 0b11111111;
 "33
+[e = _OVDCOND -> -> 255 `i `uc ]
+[; ;pcpwm.c: 37: OVDCONS = 0b00000000;
+"37
 [e = _OVDCONS -> -> 0 `i `uc ]
-[; ;pcpwm.c: 38: FLTCONFIG = 0b00000000;
-"38
-[e = _FLTCONFIG -> -> 0 `i `uc ]
-[; ;pcpwm.c: 42: PTPERL = 0x00;
+[; ;pcpwm.c: 42: FLTCONFIG = 0b00000000;
 "42
+[e = _FLTCONFIG -> -> 0 `i `uc ]
+[; ;pcpwm.c: 46: PTPERL = 0x00;
+"46
 [e = _PTPERL -> -> 0 `i `uc ]
-[; ;pcpwm.c: 43: PTPERH = 0x02;
-"43
-[e = _PTPERH -> -> 2 `i `uc ]
-[; ;pcpwm.c: 47: DTCON = 0b00101000;
+[; ;pcpwm.c: 47: PTPERH = 0x02;
 "47
-[e = _DTCON -> -> 40 `i `uc ]
-[; ;pcpwm.c: 51: PDC0H = 0x03;
+[e = _PTPERH -> -> 2 `i `uc ]
+[; ;pcpwm.c: 51: DTCON = 0b00101000;
 "51
+[e = _DTCON -> -> 40 `i `uc ]
+[; ;pcpwm.c: 55: PDC0H = 0x03;
+"55
 [e = _PDC0H -> -> 3 `i `uc ]
-[; ;pcpwm.c: 52: PDC0L = 0xff;
-"52
-[e = _PDC0L -> -> 255 `i `uc ]
-[; ;pcpwm.c: 56: PDC1H = 0x03;
+[; ;pcpwm.c: 56: PDC0L = 0xff;
 "56
+[e = _PDC0L -> -> 255 `i `uc ]
+[; ;pcpwm.c: 60: PDC1H = 0x03;
+"60
 [e = _PDC1H -> -> 3 `i `uc ]
-[; ;pcpwm.c: 57: PDC1L = 0xff;
-"57
-[e = _PDC1L -> -> 255 `i `uc ]
-[; ;pcpwm.c: 61: PTCON1bits.PTEN = 1;
+[; ;pcpwm.c: 61: PDC1L = 0xff;
 "61
+[e = _PDC1L -> -> 255 `i `uc ]
+[; ;pcpwm.c: 65: PTCON1bits.PTEN = 1;
+"65
 [e = . . _PTCON1bits 0 2 -> -> 1 `i `uc ]
-[; ;pcpwm.c: 62: }
-"62
+[; ;pcpwm.c: 66: }
+"66
 [e :UE 441 ]
 }
-"68
+"72
 [v _SetPWM1Duty `(v ~T0 @X0 1 ef1`ui ]
-"69
-{
-[; ;pcpwm.c: 68: void SetPWM1Duty(unsigned int _PDC0)
-[; ;pcpwm.c: 69: {
-[e :U _SetPWM1Duty ]
-"68
-[v __PDC0 `ui ~T0 @X0 1 r1 ]
-"69
-[f ]
-[; ;pcpwm.c: 70: PDC0L = _PDC0 & 0x00ff;
-"70
-[e = _PDC0L -> & __PDC0 -> -> 255 `i `ui `uc ]
-[; ;pcpwm.c: 71: PDC0H = _PDC0 >> 8;
-"71
-[e = _PDC0H -> >> __PDC0 -> 8 `i `uc ]
-[; ;pcpwm.c: 73: }
 "73
+{
+[; ;pcpwm.c: 72: void SetPWM1Duty(unsigned int _PDC0)
+[; ;pcpwm.c: 73: {
+[e :U _SetPWM1Duty ]
+"72
+[v __PDC0 `ui ~T0 @X0 1 r1 ]
+"73
+[f ]
+[; ;pcpwm.c: 74: PDC0L = _PDC0 & 0x00ff;
+"74
+[e = _PDC0L -> & __PDC0 -> -> 255 `i `ui `uc ]
+[; ;pcpwm.c: 75: PDC0H = _PDC0 >> 8;
+"75
+[e = _PDC0H -> >> __PDC0 -> 8 `i `uc ]
+[; ;pcpwm.c: 77: }
+"77
 [e :UE 442 ]
 }
-"78
-[v _SetPWM2Duty `(v ~T0 @X0 1 ef1`ui ]
-"79
-{
-[; ;pcpwm.c: 78: void SetPWM2Duty(unsigned int _PDC1)
-[; ;pcpwm.c: 79: {
-[e :U _SetPWM2Duty ]
-"78
-[v __PDC1 `ui ~T0 @X0 1 r1 ]
-"79
-[f ]
-[; ;pcpwm.c: 80: PDC0L = _PDC1 & 0x00ff;
-"80
-[e = _PDC0L -> & __PDC1 -> -> 255 `i `ui `uc ]
-[; ;pcpwm.c: 81: PDC0H = _PDC1 >> 8;
-"81
-[e = _PDC0H -> >> __PDC1 -> 8 `i `uc ]
-[; ;pcpwm.c: 82: }
 "82
+[v _SetPWM2Duty `(v ~T0 @X0 1 ef1`ui ]
+"83
+{
+[; ;pcpwm.c: 82: void SetPWM2Duty(unsigned int _PDC1)
+[; ;pcpwm.c: 83: {
+[e :U _SetPWM2Duty ]
+"82
+[v __PDC1 `ui ~T0 @X0 1 r1 ]
+"83
+[f ]
+[; ;pcpwm.c: 84: PDC0L = _PDC1 & 0x00ff;
+"84
+[e = _PDC0L -> & __PDC1 -> -> 255 `i `ui `uc ]
+[; ;pcpwm.c: 85: PDC0H = _PDC1 >> 8;
+"85
+[e = _PDC0H -> >> __PDC1 -> 8 `i `uc ]
+[; ;pcpwm.c: 86: }
+"86
 [e :UE 443 ]
+}
+"91
+[v _IR2110Enable `(v ~T0 @X0 1 ef ]
+"92
+{
+[; ;pcpwm.c: 91: void IR2110Enable()
+[; ;pcpwm.c: 92: {
+[e :U _IR2110Enable ]
+[f ]
+[; ;pcpwm.c: 93: PORTDbits.RD7 = 1;
+"93
+[e = . . _PORTDbits 0 7 -> -> 1 `i `uc ]
+[; ;pcpwm.c: 94: }
+"94
+[e :UE 444 ]
+}
+"99
+[v _IR2110Disable `(v ~T0 @X0 1 ef ]
+"100
+{
+[; ;pcpwm.c: 99: void IR2110Disable()
+[; ;pcpwm.c: 100: {
+[e :U _IR2110Disable ]
+[f ]
+[; ;pcpwm.c: 101: PORTDbits.RD7 = 0;
+"101
+[e = . . _PORTDbits 0 7 -> -> 0 `i `uc ]
+[; ;pcpwm.c: 102: }
+"102
+[e :UE 445 ]
 }

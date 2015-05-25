@@ -4191,9 +4191,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;dc_brake.c: 14: T2CON = 0b00000101;
 "14
 [e = _T2CON -> -> 5 `i `uc ]
-[; ;dc_brake.c: 15: TRISCbits.RC2 = 0;
-"15
-[e = . . _TRISCbits 1 2 -> -> 0 `i `uc ]
 [; ;dc_brake.c: 16: }
 "16
 [e :UE 441 ]

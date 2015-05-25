@@ -6,7 +6,11 @@
 void InitPCPWM()
 {
     // PORTB Pins are digital outputs
-    TRISB = 0x00;                                                                                                                              
+    TRISB = 0x00;
+    // PORTD.RB7 is IR2110 Enable/Disable output
+    TRISDbits.RD7 = 0;
+    // Disable Driver before set PCPWM
+    IR2110_ENABLE = 0;
     /* PTCON0 Settings
      * 1:1 Postscale, Fosc/4 (1:1 prescale), Continuous Up/Down Counting mode (bit 1-0 -> 10)
      * For Continuous Up/Down mode with interrupts for double PWM updates (bit 1-0 -> 11)
@@ -79,4 +83,20 @@ void SetPWM2Duty(unsigned int _PDC1)
 {
     PDC0L = _PDC1 & 0x00ff;
     PDC0H = _PDC1 >> 8;
+}
+
+/**
+ * Enable IR2110 Outputs
+ */
+void IR2110Enable()
+{
+    IR2110_ENABLE = 1; 
+}
+
+/**
+ * Disable IR2110 Outputs
+ */
+void IR2110Disable()
+{
+    IR2110_ENABLE = 0;
 }

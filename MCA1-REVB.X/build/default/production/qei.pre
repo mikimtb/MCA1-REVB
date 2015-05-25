@@ -1,5 +1,5 @@
 
-# 1 "main.c"
+# 1 "qei.c"
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -5524,144 +5524,34 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-
-# 9 "main.c"
-#pragma config OSC = HSPLL
-#pragma config FCMEN = ON
-#pragma config IESO = ON
-#pragma config PWRTEN = ON
-#pragma config BOREN = OFF
-#pragma config WDTEN = OFF
-#pragma config WDPS = 32768
-#pragma config WINEN = OFF
-#pragma config PWMPIN = OFF
-#pragma config LPOL = HIGH
-#pragma config HPOL = HIGH
-#pragma config T1OSCMX = ON
-#pragma config FLTAMX = RC1
-#pragma config SSPMX = RD1
-#pragma config PWM4MX = RB5
-#pragma config EXCLKMX = RC3
-#pragma config MCLRE = ON
-#pragma config STVREN = ON
-#pragma config LVP = OFF
-#pragma config CP0 = OFF
-#pragma config CP1 = OFF
-#pragma config CP2 = OFF
-#pragma config CP3 = OFF
-#pragma config CPB = OFF
-#pragma config CPD = OFF
-#pragma config WRT0 = OFF
-#pragma config WRT1 = OFF
-#pragma config WRT2 = OFF
-#pragma config WRT3 = OFF
-#pragma config WRTC = OFF
-#pragma config WRTB = OFF
-#pragma config WRTD = OFF
-#pragma config EBTR0 = OFF
-#pragma config EBTR1 = OFF
-#pragma config EBTR2 = OFF
-#pragma config EBTR3 = OFF
-#pragma config EBTRB = OFF
-
-# 1 "uart.h"
-void UARTInit(unsigned long);
-void UARTSendByte(unsigned char);
-void UARTSendBytes(unsigned char*, int);
-void UARTAddressDetection_ON(void);
-void UARTAddressDetection_OFF(void);
-
-# 1 "input.h"
-void InputInit(void);
-bit InputC1(void);
-bit InputC2(void);
-
-# 1 "dc_brake.h"
-void CCP1PWMInit(void);
-void SetCCP1PWMDuty(unsigned int);
-void DCBrake_Release(void);
-void DCBrake_Catch(void);
-int SetDCBrakeNominalVoltage(unsigned short, unsigned short);
-
-# 5 "pcpwm.h"
-void InitPCPWM(void);
-void SetPWM1Duty(unsigned int);
-void SetPWM2Duty(unsigned int);
-void IR2110Enable(void);
-void IR2110Disable(void);
-
 # 39 "qei.h"
 void InitQEI(unsigned char, unsigned char, unsigned int);
 unsigned int GetPOSCNT(void);
 
-# 54 "main.c"
-void interrupt low_priority LowIsr(void)
-{
-if (PIR1bits.RCIF && PIE1bits.RCIE)
-{
-int a = RCREG;
-
-if (InputC1())
-UARTSendByte(89);
-else
-UARTSendByte(78);
-
-if (InputC2())
-UARTSendByte(89);
-else
-UARTSendByte(78);
-}
-}
-
-void interrupt HighIsr(void)
+# 4 "qei.c"
+void InitQEI(unsigned char _QEICON, unsigned char _DFLTCON, unsigned int _MAXCNT)
 {
 
+# 10
+ANSEL0 = 0b11000000;
+ANSEL1 = 0b00000000;
+
+# 16
+TRISAbits.RA2 = 1;
+TRISAbits.RA3 = 1;
+TRISAbits.RA4 = 1;
+
+QEICON = _QEICON;
+DFLTCON = _DFLTCON;
+MAXCNTL = _MAXCNT;
+MAXCNTH = _MAXCNT >> 8;
+
+
+POSCNTH = 0;
+POSCNTL = 0;
 }
 
-# 81
-void delay_ms(unsigned int delay)
+unsigned int GetPOSCNT()
 {
-int i;
-for (i = 0; i < delay; i++)
-_delay((unsigned long)((1)*(40000000/4000.0)));
+return (unsigned int)(POSCNTH << 8) & POSCNTL;
 }
-
-int main()
-{
-unsigned char array[2];
-UARTInit(921600);
-UARTAddressDetection_OFF();
-
-
-InputInit();
-
-
-CCP1PWMInit();
-
-SetDCBrakeNominalVoltage(24, 26);
-DCBrake_Release();
-
-InitPCPWM();
-SetPWM1Duty(1023);
-SetPWM2Duty(1023);
-IR2110Disable();
-
-InitQEI(0b00000000 | 0b00011000 | 0b00000000, 0b00000000, 255);
-
-DCBrake_Release();
-
-RCONbits.IPEN = 1;
-INTCONbits.GIEH = 1;
-INTCONbits.GIEL = 1;
-
-delay_ms(1);
-
-while (1)
-{
-
-
-}
-
-return 0;
-}
-

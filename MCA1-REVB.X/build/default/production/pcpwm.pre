@@ -5524,10 +5524,12 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 1 "pcpwm.h"
+# 5 "pcpwm.h"
 void InitPCPWM(void);
 void SetPWM1Duty(unsigned int);
 void SetPWM2Duty(unsigned int);
+void IR2110Enable(void);
+void IR2110Disable(void);
 
 # 6 "pcpwm.c"
 void InitPCPWM()
@@ -5535,44 +5537,48 @@ void InitPCPWM()
 
 TRISB = 0x00;
 
-# 14
-PTCON0 = 0b00000010;
+TRISDbits.RD7 = 0;
+
+PORTDbits.RD7 = 0;
 
 # 18
+PTCON0 = 0b00000010;
+
+# 22
 PWMCON0 = 0b00110000;
 
-# 25
+# 29
 PWMCON1 = 0b00000000;
 
-# 29
+# 33
 OVDCOND = 0b11111111;
 
-# 33
+# 37
 OVDCONS = 0b00000000;
 
-# 38
+# 42
 FLTCONFIG = 0b00000000;
 
-# 42
+# 46
 PTPERL = 0x00;
 PTPERH = 0x02;
 
-# 47
+# 51
 DTCON = 0b00101000;
 
-# 51
+# 55
 PDC0H = 0x03;
 PDC0L = 0xff;
 
-# 56
+# 60
 PDC1H = 0x03;
 PDC1L = 0xff;
 
-# 61
+# 65
 PTCON1bits.PTEN = 1;
 }
 
-# 68
+# 72
 void SetPWM1Duty(unsigned int _PDC0)
 {
 PDC0L = _PDC0 & 0x00ff;
@@ -5580,9 +5586,21 @@ PDC0H = _PDC0 >> 8;
 
 }
 
-# 78
+# 82
 void SetPWM2Duty(unsigned int _PDC1)
 {
 PDC0L = _PDC1 & 0x00ff;
 PDC0H = _PDC1 >> 8;
+}
+
+# 91
+void IR2110Enable()
+{
+PORTDbits.RD7 = 1;
+}
+
+# 99
+void IR2110Disable()
+{
+PORTDbits.RD7 = 0;
 }

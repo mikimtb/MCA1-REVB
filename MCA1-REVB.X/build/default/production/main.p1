@@ -38,7 +38,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "2 input.h
 [v _InputC1 `(b ~T0 @X0 0 ef ]
 "2 uart.h
-[v _UartSendByte `(v ~T0 @X0 0 ef1`uc ]
+[v _UARTSendByte `(v ~T0 @X0 0 ef1`uc ]
 "3 input.h
 [v _InputC2 `(b ~T0 @X0 0 ef ]
 [v F4451 `(v ~T0 @X0 1 tf1`ul ]
@@ -56,12 +56,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _CCP1PWMInit `(v ~T0 @X0 0 ef ]
 "5
 [v _SetDCBrakeNominalVoltage `(i ~T0 @X0 0 ef2`us`us ]
-"1 pcpwm.h
-[v _InitPCPWM `(v ~T0 @X0 0 ef ]
-"2
-[v _SetPWM1Duty `(v ~T0 @X0 0 ef1`ui ]
 "3
+[v _DCBrake_Release `(v ~T0 @X0 0 ef ]
+"5 pcpwm.h
+[v _InitPCPWM `(v ~T0 @X0 0 ef ]
+"6
+[v _SetPWM1Duty `(v ~T0 @X0 0 ef1`ui ]
+"7
 [v _SetPWM2Duty `(v ~T0 @X0 0 ef1`ui ]
+"9
+[v _IR2110Disable `(v ~T0 @X0 0 ef ]
+"39 qei.h
+[v _InitQEI `(v ~T0 @X0 0 ef3`uc`uc`ui ]
 "6738 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f4431.h
 [s S363 :1 `uc 1 ]
 [n S363 . NOT_BOR ]
@@ -4317,7 +4323,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "45
 [p x EBTRB=OFF ]
 [; ;uart.h: 1: void UARTInit(unsigned long);
-[; ;uart.h: 2: void UartSendByte(unsigned char);
+[; ;uart.h: 2: void UARTSendByte(unsigned char);
 [; ;uart.h: 3: void UARTSendBytes(unsigned char*, int);
 [; ;uart.h: 4: void UARTAddressDetection_ON(void);
 [; ;uart.h: 5: void UARTAddressDetection_OFF(void);
@@ -4329,185 +4335,192 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;dc_brake.h: 3: void DCBrake_Release(void);
 [; ;dc_brake.h: 4: void DCBrake_Catch(void);
 [; ;dc_brake.h: 5: int SetDCBrakeNominalVoltage(unsigned short, unsigned short);
-[; ;pcpwm.h: 1: void InitPCPWM(void);
-[; ;pcpwm.h: 2: void SetPWM1Duty(unsigned int);
-[; ;pcpwm.h: 3: void SetPWM2Duty(unsigned int);
-[v F4494 `(v ~T0 @X0 1 tf ]
-"53
-[v _LowIsr `ILF4494 ~T0 @X0 1 e ]
+[; ;pcpwm.h: 5: void InitPCPWM(void);
+[; ;pcpwm.h: 6: void SetPWM1Duty(unsigned int);
+[; ;pcpwm.h: 7: void SetPWM2Duty(unsigned int);
+[; ;pcpwm.h: 8: void IR2110Enable(void);
+[; ;pcpwm.h: 9: void IR2110Disable(void);
+[; ;qei.h: 39: void InitQEI(unsigned char, unsigned char, unsigned int);
+[; ;qei.h: 40: unsigned int GetPOSCNT(void);
+[v F4504 `(v ~T0 @X0 1 tf ]
 "54
+[v _LowIsr `ILF4504 ~T0 @X0 1 e ]
+"55
 {
-[; ;main.c: 53: void interrupt low_priority LowIsr(void)
-[; ;main.c: 54: {
+[; ;main.c: 54: void interrupt low_priority LowIsr(void)
+[; ;main.c: 55: {
 [e :U _LowIsr ]
 [f ]
-[; ;main.c: 55: if (PIR1bits.RCIF && PIE1bits.RCIE)
-"55
-[e $ ! && != -> . . _PIR1bits 0 5 `i -> -> -> 0 `i `Vuc `i != -> . . _PIE1bits 0 5 `i -> -> -> 0 `i `Vuc `i 442  ]
-[; ;main.c: 56: {
+[; ;main.c: 56: if (PIR1bits.RCIF && PIE1bits.RCIE)
 "56
-{
+[e $ ! && != -> . . _PIR1bits 0 5 `i -> -> -> 0 `i `Vuc `i != -> . . _PIE1bits 0 5 `i -> -> -> 0 `i `Vuc `i 442  ]
+[; ;main.c: 57: {
 "57
+{
+"58
 [v _a `i ~T0 @X0 1 a ]
-[; ;main.c: 57: int a = RCREG;
+[; ;main.c: 58: int a = RCREG;
 [e = _a -> _RCREG `i ]
-[; ;main.c: 59: if (InputC1())
-"59
-[e $ ! ( _InputC1 ..  443  ]
-[; ;main.c: 60: UartSendByte(89);
+[; ;main.c: 60: if (InputC1())
 "60
-[e ( _UartSendByte (1 -> -> 89 `i `uc ]
-[e $U 444  ]
+[e $ ! ( _InputC1 ..  443  ]
+[; ;main.c: 61: UARTSendByte(89);
 "61
-[e :U 443 ]
-[; ;main.c: 61: else
-[; ;main.c: 62: UartSendByte(78);
+[e ( _UARTSendByte (1 -> -> 89 `i `uc ]
+[e $U 444  ]
 "62
-[e ( _UartSendByte (1 -> -> 78 `i `uc ]
+[e :U 443 ]
+[; ;main.c: 62: else
+[; ;main.c: 63: UARTSendByte(78);
+"63
+[e ( _UARTSendByte (1 -> -> 78 `i `uc ]
 [e :U 444 ]
-[; ;main.c: 64: if (InputC2())
-"64
-[e $ ! ( _InputC2 ..  445  ]
-[; ;main.c: 65: UartSendByte(89);
+[; ;main.c: 65: if (InputC2())
 "65
-[e ( _UartSendByte (1 -> -> 89 `i `uc ]
-[e $U 446  ]
+[e $ ! ( _InputC2 ..  445  ]
+[; ;main.c: 66: UARTSendByte(89);
 "66
-[e :U 445 ]
-[; ;main.c: 66: else
-[; ;main.c: 67: UartSendByte(78);
+[e ( _UARTSendByte (1 -> -> 89 `i `uc ]
+[e $U 446  ]
 "67
-[e ( _UartSendByte (1 -> -> 78 `i `uc ]
-[e :U 446 ]
+[e :U 445 ]
+[; ;main.c: 67: else
+[; ;main.c: 68: UARTSendByte(78);
 "68
+[e ( _UARTSendByte (1 -> -> 78 `i `uc ]
+[e :U 446 ]
+"69
 }
 [e :U 442 ]
-[; ;main.c: 68: }
 [; ;main.c: 69: }
-"69
+[; ;main.c: 70: }
+"70
 [e :UE 441 ]
 }
-[v F4498 `(v ~T0 @X0 1 tf ]
-"71
-[v _HighIsr `IF4498 ~T0 @X0 1 e ]
+[v F4508 `(v ~T0 @X0 1 tf ]
 "72
+[v _HighIsr `IF4508 ~T0 @X0 1 e ]
+"73
 {
-[; ;main.c: 71: void interrupt HighIsr(void)
-[; ;main.c: 72: {
+[; ;main.c: 72: void interrupt HighIsr(void)
+[; ;main.c: 73: {
 [e :U _HighIsr ]
 [f ]
-[; ;main.c: 74: }
-"74
+[; ;main.c: 75: }
+"75
 [e :UE 447 ]
 }
-"80
+"81
 [v _delay_ms `(v ~T0 @X0 1 ef1`ui ]
-"81
-{
-[; ;main.c: 80: void delay_ms(unsigned int delay)
-[; ;main.c: 81: {
-[e :U _delay_ms ]
-"80
-[v _delay `ui ~T0 @X0 1 r1 ]
-"81
-[f ]
 "82
-[v _i `i ~T0 @X0 1 a ]
-[; ;main.c: 82: int i;
-[; ;main.c: 83: for (i = 0; i < delay; i++)
+{
+[; ;main.c: 81: void delay_ms(unsigned int delay)
+[; ;main.c: 82: {
+[e :U _delay_ms ]
+"81
+[v _delay `ui ~T0 @X0 1 r1 ]
+"82
+[f ]
 "83
+[v _i `i ~T0 @X0 1 a ]
+[; ;main.c: 83: int i;
+[; ;main.c: 84: for (i = 0; i < delay; i++)
+"84
 {
 [e = _i -> 0 `i ]
 [e $U 452  ]
-"84
+"85
 [e :U 449 ]
-[; ;main.c: 84: _delay((unsigned long)((1)*(40000000/4000.0)));
+[; ;main.c: 85: _delay((unsigned long)((1)*(40000000/4000.0)));
 [e ( __delay (1 -> * -> -> 1 `i `d / -> -> 40000000 `l `d .4000.0 `ul ]
-"83
+"84
 [e ++ _i -> 1 `i ]
 [e :U 452 ]
 [e $ < -> _i `ui _delay 449  ]
 [e :U 450 ]
-"84
-}
-[; ;main.c: 85: }
 "85
+}
+[; ;main.c: 86: }
+"86
 [e :UE 448 ]
 }
-"87
-[v _main `(i ~T0 @X0 1 ef ]
 "88
+[v _main `(i ~T0 @X0 1 ef ]
+"89
 {
-[; ;main.c: 87: int main()
-[; ;main.c: 88: {
+[; ;main.c: 88: int main()
+[; ;main.c: 89: {
 [e :U _main ]
 [f ]
-[v F4505 `uc ~T0 @X0 -> 0 `x s ]
-[i F4505
-:U ..
-"89
--> -> 65 `ui `uc
--> -> 66 `ui `uc
--> -> 67 `ui `uc
-..
-]
-[v _array `uc ~T0 @X0 3  a ]
-[; ;main.c: 89: unsigned char array[] = {'A','B','C'};
-[e = _array F4505 ]
-[; ;main.c: 90: UARTInit(921600);
 "90
-[e ( _UARTInit (1 -> -> 921600 `l `ul ]
-[; ;main.c: 91: UARTAddressDetection_OFF();
+[v _array `uc ~T0 @X0 -> 2 `i a ]
+[; ;main.c: 90: unsigned char array[2];
+[; ;main.c: 91: UARTInit(921600);
 "91
+[e ( _UARTInit (1 -> -> 921600 `l `ul ]
+[; ;main.c: 92: UARTAddressDetection_OFF();
+"92
 [e ( _UARTAddressDetection_OFF ..  ]
-[; ;main.c: 94: InputInit();
-"94
+[; ;main.c: 95: InputInit();
+"95
 [e ( _InputInit ..  ]
-[; ;main.c: 97: CCP1PWMInit();
-"97
+[; ;main.c: 98: CCP1PWMInit();
+"98
 [e ( _CCP1PWMInit ..  ]
-[; ;main.c: 99: SetDCBrakeNominalVoltage(24, 26);
-"99
+[; ;main.c: 100: SetDCBrakeNominalVoltage(24, 26);
+"100
 [e ( _SetDCBrakeNominalVoltage (2 , -> -> 24 `i `us -> -> 26 `i `us ]
-[; ;main.c: 101: InitPCPWM();
+[; ;main.c: 101: DCBrake_Release();
 "101
-[e ( _InitPCPWM ..  ]
-[; ;main.c: 102: SetPWM1Duty(512);
-"102
-[e ( _SetPWM1Duty (1 -> -> 512 `i `ui ]
-[; ;main.c: 103: SetPWM2Duty(1536);
+[e ( _DCBrake_Release ..  ]
+[; ;main.c: 103: InitPCPWM();
 "103
-[e ( _SetPWM2Duty (1 -> -> 1536 `i `ui ]
-[; ;main.c: 106: RCONbits.IPEN = 1;
+[e ( _InitPCPWM ..  ]
+[; ;main.c: 104: SetPWM1Duty(1023);
+"104
+[e ( _SetPWM1Duty (1 -> -> 1023 `i `ui ]
+[; ;main.c: 105: SetPWM2Duty(1023);
+"105
+[e ( _SetPWM2Duty (1 -> -> 1023 `i `ui ]
+[; ;main.c: 106: IR2110Disable();
 "106
-[e = . . _RCONbits 5 6 -> -> 1 `i `uc ]
-[; ;main.c: 107: INTCONbits.GIEH = 1;
-"107
-[e = . . _INTCONbits 2 7 -> -> 1 `i `uc ]
-[; ;main.c: 108: INTCONbits.GIEL = 1;
+[e ( _IR2110Disable ..  ]
+[; ;main.c: 108: InitQEI(0b00000000 | 0b00011000 | 0b00000000, 0b00000000, 255);
 "108
-[e = . . _INTCONbits 2 6 -> -> 1 `i `uc ]
-[; ;main.c: 110: delay_ms(1);
+[e ( _InitQEI (3 , , -> | | -> 0 `i -> 24 `i -> 0 `i `uc -> -> 0 `i `uc -> -> 255 `i `ui ]
+[; ;main.c: 110: DCBrake_Release();
 "110
-[e ( _delay_ms (1 -> -> 1 `i `ui ]
-[; ;main.c: 112: while (1)
+[e ( _DCBrake_Release ..  ]
+[; ;main.c: 112: RCONbits.IPEN = 1;
 "112
-[e :U 455 ]
-[; ;main.c: 113: {
+[e = . . _RCONbits 5 6 -> -> 1 `i `uc ]
+[; ;main.c: 113: INTCONbits.GIEH = 1;
 "113
+[e = . . _INTCONbits 2 7 -> -> 1 `i `uc ]
+[; ;main.c: 114: INTCONbits.GIEL = 1;
+"114
+[e = . . _INTCONbits 2 6 -> -> 1 `i `uc ]
+[; ;main.c: 116: delay_ms(1);
+"116
+[e ( _delay_ms (1 -> -> 1 `i `ui ]
+[; ;main.c: 118: while (1)
+"118
+[e :U 455 ]
+[; ;main.c: 119: {
+"119
 {
-"115
+"122
 }
 [e :U 454 ]
-"112
+"118
 [e $U 455  ]
 [e :U 456 ]
-[; ;main.c: 115: }
-[; ;main.c: 117: return 0;
-"117
+[; ;main.c: 122: }
+[; ;main.c: 124: return 0;
+"124
 [e ) -> 0 `i ]
 [e $UE 453  ]
-[; ;main.c: 118: }
-"118
+[; ;main.c: 125: }
+"125
 [e :UE 453 ]
 }

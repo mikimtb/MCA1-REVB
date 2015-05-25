@@ -8,6 +8,7 @@
       <itemPath>input.h</itemPath>
       <itemPath>pcpwm.h</itemPath>
       <itemPath>dc_brake.h</itemPath>
+      <itemPath>qei.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -21,6 +22,7 @@
       <itemPath>input.c</itemPath>
       <itemPath>pcpwm.c</itemPath>
       <itemPath>dc_brake.c</itemPath>
+      <itemPath>qei.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
