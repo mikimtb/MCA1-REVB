@@ -2,128 +2,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 "4 ring_buffer.h
 [s S441 `uc -> 32 `i `Vui 1 `Vui 1 ]
 [n S441 circular_buffer buffer head tail ]
-"3826 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f4431.h
-[s S181 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S181 . TMR1IF TMR2IF CCP1IF SSPIF TXIF RCIF ADIF ]
-"3835
-[s S182 :4 `uc 1 :1 `uc 1 ]
-[n S182 . . TBIF ]
-"3839
-[s S183 :5 `uc 1 :1 `uc 1 ]
-[n S183 . . RC1IF ]
-"3843
-[s S184 :4 `uc 1 :1 `uc 1 ]
-[n S184 . . TX1IF ]
-"3825
-[u S180 `S181 1 `S182 1 `S183 1 `S184 1 ]
-[n S180 . . . . . ]
-"3848
-[v _PIR1bits `VS180 ~T0 @X0 0 e@3998 ]
-"3744
-[s S176 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S176 . TMR1IE TMR2IE CCP1IE SSPIE TXIE RCIE ADIE ]
-"3753
-[s S177 :4 `uc 1 :1 `uc 1 ]
-[n S177 . . TBIE ]
-"3757
-[s S178 :5 `uc 1 :1 `uc 1 ]
-[n S178 . . RC1IE ]
-"3761
-[s S179 :4 `uc 1 :1 `uc 1 ]
-[n S179 . . TX1IE ]
-"3743
-[u S175 `S176 1 `S177 1 `S178 1 `S179 1 ]
-[n S175 . . . . . ]
-"3766
-[v _PIE1bits `VS175 ~T0 @X0 0 e@3997 ]
-"5110
-[v _RCREG `Vuc ~T0 @X0 0 e@4014 ]
-"13 ring_buffer.h
-[v _BufferWrite `(v ~T0 @X0 0 ef2`uc`*S441 ]
-"2 input.h
-[v _InputC1 `(b ~T0 @X0 0 ef ]
-"2 uart.h
-[v _UARTSendByte `(v ~T0 @X0 0 ef1`uc ]
-"3 input.h
-[v _InputC2 `(b ~T0 @X0 0 ef ]
-[v F4451 `(v ~T0 @X0 1 tf1`ul ]
-"161 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18.h
-[v __delay `JF4451 ~T0 @X0 0 e ]
-[p i __delay ]
-[p mainexit ]
-"1 uart.h
-[v _UARTInit `(v ~T0 @X0 0 ef1`ul ]
-"5
-[v _UARTAddressDetection_OFF `(v ~T0 @X0 0 ef ]
-"1 input.h
-[v _InputInit `(v ~T0 @X0 0 ef ]
-"1 dc_brake.h
-[v _CCP1PWMInit `(v ~T0 @X0 0 ef ]
-"5
-[v _SetDCBrakeNominalVoltage `(i ~T0 @X0 0 ef2`us`us ]
-"4
-[v _DCBrake_Catch `(v ~T0 @X0 0 ef ]
-"5 pcpwm.h
-[v _InitPCPWM `(v ~T0 @X0 0 ef ]
-"6
-[v _SetPWM1Duty `(v ~T0 @X0 0 ef1`ui ]
-"7
-[v _SetPWM2Duty `(v ~T0 @X0 0 ef1`ui ]
-"9
-[v _IR2110Disable `(v ~T0 @X0 0 ef ]
-"39 qei.h
-[v _InitQEI `(v ~T0 @X0 0 ef3`uc`uc`ui ]
-"3 dc_brake.h
-[v _DCBrake_Release `(v ~T0 @X0 0 ef ]
-"6738 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f4431.h
-[s S363 :1 `uc 1 ]
-[n S363 . NOT_BOR ]
-"6741
-[s S364 :1 `uc 1 :1 `uc 1 ]
-[n S364 . . NOT_POR ]
-"6745
-[s S365 :2 `uc 1 :1 `uc 1 ]
-[n S365 . . NOT_PD ]
-"6749
-[s S366 :3 `uc 1 :1 `uc 1 ]
-[n S366 . . NOT_TO ]
-"6753
-[s S367 :4 `uc 1 :1 `uc 1 ]
-[n S367 . . NOT_RI ]
-"6757
-[s S368 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S368 . nBOR nPOR nPD nTO nRI . IPEN ]
-"6766
-[s S369 :7 `uc 1 :1 `uc 1 ]
-[n S369 . . NOT_IPEN ]
-"6770
-[s S370 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S370 . BOR POR PD TO RI . nIPEN ]
-"6737
-[u S362 `S363 1 `S364 1 `S365 1 `S366 1 `S367 1 `S368 1 `S369 1 `S370 1 ]
-[n S362 . . . . . . . . . ]
-"6780
-[v _RCONbits `VS362 ~T0 @X0 0 e@4048 ]
-"7549
-[s S397 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S397 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
-"7559
-[s S398 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S398 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE GIE ]
-"7569
-[s S399 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S399 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE GIEL GIEH ]
-"7579
-[s S400 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S400 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
-"7589
-[s S401 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S401 . . GIEL GIEH ]
-"7548
-[u S396 `S397 1 `S398 1 `S399 1 `S400 1 `S401 1 ]
-[n S396 . . . . . . ]
-"7595
-[v _INTCONbits `VS396 ~T0 @X0 0 e@4082 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f4431.h: 49: extern volatile unsigned char DFLTCON @ 0xF60;
@@ -4255,100 +4133,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 161: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 163: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 165: extern __nonreentrant void _delay3(unsigned char);
-"9 main.c
-[p x OSC=HSPLL ]
-"10
-[p x FCMEN=ON ]
-"11
-[p x IESO=ON ]
-"12
-[p x PWRTEN=ON ]
-"13
-[p x BOREN=OFF ]
-"14
-[p x WDTEN=OFF ]
-"15
-[p x WDPS=32768 ]
-"16
-[p x WINEN=OFF ]
-"17
-[p x PWMPIN=OFF ]
-"18
-[p x LPOL=HIGH ]
-"19
-[p x HPOL=HIGH ]
-"20
-[p x T1OSCMX=ON ]
-"21
-[p x FLTAMX=RC1 ]
-"22
-[p x SSPMX=RD1 ]
-"23
-[p x PWM4MX=RB5 ]
-"24
-[p x EXCLKMX=RC3 ]
-"25
-[p x MCLRE=ON ]
-"26
-[p x STVREN=ON ]
-"27
-[p x LVP=OFF ]
-"28
-[p x CP0=OFF ]
-"29
-[p x CP1=OFF ]
-"30
-[p x CP2=OFF ]
-"31
-[p x CP3=OFF ]
-"32
-[p x CPB=OFF ]
-"33
-[p x CPD=OFF ]
-"34
-[p x WRT0=OFF ]
-"35
-[p x WRT1=OFF ]
-"36
-[p x WRT2=OFF ]
-"37
-[p x WRT3=OFF ]
-"38
-[p x WRTC=OFF ]
-"39
-[p x WRTB=OFF ]
-"40
-[p x WRTD=OFF ]
-"41
-[p x EBTR0=OFF ]
-"42
-[p x EBTR1=OFF ]
-"43
-[p x EBTR2=OFF ]
-"44
-[p x EBTR3=OFF ]
-"45
-[p x EBTRB=OFF ]
-[; ;uart.h: 1: void UARTInit(unsigned long);
-[; ;uart.h: 2: void UARTSendByte(unsigned char);
-[; ;uart.h: 3: void UARTSendBytes(unsigned char*, int);
-[; ;uart.h: 4: void UARTAddressDetection_ON(void);
-[; ;uart.h: 5: void UARTAddressDetection_OFF(void);
-[; ;input.h: 1: void InputInit(void);
-[; ;input.h: 2: bit InputC1(void);
-[; ;input.h: 3: bit InputC2(void);
-[; ;dc_brake.h: 1: void CCP1PWMInit(void);
-[; ;dc_brake.h: 2: void SetCCP1PWMDuty(unsigned int);
-[; ;dc_brake.h: 3: void DCBrake_Release(void);
-[; ;dc_brake.h: 4: void DCBrake_Catch(void);
-[; ;dc_brake.h: 5: int SetDCBrakeNominalVoltage(unsigned short, unsigned short);
-[; ;pcpwm.h: 5: void InitPCPWM(void);
-[; ;pcpwm.h: 6: void SetPWM1Duty(unsigned int);
-[; ;pcpwm.h: 7: void SetPWM2Duty(unsigned int);
-[; ;pcpwm.h: 8: void IR2110Enable(void);
-[; ;pcpwm.h: 9: void IR2110Disable(void);
-[; ;qei.h: 39: void InitQEI(unsigned char, unsigned char, unsigned int);
-[; ;qei.h: 40: unsigned int GetPOSCNT(void);
 [; ;ring_buffer.h: 4: typedef struct circular_buffer
 [; ;ring_buffer.h: 5: {
 [; ;ring_buffer.h: 6: unsigned char buffer[32];
@@ -4357,192 +4141,83 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;ring_buffer.h: 9: } ringBuffer;
 [; ;ring_buffer.h: 13: void BufferWrite(unsigned char, ringBuffer*);
 [; ;ring_buffer.h: 14: char BufferRead(ringBuffer*);
-"55
-[v _in `S441 ~T0 @X0 1 e ]
-[v _out `S441 ~T0 @X0 1 e ]
-[; ;main.c: 55: ringBuffer in, out;
-[v F4516 `(v ~T0 @X0 1 tf ]
-"57
-[v _LowIsr `ILF4516 ~T0 @X0 1 e ]
-"58
+"4 ring_buffer.c
+[v _BufferWrite `(v ~T0 @X0 1 ef2`uc`*S441 ]
+"5
 {
-[; ;main.c: 57: void interrupt low_priority LowIsr(void)
-[; ;main.c: 58: {
-[e :U _LowIsr ]
+[; ;ring_buffer.c: 4: void BufferWrite(unsigned char data, ringBuffer* buff)
+[; ;ring_buffer.c: 5: {
+[e :U _BufferWrite ]
+"4
+[v _data `uc ~T0 @X0 1 r1 ]
+[v _buff `*S441 ~T0 @X0 1 r2 ]
+"5
 [f ]
-[; ;main.c: 59: if (PIR1bits.RCIF && PIE1bits.RCIE)
-"59
-[e $ ! && != -> . . _PIR1bits 0 5 `i -> -> -> 0 `i `Vuc `i != -> . . _PIE1bits 0 5 `i -> -> -> 0 `i `Vuc `i 443  ]
-[; ;main.c: 60: {
-"60
+"6
+[v _next `ui ~T0 @X0 1 a ]
+[; ;ring_buffer.c: 6: unsigned int next = (unsigned int)(buff->head + 1) % 32;
+[e = _next % + . *U _buff 1 -> -> 1 `i `ui -> -> 32 `i `ui ]
+[; ;ring_buffer.c: 7: if (next != buff->tail)
+"7
+[e $ ! != _next . *U _buff 2 443  ]
+[; ;ring_buffer.c: 8: {
+"8
 {
-"61
-[v _a `uc ~T0 @X0 1 a ]
-[; ;main.c: 61: unsigned char a = RCREG;
-[e = _a _RCREG ]
-[; ;main.c: 62: BufferWrite(a, &in);
-"62
-[e ( _BufferWrite (2 , _a &U _in ]
-[; ;main.c: 64: if (InputC1())
-"64
-[e $ ! ( _InputC1 ..  444  ]
-[; ;main.c: 65: UARTSendByte(89);
-"65
-[e ( _UARTSendByte (1 -> -> 89 `i `uc ]
-[e $U 445  ]
-"66
-[e :U 444 ]
-[; ;main.c: 66: else
-[; ;main.c: 67: UARTSendByte(78);
-"67
-[e ( _UARTSendByte (1 -> -> 78 `i `uc ]
-[e :U 445 ]
-[; ;main.c: 69: if (InputC2())
-"69
-[e $ ! ( _InputC2 ..  446  ]
-[; ;main.c: 70: UARTSendByte(89);
-"70
-[e ( _UARTSendByte (1 -> -> 89 `i `uc ]
-[e $U 447  ]
-"71
-[e :U 446 ]
-[; ;main.c: 71: else
-[; ;main.c: 72: UARTSendByte(78);
-"72
-[e ( _UARTSendByte (1 -> -> 78 `i `uc ]
-[e :U 447 ]
-"73
+[; ;ring_buffer.c: 9: buff->buffer[buff->head] = data;
+"9
+[e = *U + &U . *U _buff 0 * -> . *U _buff 1 `ux -> -> # *U &U . *U _buff 0 `ui `ux _data ]
+[; ;ring_buffer.c: 10: buff->head = next;
+"10
+[e = . *U _buff 1 _next ]
+"11
 }
 [e :U 443 ]
-[; ;main.c: 73: }
-[; ;main.c: 74: }
-"74
+[; ;ring_buffer.c: 11: }
+[; ;ring_buffer.c: 12: }
+"12
 [e :UE 442 ]
 }
-[v F4520 `(v ~T0 @X0 1 tf ]
-"76
-[v _HighIsr `IF4520 ~T0 @X0 1 e ]
-"77
+"14
+[v _BufferRead `(uc ~T0 @X0 1 ef1`*S441 ]
+"15
 {
-[; ;main.c: 76: void interrupt HighIsr(void)
-[; ;main.c: 77: {
-[e :U _HighIsr ]
+[; ;ring_buffer.c: 14: char BufferRead(ringBuffer* buff)
+[; ;ring_buffer.c: 15: {
+[e :U _BufferRead ]
+"14
+[v _buff `*S441 ~T0 @X0 1 r1 ]
+"15
 [f ]
-[; ;main.c: 79: }
-"79
-[e :UE 448 ]
-}
-"85
-[v _delay_ms `(v ~T0 @X0 1 ef1`ui ]
-"86
+[; ;ring_buffer.c: 16: if (buff->head == buff->tail)
+"16
+[e $ ! == . *U _buff 1 . *U _buff 2 445  ]
+[; ;ring_buffer.c: 17: return -1;
+"17
+[e ) -> -U -> 1 `i `uc ]
+[e $UE 444  ]
+[e $U 446  ]
+"18
+[e :U 445 ]
+[; ;ring_buffer.c: 18: else
+[; ;ring_buffer.c: 19: {
+"19
 {
-[; ;main.c: 85: void delay_ms(unsigned int delay)
-[; ;main.c: 86: {
-[e :U _delay_ms ]
-"85
-[v _delay `ui ~T0 @X0 1 r1 ]
-"86
-[f ]
-"87
-[v _i `i ~T0 @X0 1 a ]
-[; ;main.c: 87: int i;
-[; ;main.c: 88: for (i = 0; i < delay; i++)
-"88
-{
-[e = _i -> 0 `i ]
-[e $U 453  ]
-"89
-[e :U 450 ]
-[; ;main.c: 89: _delay((unsigned long)((1)*(40000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 40000000 `l `d .4000.0 `ul ]
-"88
-[e ++ _i -> 1 `i ]
-[e :U 453 ]
-[e $ < -> _i `ui _delay 450  ]
-[e :U 451 ]
-"89
+"20
+[v _data `uc ~T0 @X0 1 a ]
+[; ;ring_buffer.c: 20: char data = buff->buffer[buff->tail];
+[e = _data *U + &U . *U _buff 0 * -> . *U _buff 2 `ux -> -> # *U &U . *U _buff 0 `ui `ux ]
+[; ;ring_buffer.c: 21: buff->tail = (unsigned int)(buff->tail + 1) % 32;
+"21
+[e = . *U _buff 2 % + . *U _buff 2 -> -> 1 `i `ui -> -> 32 `i `ui ]
+[; ;ring_buffer.c: 22: return data;
+"22
+[e ) _data ]
+[e $UE 444  ]
+"23
 }
-[; ;main.c: 90: }
-"90
-[e :UE 449 ]
-}
-"92
-[v _main `(i ~T0 @X0 1 ef ]
-"93
-{
-[; ;main.c: 92: int main()
-[; ;main.c: 93: {
-[e :U _main ]
-[f ]
-"94
-[v _array `uc ~T0 @X0 -> 2 `i a ]
-[; ;main.c: 94: unsigned char array[2];
-[; ;main.c: 95: UARTInit(921600);
-"95
-[e ( _UARTInit (1 -> -> 921600 `l `ul ]
-[; ;main.c: 96: UARTAddressDetection_OFF();
-"96
-[e ( _UARTAddressDetection_OFF ..  ]
-[; ;main.c: 99: InputInit();
-"99
-[e ( _InputInit ..  ]
-[; ;main.c: 102: CCP1PWMInit();
-"102
-[e ( _CCP1PWMInit ..  ]
-[; ;main.c: 104: SetDCBrakeNominalVoltage(24, 26);
-"104
-[e ( _SetDCBrakeNominalVoltage (2 , -> -> 24 `i `us -> -> 26 `i `us ]
-[; ;main.c: 105: DCBrake_Catch();
-"105
-[e ( _DCBrake_Catch ..  ]
-[; ;main.c: 107: InitPCPWM();
-"107
-[e ( _InitPCPWM ..  ]
-[; ;main.c: 108: SetPWM1Duty(1023);
-"108
-[e ( _SetPWM1Duty (1 -> -> 1023 `i `ui ]
-[; ;main.c: 109: SetPWM2Duty(1023);
-"109
-[e ( _SetPWM2Duty (1 -> -> 1023 `i `ui ]
-[; ;main.c: 110: IR2110Disable();
-"110
-[e ( _IR2110Disable ..  ]
-[; ;main.c: 112: InitQEI(0b00000000 | 0b00011000 | 0b00000000, 0b00000000, 255);
-"112
-[e ( _InitQEI (3 , , -> | | -> 0 `i -> 24 `i -> 0 `i `uc -> -> 0 `i `uc -> -> 255 `i `ui ]
-[; ;main.c: 114: DCBrake_Release();
-"114
-[e ( _DCBrake_Release ..  ]
-[; ;main.c: 116: RCONbits.IPEN = 1;
-"116
-[e = . . _RCONbits 5 6 -> -> 1 `i `uc ]
-[; ;main.c: 117: INTCONbits.GIEH = 1;
-"117
-[e = . . _INTCONbits 2 7 -> -> 1 `i `uc ]
-[; ;main.c: 118: INTCONbits.GIEL = 1;
-"118
-[e = . . _INTCONbits 2 6 -> -> 1 `i `uc ]
-[; ;main.c: 120: delay_ms(1);
-"120
-[e ( _delay_ms (1 -> -> 1 `i `ui ]
-[; ;main.c: 122: while (1)
-"122
-[e :U 456 ]
-[; ;main.c: 123: {
-"123
-{
-"126
-}
-[e :U 455 ]
-"122
-[e $U 456  ]
-[e :U 457 ]
-[; ;main.c: 126: }
-[; ;main.c: 128: return 0;
-"128
-[e ) -> 0 `i ]
-[e $UE 454  ]
-[; ;main.c: 129: }
-"129
-[e :UE 454 ]
+[e :U 446 ]
+[; ;ring_buffer.c: 23: }
+[; ;ring_buffer.c: 24: }
+"24
+[e :UE 444 ]
 }

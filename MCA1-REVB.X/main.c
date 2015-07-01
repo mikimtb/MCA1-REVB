@@ -50,12 +50,16 @@
 #include "dc_brake.h"
 #include "pcpwm.h"
 #include "qei.h"
+#include "ring_buffer.h"
+
+ringBuffer in, out;
 
 void interrupt low_priority LowIsr(void)
 {
     if (PIR1bits.RCIF && PIE1bits.RCIE)                                         // UART Receive interrupt
     {
-        int a = RCREG;
+        unsigned char a = RCREG;
+        BufferWrite(a, &in);
         
         if (InputC1())
             UARTSendByte(Y);
