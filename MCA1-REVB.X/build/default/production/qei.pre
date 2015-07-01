@@ -5528,15 +5528,15 @@ extern __nonreentrant void _delay3(unsigned char);
 void InitQEI(unsigned char, unsigned char, unsigned int);
 unsigned int GetPOSCNT(void);
 
-# 4 "qei.c"
+# 10 "qei.c"
 void InitQEI(unsigned char _QEICON, unsigned char _DFLTCON, unsigned int _MAXCNT)
 {
 
-# 10
-ANSEL0 = 0b11000000;
-ANSEL1 = 0b00000000;
-
 # 16
+ANSEL0 = ANSEL0 & 0b11000000;
+ANSEL1 = ANSEL1 & 0b00000000;
+
+# 22
 TRISAbits.RA2 = 1;
 TRISAbits.RA3 = 1;
 TRISAbits.RA4 = 1;
@@ -5551,6 +5551,7 @@ POSCNTH = 0;
 POSCNTL = 0;
 }
 
+# 40
 unsigned int GetPOSCNT()
 {
 return (unsigned int)(POSCNTH << 8) & POSCNTL;

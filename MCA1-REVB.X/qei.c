@@ -13,11 +13,11 @@ void InitQEI(unsigned char _QEICON, unsigned char _DFLTCON, unsigned int _MAXCNT
      * All Analog Input pins except AN6 and AN7 should be set as
      * Digital I/O
      */
-    ANSEL0 = 0b11000000;
-    ANSEL1 = 0b00000000;
+    ANSEL0 = ANSEL0 & 0b11000000;
+    ANSEL1 = ANSEL1 & 0b00000000;
     /*
      * RA4:RA2 are digital inputs because QE signals A, B and INDX are
-     * conneced to these pins of microcontroller
+     * connected to these pins of microcontroller
      */
     TRISAbits.RA2 = 1;
     TRISAbits.RA3 = 1;

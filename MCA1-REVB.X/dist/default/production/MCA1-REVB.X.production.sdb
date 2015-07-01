@@ -59,7 +59,7 @@
 [v _SetPWM2Duty SetPWM2Duty `(v  1 e 0 0 ]
 "99
 [v _IR2110Disable IR2110Disable `(v  1 e 0 0 ]
-"4 F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\qei.c
+"10 F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\qei.c
 [v _InitQEI InitQEI `(v  1 e 0 0 ]
 "8 F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\uart.c
 [v _UARTInit UARTInit `(v  1 e 0 0 ]
@@ -555,16 +555,16 @@
 {
 "12
 } 0
-"4 F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\qei.c
+"10 F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\qei.c
 [v _InitQEI InitQEI `(v  1 e 0 0 ]
 {
 [v InitQEI@_QEICON _QEICON `uc  1 a 1 wreg ]
 [v InitQEI@_QEICON _QEICON `uc  1 a 1 wreg ]
 [v InitQEI@_DFLTCON _DFLTCON `uc  1 p 1 4 ]
 [v InitQEI@_MAXCNT _MAXCNT `ui  1 p 2 5 ]
-"10
+"16
 [v InitQEI@_QEICON _QEICON `uc  1 a 1 7 ]
-"28
+"34
 } 0
 "6 F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\pcpwm.c
 [v _InitPCPWM InitPCPWM `(v  1 e 0 0 ]

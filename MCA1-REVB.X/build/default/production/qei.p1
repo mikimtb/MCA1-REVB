@@ -4159,69 +4159,69 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 165: extern __nonreentrant void _delay3(unsigned char);
 [; ;qei.h: 39: void InitQEI(unsigned char, unsigned char, unsigned int);
 [; ;qei.h: 40: unsigned int GetPOSCNT(void);
-"4 qei.c
+"10 qei.c
 [v _InitQEI `(v ~T0 @X0 1 ef3`uc`uc`ui ]
-"5
+"11
 {
-[; ;qei.c: 4: void InitQEI(unsigned char _QEICON, unsigned char _DFLTCON, unsigned int _MAXCNT)
-[; ;qei.c: 5: {
+[; ;qei.c: 10: void InitQEI(unsigned char _QEICON, unsigned char _DFLTCON, unsigned int _MAXCNT)
+[; ;qei.c: 11: {
 [e :U _InitQEI ]
-"4
+"10
 [v __QEICON `uc ~T0 @X0 1 r1 ]
 [v __DFLTCON `uc ~T0 @X0 1 r2 ]
 [v __MAXCNT `ui ~T0 @X0 1 r3 ]
-"5
-[f ]
-[; ;qei.c: 10: ANSEL0 = 0b11000000;
-"10
-[e = _ANSEL0 -> -> 192 `i `uc ]
-[; ;qei.c: 11: ANSEL1 = 0b00000000;
 "11
-[e = _ANSEL1 -> -> 0 `i `uc ]
-[; ;qei.c: 16: TRISAbits.RA2 = 1;
+[f ]
+[; ;qei.c: 16: ANSEL0 = ANSEL0 & 0b11000000;
 "16
-[e = . . _TRISAbits 1 2 -> -> 1 `i `uc ]
-[; ;qei.c: 17: TRISAbits.RA3 = 1;
+[e = _ANSEL0 -> & -> _ANSEL0 `i -> 192 `i `uc ]
+[; ;qei.c: 17: ANSEL1 = ANSEL1 & 0b00000000;
 "17
-[e = . . _TRISAbits 1 3 -> -> 1 `i `uc ]
-[; ;qei.c: 18: TRISAbits.RA4 = 1;
-"18
-[e = . . _TRISAbits 1 4 -> -> 1 `i `uc ]
-[; ;qei.c: 20: QEICON = _QEICON;
-"20
-[e = _QEICON __QEICON ]
-[; ;qei.c: 21: DFLTCON = _DFLTCON;
-"21
-[e = _DFLTCON __DFLTCON ]
-[; ;qei.c: 22: MAXCNTL = _MAXCNT;
+[e = _ANSEL1 -> & -> _ANSEL1 `i -> 0 `i `uc ]
+[; ;qei.c: 22: TRISAbits.RA2 = 1;
 "22
-[e = _MAXCNTL -> __MAXCNT `uc ]
-[; ;qei.c: 23: MAXCNTH = _MAXCNT >> 8;
+[e = . . _TRISAbits 1 2 -> -> 1 `i `uc ]
+[; ;qei.c: 23: TRISAbits.RA3 = 1;
 "23
-[e = _MAXCNTH -> >> __MAXCNT -> 8 `i `uc ]
-[; ;qei.c: 26: POSCNTH = 0;
+[e = . . _TRISAbits 1 3 -> -> 1 `i `uc ]
+[; ;qei.c: 24: TRISAbits.RA4 = 1;
+"24
+[e = . . _TRISAbits 1 4 -> -> 1 `i `uc ]
+[; ;qei.c: 26: QEICON = _QEICON;
 "26
-[e = _POSCNTH -> -> 0 `i `uc ]
-[; ;qei.c: 27: POSCNTL = 0;
+[e = _QEICON __QEICON ]
+[; ;qei.c: 27: DFLTCON = _DFLTCON;
 "27
-[e = _POSCNTL -> -> 0 `i `uc ]
-[; ;qei.c: 28: }
+[e = _DFLTCON __DFLTCON ]
+[; ;qei.c: 28: MAXCNTL = _MAXCNT;
 "28
+[e = _MAXCNTL -> __MAXCNT `uc ]
+[; ;qei.c: 29: MAXCNTH = _MAXCNT >> 8;
+"29
+[e = _MAXCNTH -> >> __MAXCNT -> 8 `i `uc ]
+[; ;qei.c: 32: POSCNTH = 0;
+"32
+[e = _POSCNTH -> -> 0 `i `uc ]
+[; ;qei.c: 33: POSCNTL = 0;
+"33
+[e = _POSCNTL -> -> 0 `i `uc ]
+[; ;qei.c: 34: }
+"34
 [e :UE 441 ]
 }
-"30
+"40
 [v _GetPOSCNT `(ui ~T0 @X0 1 ef ]
-"31
+"41
 {
-[; ;qei.c: 30: unsigned int GetPOSCNT()
-[; ;qei.c: 31: {
+[; ;qei.c: 40: unsigned int GetPOSCNT()
+[; ;qei.c: 41: {
 [e :U _GetPOSCNT ]
 [f ]
-[; ;qei.c: 32: return (unsigned int)(POSCNTH << 8) & POSCNTL;
-"32
+[; ;qei.c: 42: return (unsigned int)(POSCNTH << 8) & POSCNTL;
+"42
 [e ) & -> << -> _POSCNTH `i -> 8 `i `ui -> _POSCNTL `ui ]
 [e $UE 442  ]
-[; ;qei.c: 33: }
-"33
+[; ;qei.c: 43: }
+"43
 [e :UE 442 ]
 }

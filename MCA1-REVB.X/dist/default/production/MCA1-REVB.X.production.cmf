@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\Miroslav\AppData\Local\Temp\s8c4.obj
+$C:\Users\Miroslav\AppData\Local\Temp\s2mk.obj
 idloc IDLOC 0 200000 200000 8 1
 reset_vec CODE 0 0 0 4 1
 end_init CODE 0 62 62 4 1
@@ -239,19 +239,19 @@ FC text8 CODE >71:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\ftto
 48E text7 CODE >28:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwtoft.c
 48E text7 CODE >30:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwtoft.c
 4B0 text7 CODE >31:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwtoft.c
-4B2 text13 CODE >4:F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\qei.c
-4B4 text13 CODE >10:F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\qei.c
-4B8 text13 CODE >11:F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\qei.c
-4BA text13 CODE >16:F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\qei.c
-4BC text13 CODE >17:F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\qei.c
-4BE text13 CODE >18:F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\qei.c
-4C0 text13 CODE >20:F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\qei.c
-4C4 text13 CODE >21:F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\qei.c
-4C8 text13 CODE >22:F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\qei.c
-4CC text13 CODE >23:F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\qei.c
-4D0 text13 CODE >26:F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\qei.c
-4D2 text13 CODE >27:F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\qei.c
-4D4 text13 CODE >28:F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\qei.c
+4B2 text13 CODE >10:F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\qei.c
+4B4 text13 CODE >16:F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\qei.c
+4B8 text13 CODE >17:F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\qei.c
+4BA text13 CODE >22:F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\qei.c
+4BC text13 CODE >23:F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\qei.c
+4BE text13 CODE >24:F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\qei.c
+4C0 text13 CODE >26:F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\qei.c
+4C4 text13 CODE >27:F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\qei.c
+4C8 text13 CODE >28:F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\qei.c
+4CC text13 CODE >29:F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\qei.c
+4D0 text13 CODE >32:F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\qei.c
+4D2 text13 CODE >33:F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\qei.c
+4D4 text13 CODE >34:F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\qei.c
 4D6 text19 CODE >56:F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\uart.c
 4D8 text19 CODE >58:F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\uart.c
 4DC text19 CODE >59:F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\uart.c
@@ -272,14 +272,14 @@ FC text8 CODE >71:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\ftto
 50C text21 CODE >18:F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\input.c
 50C text21 CODE >20:F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\input.c
 51A text21 CODE >21:F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\input.c
-51C cinit CODE >2511:C:\Users\Miroslav\AppData\Local\Temp\s8c4.
-51C cinit CODE >2513:C:\Users\Miroslav\AppData\Local\Temp\s8c4.
-51C cinit CODE >2516:C:\Users\Miroslav\AppData\Local\Temp\s8c4.
-51C cinit CODE >2522:C:\Users\Miroslav\AppData\Local\Temp\s8c4.
-51C cinit CODE >2524:C:\Users\Miroslav\AppData\Local\Temp\s8c4.
-51E cinit CODE >2525:C:\Users\Miroslav\AppData\Local\Temp\s8c4.
-520 cinit CODE >2526:C:\Users\Miroslav\AppData\Local\Temp\s8c4.
-522 cinit CODE >2527:C:\Users\Miroslav\AppData\Local\Temp\s8c4.
+51C cinit CODE >2511:C:\Users\Miroslav\AppData\Local\Temp\s2mk.
+51C cinit CODE >2513:C:\Users\Miroslav\AppData\Local\Temp\s2mk.
+51C cinit CODE >2516:C:\Users\Miroslav\AppData\Local\Temp\s2mk.
+51C cinit CODE >2522:C:\Users\Miroslav\AppData\Local\Temp\s2mk.
+51C cinit CODE >2524:C:\Users\Miroslav\AppData\Local\Temp\s2mk.
+51E cinit CODE >2525:C:\Users\Miroslav\AppData\Local\Temp\s2mk.
+520 cinit CODE >2526:C:\Users\Miroslav\AppData\Local\Temp\s2mk.
+522 cinit CODE >2527:C:\Users\Miroslav\AppData\Local\Temp\s2mk.
 526 text4 CODE >82:F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\pcpwm.c
 526 text4 CODE >84:F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\pcpwm.c
 52A text4 CODE >85:F:\Dropbox (Personal)\Doktorat\GitRepository\MCA1-REVB-Firmware\MCA1-REVB.X\pcpwm.c
@@ -324,17 +324,17 @@ ___ftdiv@exp 1D 0 COMRAM 1 cstackCOMRAM dist/default/production\MCA1-REVB.X.prod
 _PWMCON0 F6F 0 ABS 0 - dist/default/production\MCA1-REVB.X.production.obj
 _PWMCON1 F6E 0 ABS 0 - dist/default/production\MCA1-REVB.X.production.obj
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production\MCA1-REVB.X.production.obj
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\Miroslav\AppData\Local\Temp\s8c4.obj
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\Miroslav\AppData\Local\Temp\s2mk.obj
 __Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\MCA1-REVB.X.production.obj
 __end_of_InitPCPWM 468 0 CODE 0 text14 dist/default/production\MCA1-REVB.X.production.obj
 __CFG_MCLRE$ON 0 0 ABS 0 - dist/default/production\MCA1-REVB.X.production.obj
 __size_of_InitPCPWM 0 0 ABS 0 - dist/default/production\MCA1-REVB.X.production.obj
 __end_of_LowIsr 62 0 CODE 0 intcodelo dist/default/production\MCA1-REVB.X.production.obj
 __Lsmallconst 0 0 SMALLCONST 0 smallconst dist/default/production\MCA1-REVB.X.production.obj
-___sp 0 0 STACK 2 stack C:\Users\Miroslav\AppData\Local\Temp\s8c4.obj
+___sp 0 0 STACK 2 stack C:\Users\Miroslav\AppData\Local\Temp\s2mk.obj
 __size_of_DCBrake_Release 0 0 ABS 0 - dist/default/production\MCA1-REVB.X.production.obj
 _main 382 0 CODE 0 text0 dist/default/production\MCA1-REVB.X.production.obj
-start 62 0 CODE 0 init C:\Users\Miroslav\AppData\Local\Temp\s8c4.obj
+start 62 0 CODE 0 init C:\Users\Miroslav\AppData\Local\Temp\s2mk.obj
 __size_of___ftdiv 0 0 ABS 0 - dist/default/production\MCA1-REVB.X.production.obj
 __size_of___fttol 0 0 ABS 0 - dist/default/production\MCA1-REVB.X.production.obj
 __CFG_BOREN$OFF 0 0 ABS 0 - dist/default/production\MCA1-REVB.X.production.obj
@@ -348,11 +348,11 @@ _InitPCPWM 438 0 CODE 0 text14 dist/default/production\MCA1-REVB.X.production.ob
 __size_of_SetDCBrakeNominalVoltage 0 0 ABS 0 - dist/default/production\MCA1-REVB.X.production.obj
 UARTInit@divisor D 0 COMRAM 1 cstackCOMRAM dist/default/production\MCA1-REVB.X.production.obj
 __Hpowerup 62 0 CODE 0 powerup dist/default/production\MCA1-REVB.X.production.obj
-__accesstop 60 0 ABS 0 - C:\Users\Miroslav\AppData\Local\Temp\s8c4.obj
-intlevel0 0 0 CODE 0 text C:\Users\Miroslav\AppData\Local\Temp\s8c4.obj
-intlevel1 0 0 CODE 0 text C:\Users\Miroslav\AppData\Local\Temp\s8c4.obj
-intlevel2 0 0 CODE 0 text C:\Users\Miroslav\AppData\Local\Temp\s8c4.obj
-intlevel3 0 0 CODE 0 text C:\Users\Miroslav\AppData\Local\Temp\s8c4.obj
+__accesstop 60 0 ABS 0 - C:\Users\Miroslav\AppData\Local\Temp\s2mk.obj
+intlevel0 0 0 CODE 0 text C:\Users\Miroslav\AppData\Local\Temp\s2mk.obj
+intlevel1 0 0 CODE 0 text C:\Users\Miroslav\AppData\Local\Temp\s2mk.obj
+intlevel2 0 0 CODE 0 text C:\Users\Miroslav\AppData\Local\Temp\s2mk.obj
+intlevel3 0 0 CODE 0 text C:\Users\Miroslav\AppData\Local\Temp\s2mk.obj
 InitQEI@_DFLTCON 5 0 COMRAM 1 cstackCOMRAM dist/default/production\MCA1-REVB.X.production.obj
 __end_of_UARTAddressDetection_OFF 544 0 CODE 0 text3 dist/default/production\MCA1-REVB.X.production.obj
 _InitQEI 4B2 0 CODE 0 text13 dist/default/production\MCA1-REVB.X.production.obj
@@ -371,8 +371,8 @@ __size_of_InputInit 0 0 ABS 0 - dist/default/production\MCA1-REVB.X.production.o
 _ANSEL0 FB8 0 ABS 0 - dist/default/production\MCA1-REVB.X.production.obj
 _ANSEL1 FB9 0 ABS 0 - dist/default/production\MCA1-REVB.X.production.obj
 _IR2110Disable 544 0 CODE 0 text15 dist/default/production\MCA1-REVB.X.production.obj
-___inthi_sp 0 0 STACK 2 stack C:\Users\Miroslav\AppData\Local\Temp\s8c4.obj
-___intlo_sp 0 0 STACK 2 stack C:\Users\Miroslav\AppData\Local\Temp\s8c4.obj
+___inthi_sp 0 0 STACK 2 stack C:\Users\Miroslav\AppData\Local\Temp\s2mk.obj
+___intlo_sp 0 0 STACK 2 stack C:\Users\Miroslav\AppData\Local\Temp\s2mk.obj
 InitQEI@_MAXCNT 6 0 COMRAM 1 cstackCOMRAM dist/default/production\MCA1-REVB.X.production.obj
 _PTCON1bits F7E 0 ABS 0 - dist/default/production\MCA1-REVB.X.production.obj
 _CCPR1L FBE 0 ABS 0 - dist/default/production\MCA1-REVB.X.production.obj
@@ -446,7 +446,7 @@ __Htext9 0 0 ABS 0 text9 dist/default/production\MCA1-REVB.X.production.obj
 __CFG_PWM4MX$RB5 0 0 ABS 0 - dist/default/production\MCA1-REVB.X.production.obj
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\MCA1-REVB.X.production.obj
 __Hbigram 0 0 ABS 0 bigram dist/default/production\MCA1-REVB.X.production.obj
-__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\Miroslav\AppData\Local\Temp\s8c4.obj
+__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\Miroslav\AppData\Local\Temp\s2mk.obj
 __end_of_HighIsr 54E 0 CODE 0 intcode_body dist/default/production\MCA1-REVB.X.production.obj
 __Hcomram 0 0 ABS 0 comram dist/default/production\MCA1-REVB.X.production.obj
 __Hconfig 30000E 0 CONFIG 0 config dist/default/production\MCA1-REVB.X.production.obj
@@ -561,8 +561,8 @@ __Lfarbss 0 0 FARRAM 0 farbss dist/default/production\MCA1-REVB.X.production.obj
 __Lfardata 0 0 FARRAM 0 fardata dist/default/production\MCA1-REVB.X.production.obj
 __end_of_UARTSendByte 4EA 0 CODE 0 text19 dist/default/production\MCA1-REVB.X.production.obj
 ___lwtoft@c D 0 COMRAM 1 cstackCOMRAM dist/default/production\MCA1-REVB.X.production.obj
-stackhi 2FF 0 ABS 0 - C:\Users\Miroslav\AppData\Local\Temp\s8c4.obj
-stacklo 60 0 ABS 0 - C:\Users\Miroslav\AppData\Local\Temp\s8c4.obj
+stackhi 2FF 0 ABS 0 - C:\Users\Miroslav\AppData\Local\Temp\s2mk.obj
+stacklo 60 0 ABS 0 - C:\Users\Miroslav\AppData\Local\Temp\s2mk.obj
 __Lintcode 8 0 CODE 0 intcode dist/default/production\MCA1-REVB.X.production.obj
 __Lintret 0 0 ABS 0 intret dist/default/production\MCA1-REVB.X.production.obj
 __Lirdata 0 0 CODE 0 irdata dist/default/production\MCA1-REVB.X.production.obj
@@ -617,7 +617,7 @@ __Ltext17 0 0 ABS 0 text17 dist/default/production\MCA1-REVB.X.production.obj
 __Ltext19 0 0 ABS 0 text19 dist/default/production\MCA1-REVB.X.production.obj
 __Ltext20 0 0 ABS 0 text20 dist/default/production\MCA1-REVB.X.production.obj
 __Ltext21 0 0 ABS 0 text21 dist/default/production\MCA1-REVB.X.production.obj
-__ramtop 300 0 RAM 0 ramtop C:\Users\Miroslav\AppData\Local\Temp\s8c4.obj
+__ramtop 300 0 RAM 0 ramtop C:\Users\Miroslav\AppData\Local\Temp\s2mk.obj
 _HighIsr 8 0 CODE 0 intcode dist/default/production\MCA1-REVB.X.production.obj
 __CFG_PWMPIN$OFF 0 0 ABS 0 - dist/default/production\MCA1-REVB.X.production.obj
 __Lpowerup 62 0 CODE 0 powerup dist/default/production\MCA1-REVB.X.production.obj

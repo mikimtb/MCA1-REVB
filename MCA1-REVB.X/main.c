@@ -98,7 +98,7 @@ int main()
     CCP1PWMInit();
     
     SetDCBrakeNominalVoltage(24, 26);
-    DCBrake_Release();
+    DCBrake_Catch();
     
     InitPCPWM();
     SetPWM1Duty(1023);
