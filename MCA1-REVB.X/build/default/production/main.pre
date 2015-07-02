@@ -5573,15 +5573,15 @@ void UARTAddressDetection_OFF(void);
 
 # 1 "input.h"
 void InputInit(void);
-bit InputC1(void);
-bit InputC2(void);
+bit ReadInput_C1(void);
+bit ReadInput_C2(void);
 
 # 1 "dc_brake.h"
-void CCP1PWMInit(void);
-void SetCCP1PWMDuty(unsigned int);
+void DCBrake_PWMInit(void);
+void SetDCBrake_PWMDuty(unsigned int);
 void DCBrake_Release(void);
 void DCBrake_Catch(void);
-int SetDCBrakeNominalVoltage(unsigned short, unsigned short);
+int SetDCBrake_NominalVoltage(unsigned short, unsigned short);
 
 # 5 "pcpwm.h"
 void InitPCPWM(void);
@@ -5604,28 +5604,41 @@ volatile unsigned int tail;
 
 
 
-void BufferWrite(unsigned char, ringBuffer*);
-char BufferRead(ringBuffer*);
+void Buffer_Write(unsigned char, ringBuffer*);
+char Buffer_Read(ringBuffer*);
+unsigned char Buffer_GetCRC8(ringBuffer*);
+
+# 1 "uart.h"
+void UARTInit(unsigned long);
+void UARTSendByte(unsigned char);
+void UARTSendBytes(unsigned char*, int);
+void UARTAddressDetection_ON(void);
+void UARTAddressDetection_OFF(void);
+
+# 5 "comm_protocol.h"
+typedef struct package
+{
+unsigned char ADR;
+unsigned char NUM_OF_BYTES;
+ringBuffer DATA;
+unsigned char CRC8;
+} comm_package;
+
+void Package_Send(comm_package*);
+void Package_AddData(comm_package*, unsigned char);
 
 # 55 "main.c"
-ringBuffer in, out;
+const char fVersion[] = "v1.0";
+comm_package in = {120, 0, {{0}, 0, 0}, 0};
+comm_package out = {130, 0, {{0}, 0, 0}, 0};
+
 
 void interrupt low_priority LowIsr(void)
 {
 if (PIR1bits.RCIF && PIE1bits.RCIE)
 {
 unsigned char a = RCREG;
-BufferWrite(a, &in);
 
-if (InputC1())
-UARTSendByte(89);
-else
-UARTSendByte(78);
-
-if (InputC2())
-UARTSendByte(89);
-else
-UARTSendByte(78);
 }
 }
 
@@ -5634,7 +5647,7 @@ void interrupt HighIsr(void)
 
 }
 
-# 85
+# 78
 void delay_ms(unsigned int delay)
 {
 int i;
@@ -5644,7 +5657,7 @@ _delay((unsigned long)((1)*(40000000/4000.0)));
 
 int main()
 {
-unsigned char array[2];
+
 UARTInit(921600);
 UARTAddressDetection_OFF();
 
@@ -5652,9 +5665,9 @@ UARTAddressDetection_OFF();
 InputInit();
 
 
-CCP1PWMInit();
+DCBrake_PWMInit();
 
-SetDCBrakeNominalVoltage(24, 26);
+SetDCBrake_NominalVoltage(24, 26);
 DCBrake_Catch();
 
 InitPCPWM();
@@ -5664,7 +5677,19 @@ IR2110Disable();
 
 InitQEI(0b00000000 | 0b00011000 | 0b00000000, 0b00000000, 255);
 
-DCBrake_Release();
+Package_AddData(&in, fVersion[0]);
+Package_AddData(&in, fVersion[1]);
+Package_AddData(&in, fVersion[2]);
+Package_AddData(&in, fVersion[3]);
+
+Package_Send(&in);
+
+delay_ms(100);
+
+Package_AddData(&out, fVersion[0]);
+Package_AddData(&out, fVersion[1]);
+
+Package_Send(&out);
 
 RCONbits.IPEN = 1;
 INTCONbits.GIEH = 1;

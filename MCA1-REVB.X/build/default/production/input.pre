@@ -5526,8 +5526,8 @@ extern __nonreentrant void _delay3(unsigned char);
 
 # 1 "input.h"
 void InputInit(void);
-bit InputC1(void);
-bit InputC2(void);
+bit ReadInput_C1(void);
+bit ReadInput_C2(void);
 
 # 7 "input.c"
 void InputInit()
@@ -5538,13 +5538,13 @@ TRISDbits.RD6 = 1;
 }
 
 # 18
-bit InputC1()
+bit ReadInput_C1()
 {
 return PORTDbits.RD5;
 }
 
 # 27
-bit InputC2()
+bit ReadInput_C2()
 {
 return PORTDbits.RD6;
 }

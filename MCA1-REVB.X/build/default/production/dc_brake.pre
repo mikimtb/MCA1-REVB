@@ -5525,14 +5525,14 @@ extern __nonreentrant void _delaywdt(unsigned long);
 extern __nonreentrant void _delay3(unsigned char);
 
 # 1 "dc_brake.h"
-void CCP1PWMInit(void);
-void SetCCP1PWMDuty(unsigned int);
+void DCBrake_PWMInit(void);
+void SetDCBrake_PWMDuty(unsigned int);
 void DCBrake_Release(void);
 void DCBrake_Catch(void);
-int SetDCBrakeNominalVoltage(unsigned short, unsigned short);
+int SetDCBrake_NominalVoltage(unsigned short, unsigned short);
 
 # 8 "dc_brake.c"
-void CCP1PWMInit()
+void DCBrake_PWMInit()
 {
 TRISCbits.RC2 = 1;
 PR2 = 127;
@@ -5543,7 +5543,7 @@ T2CON = 0b00000101;
 }
 
 # 22
-void SetCCP1PWMDuty(unsigned int duty)
+void SetDCBrake_PWMDuty(unsigned int duty)
 {
 CCP1CONbits.DC1B0 = duty & 1;
 CCP1CONbits.DC1B1 = (duty >> 1) & 1;
@@ -5563,13 +5563,13 @@ TRISCbits.RC2 = 1;
 }
 
 # 51
-int SetDCBrakeNominalVoltage(unsigned short DCBrakeNominalVoltage, unsigned short HVSupplyVoltage)
+int SetDCBrake_NominalVoltage(unsigned short DCBrakeNominalVoltage, unsigned short HVSupplyVoltage)
 {
 if (DCBrakeNominalVoltage >= HVSupplyVoltage)
 return 1;
 
 float sPWMQuantum = HVSupplyVoltage / 512.0;
-SetCCP1PWMDuty(DCBrakeNominalVoltage / sPWMQuantum);
+SetDCBrake_PWMDuty(DCBrakeNominalVoltage / sPWMQuantum);
 
 return 0;
 }

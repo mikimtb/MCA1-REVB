@@ -10,6 +10,7 @@ typedef struct circular_buffer
 
 
 
-void BufferWrite(unsigned char, ringBuffer*);
-char BufferRead(ringBuffer*);
+void Buffer_Write(unsigned char, ringBuffer*);
+char Buffer_Read(ringBuffer*);
+unsigned char Buffer_GetCRC8(ringBuffer*);
 

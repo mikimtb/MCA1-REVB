@@ -5,7 +5,7 @@
  * Initialize CCP1 as PWM
  * fc = 19.5KHz
  */
-void CCP1PWMInit()
+void DCBrake_PWMInit()
 {
     TRISCbits.RC2 = 1;                                                          // Turn OFF PWM by making RC2 as input pin
     PR2 = 127;                                                                  // Set PWM period register
@@ -19,7 +19,7 @@ void CCP1PWMInit()
  * Set PWM Duty cycle
  * @param duty(unsigned int16) - use values from 0 to 511
  */
-void SetCCP1PWMDuty(unsigned int duty)
+void SetDCBrake_PWMDuty(unsigned int duty)
 {
     CCP1CONbits.DC1B0 = duty & 1;                                               //set low bit 
     CCP1CONbits.DC1B1 = (duty >> 1) & 1;                                        //set second lowest 
@@ -48,13 +48,13 @@ void DCBrake_Catch()
  * must be lower than Driver HV(High Voltage) Supply Input Voltage [V]
  * @param HVSupplyVoltage(unsigned int8) - Driver HV(High Voltage) Supply Input [V]
  */
-int SetDCBrakeNominalVoltage(unsigned short DCBrakeNominalVoltage, unsigned short HVSupplyVoltage)
+int SetDCBrake_NominalVoltage(unsigned short DCBrakeNominalVoltage, unsigned short HVSupplyVoltage)
 {
     if (DCBrakeNominalVoltage >= HVSupplyVoltage)                               // If DC Brake Nominal Voltage is greater than HVSupplyVoltage
         return 1;                                                               // Return 1 to trigger Under Voltage error
     
     float sPWMQuantum = HVSupplyVoltage / 512.0;
-    SetCCP1PWMDuty(DCBrakeNominalVoltage / sPWMQuantum);
+    SetDCBrake_PWMDuty(DCBrakeNominalVoltage / sPWMQuantum);
     
     return 0;
 }

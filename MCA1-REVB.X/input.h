@@ -1,5 +1,5 @@
 void InputInit(void);
-bit InputC1(void);
-bit InputC2(void);
+bit ReadInput_C1(void);
+bit ReadInput_C2(void);
 
 

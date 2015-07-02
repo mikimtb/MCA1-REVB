@@ -50,26 +50,19 @@
 #include "dc_brake.h"
 #include "pcpwm.h"
 #include "qei.h"
-#include "ring_buffer.h"
+#include "comm_protocol.h"
 
-ringBuffer in, out;
+const char fVersion[] = "v1.0";
+comm_package in = {120, 0, {{0}, 0, 0}, 0};
+comm_package out = {130, 0, {{0}, 0, 0}, 0};
+
 
 void interrupt low_priority LowIsr(void)
 {
     if (PIR1bits.RCIF && PIE1bits.RCIE)                                         // UART Receive interrupt
     {
         unsigned char a = RCREG;
-        BufferWrite(a, &in);
-        
-        if (InputC1())
-            UARTSendByte(Y);
-        else
-            UARTSendByte(N);
-        
-        if (InputC2())
-            UARTSendByte(Y);
-        else
-            UARTSendByte(N);
+        //BufferWrite(a, &in);
     }
 }
 
@@ -84,14 +77,14 @@ void interrupt HighIsr(void)
  */
 void delay_ms(unsigned int delay)
 {
-    int i;
+    int i; 
     for (i = 0; i < delay; i++)
         __delay_ms(1);
 }
 
 int main() 
 {
-    unsigned char array[2];
+    //unsigned char array[2];
     UARTInit(921600);
     UARTAddressDetection_OFF();
     
@@ -99,9 +92,9 @@ int main()
     InputInit();
     
     //Initialize DC Brake PWM generator
-    CCP1PWMInit();
+    DCBrake_PWMInit();
     
-    SetDCBrakeNominalVoltage(24, 26);
+    SetDCBrake_NominalVoltage(24, 26);
     DCBrake_Catch();
     
     InitPCPWM();
@@ -111,7 +104,19 @@ int main()
     
     InitQEI(VELOCITY_MODE_DISABLE | QEI_4X_RESET_ON_MAXCNT | VELOCITY_POSTCALER_1, T5CKI_FILTER_DISABLE, 255);
     
-    DCBrake_Release();
+    Package_AddData(&in, fVersion[0]);
+    Package_AddData(&in, fVersion[1]);
+    Package_AddData(&in, fVersion[2]);
+    Package_AddData(&in, fVersion[3]);
+    
+    Package_Send(&in);
+    
+    delay_ms(100);
+    
+    Package_AddData(&out, fVersion[0]);
+    Package_AddData(&out, fVersion[1]);
+    
+    Package_Send(&out);
     
     RCONbits.IPEN = 1;                                                          // Interrupts priority enabled
     INTCONbits.GIEH = 1;                                                        // Enable All High Priority Interrupts

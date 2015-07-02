@@ -5534,11 +5534,12 @@ volatile unsigned int tail;
 
 
 
-void BufferWrite(unsigned char, ringBuffer*);
-char BufferRead(ringBuffer*);
+void Buffer_Write(unsigned char, ringBuffer*);
+char Buffer_Read(ringBuffer*);
+unsigned char Buffer_GetCRC8(ringBuffer*);
 
 # 4 "ring_buffer.c"
-void BufferWrite(unsigned char data, ringBuffer* buff)
+void Buffer_Write(unsigned char data, ringBuffer* buff)
 {
 unsigned int next = (unsigned int)(buff->head + 1) % 32;
 if (next != buff->tail)
@@ -5548,7 +5549,7 @@ buff->head = next;
 }
 }
 
-char BufferRead(ringBuffer* buff)
+char Buffer_Read(ringBuffer* buff)
 {
 if (buff->head == buff->tail)
 return -1;
@@ -5559,3 +5560,15 @@ buff->tail = (unsigned int)(buff->tail + 1) % 32;
 return data;
 }
 }
+
+unsigned char Buffer_GetCRC8(ringBuffer* buff)
+{
+unsigned char i;
+unsigned char CRC = 0;
+for (i=buff->tail; i<buff->head; i++)
+{
+CRC = CRC ^ buff->buffer[i];
+}
+return CRC;
+}
+

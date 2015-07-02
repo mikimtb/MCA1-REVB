@@ -15,7 +15,7 @@ void InputInit()
  * Read Digital Input C1
  * @return - TRUE if input is held to low, FALSE if input is held to high 
  */
-bit InputC1()
+bit ReadInput_C1()
 {
     return PORTDbits.RD5;
 }
@@ -24,7 +24,7 @@ bit InputC1()
  * Read Digital Input C2
  * @return - TRUE if input is held to low, FALSE if input is held to high 
  */
-bit InputC2()
+bit ReadInput_C2()
 {
     return PORTDbits.RD6;
 }

@@ -4139,15 +4139,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;ring_buffer.h: 7: volatile unsigned int head;
 [; ;ring_buffer.h: 8: volatile unsigned int tail;
 [; ;ring_buffer.h: 9: } ringBuffer;
-[; ;ring_buffer.h: 13: void BufferWrite(unsigned char, ringBuffer*);
-[; ;ring_buffer.h: 14: char BufferRead(ringBuffer*);
+[; ;ring_buffer.h: 13: void Buffer_Write(unsigned char, ringBuffer*);
+[; ;ring_buffer.h: 14: char Buffer_Read(ringBuffer*);
+[; ;ring_buffer.h: 15: unsigned char Buffer_GetCRC8(ringBuffer*);
 "4 ring_buffer.c
-[v _BufferWrite `(v ~T0 @X0 1 ef2`uc`*S441 ]
+[v _Buffer_Write `(v ~T0 @X0 1 ef2`uc`*S441 ]
 "5
 {
-[; ;ring_buffer.c: 4: void BufferWrite(unsigned char data, ringBuffer* buff)
+[; ;ring_buffer.c: 4: void Buffer_Write(unsigned char data, ringBuffer* buff)
 [; ;ring_buffer.c: 5: {
-[e :U _BufferWrite ]
+[e :U _Buffer_Write ]
 "4
 [v _data `uc ~T0 @X0 1 r1 ]
 [v _buff `*S441 ~T0 @X0 1 r2 ]
@@ -4178,12 +4179,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 442 ]
 }
 "14
-[v _BufferRead `(uc ~T0 @X0 1 ef1`*S441 ]
+[v _Buffer_Read `(uc ~T0 @X0 1 ef1`*S441 ]
 "15
 {
-[; ;ring_buffer.c: 14: char BufferRead(ringBuffer* buff)
+[; ;ring_buffer.c: 14: char Buffer_Read(ringBuffer* buff)
 [; ;ring_buffer.c: 15: {
-[e :U _BufferRead ]
+[e :U _Buffer_Read ]
 "14
 [v _buff `*S441 ~T0 @X0 1 r1 ]
 "15
@@ -4220,4 +4221,52 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;ring_buffer.c: 24: }
 "24
 [e :UE 444 ]
+}
+"26
+[v _Buffer_GetCRC8 `(uc ~T0 @X0 1 ef1`*S441 ]
+"27
+{
+[; ;ring_buffer.c: 26: unsigned char Buffer_GetCRC8(ringBuffer* buff)
+[; ;ring_buffer.c: 27: {
+[e :U _Buffer_GetCRC8 ]
+"26
+[v _buff `*S441 ~T0 @X0 1 r1 ]
+"27
+[f ]
+"28
+[v _i `uc ~T0 @X0 1 a ]
+"29
+[v _CRC `uc ~T0 @X0 1 a ]
+[; ;ring_buffer.c: 28: unsigned char i;
+[; ;ring_buffer.c: 29: unsigned char CRC = 0;
+[e = _CRC -> -> 0 `i `uc ]
+[; ;ring_buffer.c: 30: for (i=buff->tail; i<buff->head; i++)
+"30
+{
+[e = _i -> . *U _buff 2 `uc ]
+[e $U 451  ]
+"31
+[e :U 448 ]
+[; ;ring_buffer.c: 31: {
+{
+[; ;ring_buffer.c: 32: CRC = CRC ^ buff->buffer[i];
+"32
+[e = _CRC -> ^ -> _CRC `i -> *U + &U . *U _buff 0 * -> _i `ux -> -> # *U &U . *U _buff 0 `ui `ux `i `uc ]
+"33
+}
+"30
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 451 ]
+[e $ < -> _i `ui . *U _buff 1 448  ]
+[e :U 449 ]
+"33
+}
+[; ;ring_buffer.c: 33: }
+[; ;ring_buffer.c: 34: return CRC;
+"34
+[e ) _CRC ]
+[e $UE 447  ]
+[; ;ring_buffer.c: 35: }
+"35
+[e :UE 447 ]
 }

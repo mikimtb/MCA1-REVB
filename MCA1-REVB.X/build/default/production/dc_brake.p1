@@ -4163,18 +4163,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 161: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 163: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 165: extern __nonreentrant void _delay3(unsigned char);
-[; ;dc_brake.h: 1: void CCP1PWMInit(void);
-[; ;dc_brake.h: 2: void SetCCP1PWMDuty(unsigned int);
+[; ;dc_brake.h: 1: void DCBrake_PWMInit(void);
+[; ;dc_brake.h: 2: void SetDCBrake_PWMDuty(unsigned int);
 [; ;dc_brake.h: 3: void DCBrake_Release(void);
 [; ;dc_brake.h: 4: void DCBrake_Catch(void);
-[; ;dc_brake.h: 5: int SetDCBrakeNominalVoltage(unsigned short, unsigned short);
+[; ;dc_brake.h: 5: int SetDCBrake_NominalVoltage(unsigned short, unsigned short);
 "8 dc_brake.c
-[v _CCP1PWMInit `(v ~T0 @X0 1 ef ]
+[v _DCBrake_PWMInit `(v ~T0 @X0 1 ef ]
 "9
 {
-[; ;dc_brake.c: 8: void CCP1PWMInit()
+[; ;dc_brake.c: 8: void DCBrake_PWMInit()
 [; ;dc_brake.c: 9: {
-[e :U _CCP1PWMInit ]
+[e :U _DCBrake_PWMInit ]
 [f ]
 [; ;dc_brake.c: 10: TRISCbits.RC2 = 1;
 "10
@@ -4196,12 +4196,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 441 ]
 }
 "22
-[v _SetCCP1PWMDuty `(v ~T0 @X0 1 ef1`ui ]
+[v _SetDCBrake_PWMDuty `(v ~T0 @X0 1 ef1`ui ]
 "23
 {
-[; ;dc_brake.c: 22: void SetCCP1PWMDuty(unsigned int duty)
+[; ;dc_brake.c: 22: void SetDCBrake_PWMDuty(unsigned int duty)
 [; ;dc_brake.c: 23: {
-[e :U _SetCCP1PWMDuty ]
+[e :U _SetDCBrake_PWMDuty ]
 "22
 [v _duty `ui ~T0 @X0 1 r1 ]
 "23
@@ -4250,12 +4250,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 444 ]
 }
 "51
-[v _SetDCBrakeNominalVoltage `(i ~T0 @X0 1 ef2`us`us ]
+[v _SetDCBrake_NominalVoltage `(i ~T0 @X0 1 ef2`us`us ]
 "52
 {
-[; ;dc_brake.c: 51: int SetDCBrakeNominalVoltage(unsigned short DCBrakeNominalVoltage, unsigned short HVSupplyVoltage)
+[; ;dc_brake.c: 51: int SetDCBrake_NominalVoltage(unsigned short DCBrakeNominalVoltage, unsigned short HVSupplyVoltage)
 [; ;dc_brake.c: 52: {
-[e :U _SetDCBrakeNominalVoltage ]
+[e :U _SetDCBrake_NominalVoltage ]
 "51
 [v _DCBrakeNominalVoltage `us ~T0 @X0 1 r1 ]
 [v _HVSupplyVoltage `us ~T0 @X0 1 r2 ]
@@ -4273,9 +4273,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _sPWMQuantum `f ~T0 @X0 1 a ]
 [; ;dc_brake.c: 56: float sPWMQuantum = HVSupplyVoltage / 512.0;
 [e = _sPWMQuantum -> / -> _HVSupplyVoltage `d .512.0 `f ]
-[; ;dc_brake.c: 57: SetCCP1PWMDuty(DCBrakeNominalVoltage / sPWMQuantum);
+[; ;dc_brake.c: 57: SetDCBrake_PWMDuty(DCBrakeNominalVoltage / sPWMQuantum);
 "57
-[e ( _SetCCP1PWMDuty (1 -> / -> _DCBrakeNominalVoltage `f _sPWMQuantum `ui ]
+[e ( _SetDCBrake_PWMDuty (1 -> / -> _DCBrakeNominalVoltage `f _sPWMQuantum `ui ]
 [; ;dc_brake.c: 59: return 0;
 "59
 [e ) -> 0 `i ]

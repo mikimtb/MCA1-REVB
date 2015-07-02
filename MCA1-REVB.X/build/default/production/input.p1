@@ -4153,8 +4153,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 163: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 165: extern __nonreentrant void _delay3(unsigned char);
 [; ;input.h: 1: void InputInit(void);
-[; ;input.h: 2: bit InputC1(void);
-[; ;input.h: 3: bit InputC2(void);
+[; ;input.h: 2: bit ReadInput_C1(void);
+[; ;input.h: 3: bit ReadInput_C2(void);
 "7 input.c
 [v _InputInit `(v ~T0 @X0 1 ef ]
 "8
@@ -4174,12 +4174,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 441 ]
 }
 "18
-[v _InputC1 `(b ~T0 @X0 1 ef ]
+[v _ReadInput_C1 `(b ~T0 @X0 1 ef ]
 "19
 {
-[; ;input.c: 18: bit InputC1()
+[; ;input.c: 18: bit ReadInput_C1()
 [; ;input.c: 19: {
-[e :U _InputC1 ]
+[e :U _ReadInput_C1 ]
 [f ]
 [; ;input.c: 20: return PORTDbits.RD5;
 "20
@@ -4190,12 +4190,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 442 ]
 }
 "27
-[v _InputC2 `(b ~T0 @X0 1 ef ]
+[v _ReadInput_C2 `(b ~T0 @X0 1 ef ]
 "28
 {
-[; ;input.c: 27: bit InputC2()
+[; ;input.c: 27: bit ReadInput_C2()
 [; ;input.c: 28: {
-[e :U _InputC2 ]
+[e :U _ReadInput_C2 ]
 [f ]
 [; ;input.c: 29: return PORTDbits.RD6;
 "29

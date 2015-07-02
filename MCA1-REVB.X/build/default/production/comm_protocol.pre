@@ -1,5 +1,5 @@
 
-# 1 "main.c"
+# 1 "comm_protocol.c"
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -5524,125 +5524,56 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
+# 4 "ring_buffer.h"
+typedef struct circular_buffer
+{
+unsigned char buffer[32];
+volatile unsigned int head;
+volatile unsigned int tail;
+} ringBuffer;
 
-# 9 "main.c"
-#pragma config OSC = HSPLL
-#pragma config FCMEN = ON
-#pragma config IESO = ON
-#pragma config PWRTEN = ON
-#pragma config BOREN = OFF
-#pragma config WDTEN = OFF
-#pragma config WDPS = 32768
-#pragma config WINEN = OFF
-#pragma config PWMPIN = OFF
-#pragma config LPOL = HIGH
-#pragma config HPOL = HIGH
-#pragma config T1OSCMX = ON
-#pragma config FLTAMX = RC1
-#pragma config SSPMX = RD1
-#pragma config PWM4MX = RB5
-#pragma config EXCLKMX = RC3
-#pragma config MCLRE = ON
-#pragma config STVREN = ON
-#pragma config LVP = OFF
-#pragma config CP0 = OFF
-#pragma config CP1 = OFF
-#pragma config CP2 = OFF
-#pragma config CP3 = OFF
-#pragma config CPB = OFF
-#pragma config CPD = OFF
-#pragma config WRT0 = OFF
-#pragma config WRT1 = OFF
-#pragma config WRT2 = OFF
-#pragma config WRT3 = OFF
-#pragma config WRTC = OFF
-#pragma config WRTB = OFF
-#pragma config WRTD = OFF
-#pragma config EBTR0 = OFF
-#pragma config EBTR1 = OFF
-#pragma config EBTR2 = OFF
-#pragma config EBTR3 = OFF
-#pragma config EBTRB = OFF
+
+
+void Buffer_Write(unsigned char, ringBuffer*);
+char Buffer_Read(ringBuffer*);
+unsigned char Buffer_GetCRC8(ringBuffer*);
 
 # 1 "uart.h"
 void UARTInit(unsigned long);
-void UartSendByte(unsigned char);
+void UARTSendByte(unsigned char);
 void UARTSendBytes(unsigned char*, int);
 void UARTAddressDetection_ON(void);
 void UARTAddressDetection_OFF(void);
 
-# 1 "input.h"
-void InputInit(void);
-bit InputC1(void);
-bit InputC2(void);
-
-# 3 "dc_brake.h"
-void CCP1PWMInit(void);
-void SetCCP1PWMDuty(unsigned int);
-void CCP1PWM_ON(void);
-void CCP1PWM_OFF(void);
-void SetDCBrakeNominalVoltage(unsigned short, unsigned short);
-
-# 52 "main.c"
-void interrupt low_priority LowIsr(void)
+# 5 "comm_protocol.h"
+typedef struct package
 {
-if (PIR1bits.RCIF && PIE1bits.RCIE)
+unsigned char ADR;
+unsigned char NUM_OF_BYTES;
+ringBuffer DATA;
+unsigned char CRC8;
+} comm_package;
+
+void Package_Send(comm_package*);
+void Package_AddData(comm_package*, unsigned char);
+
+# 4 "comm_protocol.c"
+void Package_Send(comm_package* p)
 {
-int a = RCREG;
+unsigned char i;
+p->CRC8 = Buffer_GetCRC8(&p->DATA);
 
-if (InputC1())
-UartSendByte(89);
-else
-UartSendByte(78);
-
-if (InputC2())
-UartSendByte(89);
-else
-UartSendByte(78);
+UARTSendByte(p->ADR);
+while(p->NUM_OF_BYTES != 0)
+{
+UARTSendByte(Buffer_Read(&p->DATA));
+p->NUM_OF_BYTES--;
 }
+UARTSendByte(p->CRC8);
 }
 
-void interrupt HighIsr(void)
+void Package_AddData(comm_package* p, unsigned char d)
 {
-
+Buffer_Write(d, &p->DATA);
+p->NUM_OF_BYTES++;
 }
-
-# 79
-void delay_ms(unsigned int delay)
-{
-int i;
-for (i = 0; i < delay; i++)
-_delay((unsigned long)((1)*(40000000/4000.0)));
-}
-
-int main()
-{
-unsigned char array[] = {'A','B','C'};
-UARTInit(921600);
-UARTAddressDetection_OFF();
-
-
-InputInit();
-
-
-CCP1PWMInit();
-
-SetDCBrakeNominalVoltage(1, 5);
-
-RCONbits.IPEN = 1;
-INTCONbits.GIEH = 1;
-INTCONbits.GIEL = 1;
-
-delay_ms(1);
-
-while (1)
-{
-CCP1PWM_OFF();
-delay_ms(3000);
-CCP1PWM_ON();
-delay_ms(3000);
-}
-
-return 0;
-}
-
