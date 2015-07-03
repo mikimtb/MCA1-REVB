@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC18 LITE Macro Assembler V1.34 build -361300703 
-                                                                                               Sat Jul 04 00:49:44 2015
+                                                                                               Sat Jul 04 00:52:09 2015
 
 Microchip Technology Omniscient Code Generator (Lite mode) build 201502162209
      1                           	processor	18F4431
@@ -155,53 +155,53 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 201502162209
    149  000305  00                 	db	0
    150  000306                     __end_of_fVersion:
    151                           	opt stack 0
-   152  0000                     _ANSEL0	set	4024
-   153  0000                     _ANSEL1	set	4025
-   154  0000                     _BAUDCONbits	set	4010
-   155  0000                     _BAUDCTLbits	set	4010
-   156  0000                     _CCP1CON	set	4029
-   157  0000                     _CCP1CONbits	set	4029
-   158  0000                     _CCPR1L	set	4030
-   159  0000                     _DFLTCON	set	3936
-   160  0000                     _DTCON	set	3949
-   161  0000                     _FLTCONFIG	set	3948
-   162  0000                     _INTCONbits	set	4082
-   163  0000                     _IPR1bits	set	3999
-   164  0000                     _MAXCNTH	set	3941
-   165  0000                     _MAXCNTL	set	3940
-   166  0000                     _OVDCOND	set	3947
-   167  0000                     _OVDCONS	set	3946
-   168  0000                     _PDC0H	set	3960
-   169  0000                     _PDC0L	set	3961
-   170  0000                     _PDC1H	set	3958
-   171  0000                     _PDC1L	set	3959
-   172  0000                     _PIE1bits	set	3997
-   173  0000                     _PIR1bits	set	3998
-   174  0000                     _PORTDbits	set	3971
-   175  0000                     _POSCNTH	set	3943
-   176  0000                     _POSCNTL	set	3942
-   177  0000                     _PR2	set	4043
-   178  0000                     _PTCON0	set	3967
-   179  0000                     _PTCON1bits	set	3966
-   180  0000                     _PTPERH	set	3962
-   181  0000                     _PTPERL	set	3963
-   182  0000                     _PWMCON0	set	3951
-   183  0000                     _PWMCON1	set	3950
-   184  0000                     _QEICON	set	4022
-   185  0000                     _RCONbits	set	4048
-   186  0000                     _RCREG	set	4014
-   187  0000                     _RCSTA	set	4011
-   188  0000                     _RCSTAbits	set	4011
-   189  0000                     _SPBRG	set	4015
-   190  0000                     _SPBRGH	set	4016
-   191  0000                     _T2CON	set	4042
-   192  0000                     _TRISAbits	set	3986
-   193  0000                     _TRISB	set	3987
-   194  0000                     _TRISCbits	set	3988
-   195  0000                     _TRISDbits	set	3989
-   196  0000                     _TXREG	set	4013
-   197  0000                     _TXSTA	set	4012
-   198  0000                     _TXSTAbits	set	4012
+   152  0000                     _DFLTCON	set	3936
+   153  0000                     _DTCON	set	3949
+   154  0000                     _FLTCONFIG	set	3948
+   155  0000                     _MAXCNTH	set	3941
+   156  0000                     _MAXCNTL	set	3940
+   157  0000                     _OVDCOND	set	3947
+   158  0000                     _OVDCONS	set	3946
+   159  0000                     _PDC0H	set	3960
+   160  0000                     _PDC0L	set	3961
+   161  0000                     _PDC1H	set	3958
+   162  0000                     _PDC1L	set	3959
+   163  0000                     _PORTDbits	set	3971
+   164  0000                     _POSCNTH	set	3943
+   165  0000                     _POSCNTL	set	3942
+   166  0000                     _PTCON0	set	3967
+   167  0000                     _PTCON1bits	set	3966
+   168  0000                     _PTPERH	set	3962
+   169  0000                     _PTPERL	set	3963
+   170  0000                     _PWMCON0	set	3951
+   171  0000                     _PWMCON1	set	3950
+   172  0000                     _TRISAbits	set	3986
+   173  0000                     _TRISB	set	3987
+   174  0000                     _TRISCbits	set	3988
+   175  0000                     _TRISDbits	set	3989
+   176  0000                     _ANSEL0	set	4024
+   177  0000                     _ANSEL1	set	4025
+   178  0000                     _BAUDCONbits	set	4010
+   179  0000                     _BAUDCTLbits	set	4010
+   180  0000                     _CCP1CON	set	4029
+   181  0000                     _CCP1CONbits	set	4029
+   182  0000                     _CCPR1L	set	4030
+   183  0000                     _IPR1bits	set	3999
+   184  0000                     _PIE1bits	set	3997
+   185  0000                     _PIR1bits	set	3998
+   186  0000                     _PR2	set	4043
+   187  0000                     _QEICON	set	4022
+   188  0000                     _RCONbits	set	4048
+   189  0000                     _RCREG	set	4014
+   190  0000                     _RCSTA	set	4011
+   191  0000                     _RCSTAbits	set	4011
+   192  0000                     _SPBRG	set	4015
+   193  0000                     _SPBRGH	set	4016
+   194  0000                     _T2CON	set	4042
+   195  0000                     _TXREG	set	4013
+   196  0000                     _TXSTA	set	4012
+   197  0000                     _TXSTAbits	set	4012
+   198  0000                     _INTCONbits	set	4082
    199                           
    200                           ; #config settings
    201  000306  00                 	db	0	; dummy byte at the end
@@ -4861,7 +4861,7 @@ Auto Spaces:
     COMRAM           95     28      70
     BANK0           160     72     111
     BANK1           256      0       0
-    BANK2           256      0       0
+    BANK2           239      0       0
 
 Pointer List with Targets:
 
@@ -5173,27 +5173,37 @@ Call Graph Tables:
 
  Address spaces:
 Name               Size   Autos  Total    Cost      Usage
-BIGRAM             2FF      0       0      10        0.0%
+BIGRAM             2EE      0       0      10        0.0%
 EEDATA             100      0       0       0        0.0%
-BITBANK2           100      0       0       8        0.0%
-BANK2              100      0       0       9        0.0%
 BITBANK1           100      0       0       6        0.0%
 BANK1              100      0       0       7        0.0%
-BITBANK0            A0      0       0       4        0.0%
-BANK0               A0     48      6F       5       69.4%
+BITBANK2            EF      0       0       8        0.0%
+BANK2               EF      0       0       9        0.0%
+BITBANK0            A0      0       0       3        0.0%
+BANK0               A0     48      6F       4       69.4%
 BITCOMRAM           5F      0       1       0        1.1%
 COMRAM              5F     1C      46       1       73.7%
+BITSFR_5             0      0       0      40        0.0%
+SFR_5                0      0       0      40        0.0%
+BITSFR_4             0      0       0      40        0.0%
+SFR_4                0      0       0      40        0.0%
+BITSFR_3             0      0       0      40        0.0%
+SFR_3                0      0       0      40        0.0%
+BITSFR_2             0      0       0      40        0.0%
+SFR_2                0      0       0      40        0.0%
+BITSFR_1             0      0       0      40        0.0%
+SFR_1                0      0       0      40        0.0%
 BITSFR               0      0       0      40        0.0%
 SFR                  0      0       0      40        0.0%
 STACK                0      0       0       2        0.0%
 NULL                 0      0       0       0        0.0%
-ABS                  0      0      B5       3        0.0%
+ABS                  0      0      B5       5        0.0%
 DATA                 0      0      B5      11        0.0%
 CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V1.34 build -361300703 
-Symbol Table                                                                                   Sat Jul 04 00:49:44 2015
+Symbol Table                                                                                   Sat Jul 04 00:52:09 2015
 
                               UARTInit@baudrate 0077                     ??_SetDCBrake_NominalVoltage 0044  
                                             l79 0DD6                          __end_of_Package_GetADR 0F2C  

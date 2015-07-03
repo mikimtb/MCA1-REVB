@@ -3,19 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/F:/Dropbox%20(Personal)/Doktorat/GitRepository/MCA1-REVB-Firmware/MCA1-REVB.X/qei.c</file>
-            <file>file:/F:/Dropbox%20(Personal)/Doktorat/GitRepository/MCA1-REVB-Firmware/MCA1-REVB.X/ring_buffer.c</file>
-            <file>file:/F:/Dropbox%20(Personal)/Doktorat/GitRepository/MCA1-REVB-Firmware/MCA1-REVB.X/qei.h</file>
-            <file>file:/F:/Dropbox%20(Personal)/Doktorat/GitRepository/MCA1-REVB-Firmware/MCA1-REVB.X/dc_brake.h</file>
-            <file>file:/F:/Dropbox%20(Personal)/Doktorat/GitRepository/MCA1-REVB-Firmware/MCA1-REVB.X/input.h</file>
-            <file>file:/F:/Dropbox%20(Personal)/Doktorat/GitRepository/MCA1-REVB-Firmware/MCA1-REVB.X/ring_buffer.h</file>
-            <file>file:/F:/Dropbox%20(Personal)/Doktorat/GitRepository/MCA1-REVB-Firmware/MCA1-REVB.X/dc_brake.c</file>
             <file>file:/F:/Dropbox%20(Personal)/Doktorat/GitRepository/MCA1-REVB-Firmware/MCA1-REVB.X/uart.h</file>
-            <file>file:/F:/Dropbox%20(Personal)/Doktorat/GitRepository/MCA1-REVB-Firmware/MCA1-REVB.X/pcpwm.h</file>
-            <file>file:/F:/Dropbox%20(Personal)/Doktorat/GitRepository/MCA1-REVB-Firmware/MCA1-REVB.X/input.c</file>
+            <file>file:/F:/Dropbox%20(Personal)/Doktorat/GitRepository/MCA1-REVB-Firmware/MCA1-REVB.X/ring_buffer.c</file>
+            <file>file:/F:/Dropbox%20(Personal)/Doktorat/GitRepository/MCA1-REVB-Firmware/MCA1-REVB.X/comm_protocol.c</file>
             <file>file:/F:/Dropbox%20(Personal)/Doktorat/GitRepository/MCA1-REVB-Firmware/MCA1-REVB.X/main.c</file>
+            <file>file:/F:/Dropbox%20(Personal)/Doktorat/GitRepository/MCA1-REVB-Firmware/MCA1-REVB.X/comm_protocol.h</file>
             <file>file:/F:/Dropbox%20(Personal)/Doktorat/GitRepository/MCA1-REVB-Firmware/MCA1-REVB.X/uart.c</file>
-            <file>file:/F:/Dropbox%20(Personal)/Doktorat/GitRepository/MCA1-REVB-Firmware/MCA1-REVB.X/pcpwm.c</file>
+            <file>file:/F:/Dropbox%20(Personal)/Doktorat/GitRepository/MCA1-REVB-Firmware/MCA1-REVB.X/ring_buffer.h</file>
         </group>
     </open-files>
 </project-private>

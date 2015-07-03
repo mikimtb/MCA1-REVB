@@ -1,5 +1,5 @@
 
-# 1 "main.c"
+# 1 "uart.c"
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -5524,83 +5524,6 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-
-# 9 "main.c"
-#pragma config OSC = HSPLL
-#pragma config FCMEN = ON
-#pragma config IESO = ON
-#pragma config PWRTEN = ON
-#pragma config BOREN = OFF
-#pragma config WDTEN = OFF
-#pragma config WDPS = 32768
-#pragma config WINEN = OFF
-#pragma config PWMPIN = OFF
-#pragma config LPOL = HIGH
-#pragma config HPOL = HIGH
-#pragma config T1OSCMX = ON
-#pragma config FLTAMX = RC1
-#pragma config SSPMX = RD1
-#pragma config PWM4MX = RB5
-#pragma config EXCLKMX = RC3
-#pragma config MCLRE = ON
-#pragma config STVREN = ON
-#pragma config LVP = OFF
-#pragma config CP0 = OFF
-#pragma config CP1 = OFF
-#pragma config CP2 = OFF
-#pragma config CP3 = OFF
-#pragma config CPB = OFF
-#pragma config CPD = OFF
-#pragma config WRT0 = OFF
-#pragma config WRT1 = OFF
-#pragma config WRT2 = OFF
-#pragma config WRT3 = OFF
-#pragma config WRTC = OFF
-#pragma config WRTB = OFF
-#pragma config WRTD = OFF
-#pragma config EBTR0 = OFF
-#pragma config EBTR1 = OFF
-#pragma config EBTR2 = OFF
-#pragma config EBTR3 = OFF
-#pragma config EBTRB = OFF
-
-# 1 "input.h"
-void InputInit(void);
-bit ReadInput_C1(void);
-bit ReadInput_C2(void);
-
-# 1 "dc_brake.h"
-void DCBrake_PWMInit(void);
-void SetDCBrake_PWMDuty(unsigned int);
-void DCBrake_Release(void);
-void DCBrake_Catch(void);
-int SetDCBrake_NominalVoltage(unsigned short, unsigned short);
-
-# 5 "pcpwm.h"
-void InitPCPWM(void);
-void SetPWM1Duty(unsigned int);
-void SetPWM2Duty(unsigned int);
-void IR2110Enable(void);
-void IR2110Disable(void);
-
-# 39 "qei.h"
-void InitQEI(unsigned char, unsigned char, unsigned int);
-unsigned int GetPOSCNT(void);
-
-# 4 "ring_buffer.h"
-typedef struct circular_buffer
-{
-unsigned char buffer[32];
-volatile unsigned int head;
-volatile unsigned int tail;
-} ringBuffer;
-
-
-
-void Buffer_Write(unsigned char, ringBuffer*);
-char Buffer_Read(ringBuffer*);
-unsigned char Buffer_GetCRC8(ringBuffer*);
-
 # 1 "uart.h"
 void UARTInit(unsigned long);
 void UARTSendByte(unsigned char);
@@ -5608,137 +5531,84 @@ void UARTSendBytes(unsigned char*, int);
 void UARTAddressDetection_ON(void);
 void UARTAddressDetection_OFF(void);
 
-# 5 "comm_protocol.h"
-typedef struct package
+# 8 "uart.c"
+void UARTInit(unsigned long baudrate)
 {
-unsigned char ADR;
-unsigned char NUM_OF_BYTES;
-ringBuffer DATA;
-unsigned char CRC8;
-} comm_package;
+unsigned int divisor;
 
-typedef enum
-{
-ADDRESING,
-DATA_LENGTH_RECEIVING,
-DATA_RECEIVING,
-CRC8_RECEIVING
-} state_t;
+TRISCbits.RC6 = 1;
+TRISCbits.RC7 = 1;
 
-comm_package in = {120, 0, {{0}, 0, 0}, 0};
-comm_package out = {130, 0, {{0}, 0, 0}, 0};
-state_t RCV_STATE = ADDRESING;
-unsigned char RCV_LENGTH = 0;
 
-void Package_Send(comm_package*);
-void Package_WriteDataByte(comm_package*, unsigned char);
-unsigned char Package_ReadDataByte(comm_package*);
-unsigned char Package_GetLength(comm_package*);
-void Package_SetADR(comm_package*, unsigned char);
-unsigned char Package_GetADR(comm_package*);
-unsigned char Package_GetCRC8(comm_package*);
-unsigned char Package_CalculateCRC8(comm_package*);
+TRISDbits.RD4 = 0;
+PORTDbits.RD4 = 0;
 
-# 55 "main.c"
-const char fVersion[] = "v1.0";
-bit NEW_PACKAGE_RECEIVED = 0;
+TXSTA = 0b00100110;
+RCSTA = 0b11010000;
 
-void interrupt low_priority LowIsr(void)
+BAUDCTLbits.BRG16 = 1;
+BAUDCTLbits.WUE = 0;
+BAUDCONbits.ABDEN = 0;
+
+switch (baudrate)
 {
-if (PIR1bits.RCIF && PIE1bits.RCIE)
-{
-switch (RCV_STATE)
-{
-case ADDRESING:
-if (Package_GetADR(&in) == RCREG)
-{
-UARTAddressDetection_OFF();
-RCV_STATE = DATA_LENGTH_RECEIVING;
-}
+case 9600:
+divisor = 1040;
 break;
-case DATA_LENGTH_RECEIVING:
-RCV_LENGTH = RCREG;
-RCV_STATE = DATA_RECEIVING;
+case 19200:
+divisor = 520;
 break;
-case DATA_RECEIVING:
-if(Package_GetLength(&in) == RCV_LENGTH-1)
-RCV_STATE = CRC8_RECEIVING;
-Package_WriteDataByte(&in, RCREG);
+case 57600:
+divisor = 172;
 break;
-case CRC8_RECEIVING:
-if(RCREG == Package_CalculateCRC8(&in))
-{
-RCV_STATE = ADDRESING;
-NEW_PACKAGE_RECEIVED = 1;
-UARTAddressDetection_ON();
-}
+case 115200:
+divisor = 86;
+break;
+case 921600:
+divisor = 10;
 break;
 }
-}
+
+SPBRG = divisor;
+SPBRGH = divisor >> 8;
+
+IPR1bits.RCIP = 0;
+PIE1bits.RCIE = 1;
 }
 
-void interrupt HighIsr(void)
+# 56
+void UARTSendByte(unsigned char data)
 {
-
+while (!TXSTAbits.TRMT);
+PORTDbits.RD4 = 1;
+TXREG = data;
+while (!TXSTAbits.TRMT);
+PORTDbits.RD4 = 0;
 }
 
-# 101
-void delay_ms(unsigned int delay)
+# 70
+void UARTSendBytes(unsigned char *data, int dataLength)
 {
 int i;
-for (i = 0; i < delay; i++)
-_delay((unsigned long)((1)*(40000000/4000.0)));
-}
-
-int main()
+for (i = 0; i < dataLength; i++)
 {
+while (!TXSTAbits.TRMT);
+PORTDbits.RD4 = 1;
+TXREG = data[i];
+}
+while (!TXSTAbits.TRMT);
+PORTDbits.RD4 = 0;
 
+}
 
-
-UARTInit(115200);
-UARTAddressDetection_OFF();
-
-
-InputInit();
-
-
-DCBrake_PWMInit();
-
-SetDCBrake_NominalVoltage(24, 26);
-DCBrake_Catch();
-
-InitPCPWM();
-SetPWM1Duty(1023);
-SetPWM2Duty(1023);
-IR2110Disable();
-
-InitQEI(0b00000000 | 0b00011000 | 0b00000000, 0b00000000, 255);
-
-Package_WriteDataByte(&out, fVersion[0]);
-Package_WriteDataByte(&out, fVersion[1]);
-Package_WriteDataByte(&out, fVersion[2]);
-Package_WriteDataByte(&out, fVersion[3]);
-
-Package_Send(&out);
-
-delay_ms(100);
-
-RCONbits.IPEN = 1;
-INTCONbits.GIEH = 1;
-INTCONbits.GIEL = 1;
-
-delay_ms(1);
-
-while (1)
+# 87
+void UARTAddressDetection_ON()
 {
-if (NEW_PACKAGE_RECEIVED)
+RCSTAbits.ADDEN = 1;
+}
+
+# 95
+void UARTAddressDetection_OFF()
 {
-UARTSendByte(89);
-NEW_PACKAGE_RECEIVED = 0;
+RCSTAbits.ADDEN = 0;
 }
-
-}
-
-return 0;
-}
-

@@ -45,7 +45,7 @@
 #pragma config EBTRB = OFF      // Boot Block Table Read Protection bit (Boot Block (000000-0001FFh) not protected from table reads executed in other blocks)
 // End of project config for PIC18F4431
 
-#include "uart.h"
+//#include "uart.h"
 #include "input.h"
 #include "dc_brake.h"
 #include "pcpwm.h"
@@ -53,16 +53,39 @@
 #include "comm_protocol.h"
 
 const char fVersion[] = "v1.0";
-comm_package in = {120, 0, {{0}, 0, 0}, 0};
-comm_package out = {130, 0, {{0}, 0, 0}, 0};
-
+bit NEW_PACKAGE_RECEIVED = 0;
 
 void interrupt low_priority LowIsr(void)
 {
     if (PIR1bits.RCIF && PIE1bits.RCIE)                                         // UART Receive interrupt
     {
-        unsigned char a = RCREG;
-        //BufferWrite(a, &in);
+        switch (RCV_STATE)
+        {
+            case ADDRESING:
+                if (Package_GetADR(&in) == RCREG)
+                {
+                    UARTAddressDetection_OFF();
+                    RCV_STATE = DATA_LENGTH_RECEIVING;
+                }
+                break;
+            case DATA_LENGTH_RECEIVING:
+                RCV_LENGTH = RCREG;
+                RCV_STATE = DATA_RECEIVING;
+                break;
+            case DATA_RECEIVING:
+                if(Package_GetLength(&in) == RCV_LENGTH-1)
+                    RCV_STATE = CRC8_RECEIVING;
+                Package_WriteDataByte(&in, RCREG);
+                break;
+            case CRC8_RECEIVING:
+                if(RCREG == Package_CalculateCRC8(&in))
+                {
+                    RCV_STATE = ADDRESING;
+                    NEW_PACKAGE_RECEIVED = 1;
+                    UARTAddressDetection_ON();    
+                }
+                break;
+        }
     }
 }
 
@@ -85,7 +108,9 @@ void delay_ms(unsigned int delay)
 int main() 
 {
     //unsigned char array[2];
-    UARTInit(921600);
+    
+    
+    UARTInit(115200);
     UARTAddressDetection_OFF();
     
     // Initialize C1 and C2 inputs
@@ -104,19 +129,14 @@ int main()
     
     InitQEI(VELOCITY_MODE_DISABLE | QEI_4X_RESET_ON_MAXCNT | VELOCITY_POSTCALER_1, T5CKI_FILTER_DISABLE, 255);
     
-    Package_AddData(&in, fVersion[0]);
-    Package_AddData(&in, fVersion[1]);
-    Package_AddData(&in, fVersion[2]);
-    Package_AddData(&in, fVersion[3]);
-    
-    Package_Send(&in);
-    
-    delay_ms(100);
-    
-    Package_AddData(&out, fVersion[0]);
-    Package_AddData(&out, fVersion[1]);
+    Package_WriteDataByte(&out, fVersion[0]);
+    Package_WriteDataByte(&out, fVersion[1]);
+    Package_WriteDataByte(&out, fVersion[2]);
+    Package_WriteDataByte(&out, fVersion[3]);
     
     Package_Send(&out);
+    
+    delay_ms(100);
     
     RCONbits.IPEN = 1;                                                          // Interrupts priority enabled
     INTCONbits.GIEH = 1;                                                        // Enable All High Priority Interrupts
@@ -126,7 +146,11 @@ int main()
     
     while (1)
     {
-        
+        if (NEW_PACKAGE_RECEIVED)
+        {
+            UARTSendByte(Y);
+            NEW_PACKAGE_RECEIVED = 0;
+        }
 
     }
     

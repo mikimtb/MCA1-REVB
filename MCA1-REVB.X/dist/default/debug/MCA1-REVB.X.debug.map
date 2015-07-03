@@ -3,15 +3,16 @@ Microchip MPLAB XC8 Compiler V1.34 ()
 Linker command line:
 
 --edf=C:\Program Files (x86)\Microchip\xc8\v1.34\dat\en_msgs.txt -cs \
-  -h+dist/default/production\MCA1-REVB.X.production.sym \
-  --cmf=dist/default/production\MCA1-REVB.X.production.cmf -z -Q18F4431 \
-  -oC:\Users\Miroslav\AppData\Local\Temp\s620.6 \
-  -Mdist/default/production/MCA1-REVB.X.production.map -E1 -ver=XC8 \
-  -ASTACK=0CFh-02ffh -pstack=STACK -ACODE=00h-03FFFh -ACONST=00h-03FFFh \
-  -ASMALLCONST=0300h-03FFhx61 -AMEDIUMCONST=0300h-03FFFh -ACOMRAM=01h-05Fh \
-  -AABS1=00h-02FFh -ABIGRAM=01h-02FFh -ARAM=060h-0FFh,0100h-01FFhx2 \
-  -ABANK0=060h-0FFh -ABANK1=0100h-01FFh -ABANK2=0200h-02FFh \
-  -ASFR=0F60h-0FFFh \
+  -h+dist/default/debug\MCA1-REVB.X.debug.sym \
+  --cmf=dist/default/debug\MCA1-REVB.X.debug.cmf -z -Q18F4431 \
+  -oC:\Users\Miroslav\AppData\Local\Temp\s824.6 \
+  -Mdist/default/debug/MCA1-REVB.X.debug.map -E1 -ver=XC8 \
+  -ASTACK=0CFh-02eeh -pstack=STACK -ACODE=00h-03CFFh -ACONST=00h-03CFFh \
+  -ASMALLCONST=0300h-03FFhx58 -AMEDIUMCONST=0300h-03CFFh -ACOMRAM=01h-05Fh \
+  -AABS1=00h-02EEh -ABIGRAM=01h-02EEh \
+  -ARAM=060h-0FFh,0100h-01FFh,0200h-02EEh -ABANK0=060h-0FFh \
+  -ABANK1=0100h-01FFh -ABANK2=0200h-02EEh \
+  -ASFR=0F60h-0F9Bh,0F9Dh-0FD3h,0FD5h-0FDAh,0FE0h-0FE2h,0FE8h-0FEAh,0FF0h-0FFBh \
   -preset_vec=00h,intcode=08h,intcodelo=018h,powerup,init,end_init \
   -pramtop=0300h -psmallconst=SMALLCONST -pmediumconst=MEDIUMCONST \
   -pconst=CONST -AFARRAM=00h-00h -ACONFIG=0300000h-030000Dh -pconfig=CONFIG \
@@ -21,8 +22,8 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\Miroslav\AppData\Local\Temp\s620.obj \
-  dist/default/production\MCA1-REVB.X.production.obj 
+  C:\Users\Miroslav\AppData\Local\Temp\s824.obj \
+  dist/default/debug\MCA1-REVB.X.debug.obj 
 
 Object code version is 3.11
 
@@ -34,12 +35,12 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\Miroslav\AppData\Local\Temp\s620.obj
+C:\Users\Miroslav\AppData\Local\Temp\s824.obj
                 end_init                            172      172        4        C       0
-                reset_vec                             0        0        4        0       0
+                reset_vec                             0        0        6        0       0
                 idloc                            200000   200000        8   200000       0
                 config                           300000   300000        E   300000       0
-dist/default/production\MCA1-REVB.X.production.obj
+dist/default/debug\MCA1-REVB.X.debug.obj
                 intcodelo                            18       18      15A        C       0
                 intcode                               8        8       10        4       0
                 smallconst                          300      300        8      180       0
@@ -93,7 +94,7 @@ TOTAL           Name                               Link     Load   Length     Sp
                 end_init                            172      172        4         0
                 intcodelo                            18       18      15A         0
                 intcode                               8        8       10         0
-                reset_vec                             0        0        4         0
+                reset_vec                             0        0        6         0
                 intcode_body                        B7C      B7C       66         0
                 text32                              CA8      CA8       54         0
                 text31                              D86      D86       34         0
@@ -174,7 +175,7 @@ TOTAL           Name                               Link     Load   Length     Sp
 
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class
 
-                reset_vec                      000000  000004  000004         0       0  CODE    
+                reset_vec                      000000  000006  000006         0       0  CODE    
                 dataCOMRAM                     000001  000046  000047         1       1  COMRAM  
                 intcode                        000008  000010  000018         4       0  CODE    
                 intcodelo                      000018  00015E  000176         C       0  CODE    
@@ -190,22 +191,27 @@ UNUSED ADDRESS RANGES
         Name                Unused          Largest block    Delta
         BANK0            0000CF-0000FF               31
         BANK1            000100-0001FF              100
-        BANK2            000200-0002FF              100
+        BANK2            000200-0002EE               EF
         BIGRAM           000047-00005F               19
-                         0000CF-0002FF              231
-        CODE             000004-000007                4
+                         0000CF-0002EE              220
+        CODE             000006-000007                2
                          000176-0002FF              18A
-                         000F5E-003FFF             30A2
+                         000F5E-003CFF             2DA2
         COMRAM           000047-00005F               19
-        CONST            000004-000007                4
+        CONST            000006-000007                2
                          000176-0002FF              18A
-                         000F5E-003FFF             30A2
+                         000F5E-003CFF             2DA2
         EEDATA           F00000-F000FF              100
-        MEDIUMCONST      000F5E-003FFF             30A2
-        RAM              0000CF-0002FF              100
-        SFR              000F60-000FFF               A0
-        SMALLCONST       000F5E-003FFF              100
-        STACK            0000CF-0002FF              231
+        MEDIUMCONST      000F5E-003CFF             2DA2
+        RAM              0000CF-0002EE              100
+        SFR              000F60-000F9B               3C
+                         000F9D-000FD3               37
+                         000FD5-000FDA                6
+                         000FE0-000FE2                3
+                         000FE8-000FEA                3
+                         000FF0-000FFB                C
+        SMALLCONST       000F5E-003CFF              100
+        STACK            0000CF-0002EE              220
 
                                   Symbol Table
 
@@ -400,7 +406,7 @@ __Hramtop                                       ramtop       000300
 __Hrbit                                         rbit         000000
 __Hrbss                                         rbss         000000
 __Hrdata                                        rdata        000000
-__Hreset_vec                                    reset_vec    000004
+__Hreset_vec                                    reset_vec    000006
 __Hrparam                                       rparam       000000
 __Hsfr                                          sfr          000000
 __Hsmallconst                                   smallconst   000308
@@ -708,7 +714,7 @@ intlevel0                                       text         000000
 intlevel1                                       text         000000
 intlevel2                                       text         000000
 intlevel3                                       text         000000
-stackhi                                         (abs)        0002FF
+stackhi                                         (abs)        0002EE
 stacklo                                         (abs)        0000CF
 start                                           init         000172
 start_initialization                            cinit        000CFC

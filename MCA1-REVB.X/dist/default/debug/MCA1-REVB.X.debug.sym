@@ -143,7 +143,7 @@ Package_WriteDataByte@d 7E 0 BANK0 1
 __Hdata 0 0 ABS 0
 __Ldata 0 0 ABS 0
 __CFG_EBTR3$OFF 0 0 ABS 0
-stackhi 2FF 0 ABS 0
+stackhi 2EE 0 ABS 0
 Package_WriteDataByte@p 7C 0 BANK0 1
 __end_of_Package_GetADR F2C 0 CODE 0
 __HcstackBANK0 0 0 ABS 0
@@ -451,7 +451,7 @@ Buffer_Read@buff 77 0 BANK0 1
 __CFG_HPOL$HIGH 0 0 ABS 0
 __CFG_CP1$OFF 0 0 ABS 0
 __CFG_LPOL$HIGH 0 0 ABS 0
-__Hreset_vec 4 0 CODE 0
+__Hreset_vec 6 0 CODE 0
 __Lreset_vec 0 0 CODE 0
 __CFG_CP2$OFF 0 0 ABS 0
 __CFG_CP3$OFF 0 0 ABS 0
@@ -502,7 +502,7 @@ __CFG_LVP$OFF 0 0 ABS 0
 __end_of_DCBrake_Catch F56 0 CODE 0
 __end_of___ftdiv 44A 0 CODE 0
 %segments
-reset_vec 0 3 CODE 0 0
+reset_vec 0 5 CODE 0 0
 intcode 8 17 CODE 8 0
 intcodelo 18 175 CODE 18 0
 smallconst 300 307 SMALLCONST 300 0
@@ -512,9 +512,9 @@ dataCOMRAM 1 46 COMRAM 1 1
 cstackBANK0 60 CE BANK0 60 1
 text9 308 F5D CODE 308 0
 %locals
-dist/default/production\MCA1-REVB.X.production.obj
+dist/default/debug\MCA1-REVB.X.debug.obj
 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f4431.h
-C:\Users\Miroslav\AppData\Local\Temp\s620.
+C:\Users\Miroslav\AppData\Local\Temp\s824.
 3348 CFC 0 CODE 0
 3350 CFC 0 CODE 0
 3353 CFC 0 CODE 0

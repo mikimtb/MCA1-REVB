@@ -1,30 +1,96 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"4 ring_buffer.h
-[s S441 `uc -> 32 `i `Vui 1 `Vui 1 ]
-[n S441 circular_buffer buffer head tail ]
-"5 comm_protocol.h
-[s S442 `uc 1 `uc 1 `S441 1 `uc 1 ]
-[n S442 package ADR NUM_OF_BYTES DATA CRC8 ]
-"23
-[c E4520 0 1 2 3 .. ]
-[n E4520 . ADDRESING DATA_LENGTH_RECEIVING DATA_RECEIVING CRC8_RECEIVING  ]
-"3826 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f4431.h
-[s S181 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S181 . TMR1IF TMR2IF CCP1IF SSPIF TXIF RCIF ADIF ]
-"3835
-[s S182 :4 `uc 1 :1 `uc 1 ]
-[n S182 . . TBIF ]
-"3839
-[s S183 :5 `uc 1 :1 `uc 1 ]
-[n S183 . . RC1IF ]
-"3843
-[s S184 :4 `uc 1 :1 `uc 1 ]
-[n S184 . . TX1IF ]
-"3825
-[u S180 `S181 1 `S182 1 `S183 1 `S184 1 ]
-[n S180 . . . . . ]
-"3848
-[v _PIR1bits `VS180 ~T0 @X0 0 e@3998 ]
+"2941 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f4431.h
+[s S148 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S148 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
+"2951
+[s S149 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S149 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
+"2940
+[u S147 `S148 1 `S149 1 ]
+[n S147 . . . ]
+"2962
+[v _TRISCbits `VS147 ~T0 @X0 0 e@3988 ]
+"3162
+[s S154 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S154 . TRISD0 TRISD1 TRISD2 TRISD3 TRISD4 TRISD5 TRISD6 TRISD7 ]
+"3172
+[s S155 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S155 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
+"3161
+[u S153 `S154 1 `S155 1 ]
+[n S153 . . . ]
+"3183
+[v _TRISDbits `VS153 ~T0 @X0 0 e@3989 ]
+"1507
+[s S57 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S57 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
+"1517
+[s S58 :7 `uc 1 :1 `uc 1 ]
+[n S58 . . SS2 ]
+"1506
+[u S56 `S57 1 `S58 1 ]
+[n S56 . . . ]
+"1522
+[v _PORTDbits `VS56 ~T0 @X0 0 e@3971 ]
+"4802
+[v _TXSTA `Vuc ~T0 @X0 0 e@4012 ]
+"4593
+[v _RCSTA `Vuc ~T0 @X0 0 e@4011 ]
+"4509
+[s S222 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S222 . ABDEN WUE . BRG16 TXCKP RXDTP RCIDL ABDOVF ]
+"4519
+[s S223 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S223 . . SCKP . RCMT ]
+"4525
+[s S224 :5 `uc 1 :1 `uc 1 ]
+[n S224 . . RXCKP ]
+"4529
+[s S225 :1 `uc 1 :1 `uc 1 ]
+[n S225 . . W4E ]
+"4508
+[u S221 `S222 1 `S223 1 `S224 1 `S225 1 ]
+[n S221 . . . . . ]
+"4534
+[v _BAUDCTLbits `VS221 ~T0 @X0 0 e@4010 ]
+"4425
+[s S217 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S217 . ABDEN WUE . BRG16 TXCKP RXDTP RCIDL ABDOVF ]
+"4435
+[s S218 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S218 . . SCKP . RCMT ]
+"4441
+[s S219 :5 `uc 1 :1 `uc 1 ]
+[n S219 . . RXCKP ]
+"4445
+[s S220 :1 `uc 1 :1 `uc 1 ]
+[n S220 . . W4E ]
+"4424
+[u S216 `S217 1 `S218 1 `S219 1 `S220 1 ]
+[n S216 . . . . . ]
+"4450
+[v _BAUDCONbits `VS216 ~T0 @X0 0 e@4010 ]
+"5121
+[v _SPBRG `Vuc ~T0 @X0 0 e@4015 ]
+"5132
+[v _SPBRGH `Vuc ~T0 @X0 0 e@4016 ]
+"3908
+[s S186 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S186 . TMR1IP TMR2IP CCP1IP SSPIP TXIP RCIP ADIP ]
+"3917
+[s S187 :4 `uc 1 :1 `uc 1 ]
+[n S187 . . TBIP ]
+"3921
+[s S188 :5 `uc 1 :1 `uc 1 ]
+[n S188 . . RC1IP ]
+"3925
+[s S189 :4 `uc 1 :1 `uc 1 ]
+[n S189 . . TX1IP ]
+"3907
+[u S185 `S186 1 `S187 1 `S188 1 `S189 1 ]
+[n S185 . . . . . ]
+"3930
+[v _IPR1bits `VS185 ~T0 @X0 0 e@3999 ]
 "3744
 [s S176 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S176 . TMR1IE TMR2IE CCP1IE SSPIE TXIE RCIE ADIE ]
@@ -42,98 +108,69 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S175 . . . . . ]
 "3766
 [v _PIE1bits `VS175 ~T0 @X0 0 e@3997 ]
-"31 comm_protocol.h
-[v _Package_GetADR `(uc ~T0 @X0 0 ef1`*S442 ]
-"5110 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f4431.h
-[v _RCREG `Vuc ~T0 @X0 0 e@4014 ]
-"5 uart.h
-[v _UARTAddressDetection_OFF `(v ~T0 @X0 0 ef ]
-"29 comm_protocol.h
-[v _Package_GetLength `(uc ~T0 @X0 0 ef1`*S442 ]
-"27
-[v _Package_WriteDataByte `(v ~T0 @X0 0 ef2`*S442`uc ]
-"33
-[v _Package_CalculateCRC8 `(uc ~T0 @X0 0 ef1`*S442 ]
-"4 uart.h
-[v _UARTAddressDetection_ON `(v ~T0 @X0 0 ef ]
-[v F4451 `(v ~T0 @X0 1 tf1`ul ]
-"161 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18.h
-[v __delay `JF4451 ~T0 @X0 0 e ]
-[p i __delay ]
-[p mainexit ]
-"1 uart.h
-[v _UARTInit `(v ~T0 @X0 0 ef1`ul ]
-"1 input.h
-[v _InputInit `(v ~T0 @X0 0 ef ]
-"1 dc_brake.h
-[v _DCBrake_PWMInit `(v ~T0 @X0 0 ef ]
-"5
-[v _SetDCBrake_NominalVoltage `(i ~T0 @X0 0 ef2`us`us ]
-"4
-[v _DCBrake_Catch `(v ~T0 @X0 0 ef ]
-"5 pcpwm.h
-[v _InitPCPWM `(v ~T0 @X0 0 ef ]
-"6
-[v _SetPWM1Duty `(v ~T0 @X0 0 ef1`ui ]
-"7
-[v _SetPWM2Duty `(v ~T0 @X0 0 ef1`ui ]
-"9
-[v _IR2110Disable `(v ~T0 @X0 0 ef ]
-"39 qei.h
-[v _InitQEI `(v ~T0 @X0 0 ef3`uc`uc`ui ]
-"26 comm_protocol.h
-[v _Package_Send `(v ~T0 @X0 0 ef1`*S442 ]
-"6738 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f4431.h
-[s S363 :1 `uc 1 ]
-[n S363 . NOT_BOR ]
-"6741
-[s S364 :1 `uc 1 :1 `uc 1 ]
-[n S364 . . NOT_POR ]
-"6745
-[s S365 :2 `uc 1 :1 `uc 1 ]
-[n S365 . . NOT_PD ]
-"6749
-[s S366 :3 `uc 1 :1 `uc 1 ]
-[n S366 . . NOT_TO ]
-"6753
-[s S367 :4 `uc 1 :1 `uc 1 ]
-[n S367 . . NOT_RI ]
-"6757
-[s S368 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S368 . nBOR nPOR nPD nTO nRI . IPEN ]
-"6766
-[s S369 :7 `uc 1 :1 `uc 1 ]
-[n S369 . . NOT_IPEN ]
-"6770
-[s S370 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S370 . BOR POR PD TO RI . nIPEN ]
-"6737
-[u S362 `S363 1 `S364 1 `S365 1 `S366 1 `S367 1 `S368 1 `S369 1 `S370 1 ]
-[n S362 . . . . . . . . . ]
-"6780
-[v _RCONbits `VS362 ~T0 @X0 0 e@4048 ]
-"7549
-[s S397 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S397 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
-"7559
-[s S398 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S398 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE GIE ]
-"7569
-[s S399 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S399 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE GIEL GIEH ]
-"7579
-[s S400 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S400 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
-"7589
-[s S401 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S401 . . GIEL GIEH ]
-"7548
-[u S396 `S397 1 `S398 1 `S399 1 `S400 1 `S401 1 ]
-[n S396 . . . . . . ]
-"7595
-[v _INTCONbits `VS396 ~T0 @X0 0 e@4082 ]
-"2 uart.h
-[v _UARTSendByte `(v ~T0 @X0 0 ef1`uc ]
+"4813
+[s S241 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S241 . TX9D TRMT BRGH SENDB SYNC TXEN TX9 CSRC ]
+"4823
+[s S242 :2 `uc 1 :1 `uc 1 ]
+[n S242 . . BRGH1 ]
+"4827
+[s S243 :7 `uc 1 :1 `uc 1 ]
+[n S243 . . CSRC1 ]
+"4831
+[s S244 :3 `uc 1 :1 `uc 1 ]
+[n S244 . . SENDB1 ]
+"4835
+[s S245 :4 `uc 1 :1 `uc 1 ]
+[n S245 . . SYNC1 ]
+"4839
+[s S246 :1 `uc 1 :1 `uc 1 ]
+[n S246 . . TRMT1 ]
+"4843
+[s S247 :6 `uc 1 :1 `uc 1 ]
+[n S247 . . TX91 ]
+"4847
+[s S248 :1 `uc 1 ]
+[n S248 . TX9D1 ]
+"4850
+[s S249 :5 `uc 1 :1 `uc 1 ]
+[n S249 . . TXEN1 ]
+"4854
+[s S250 :6 `uc 1 :1 `uc 1 ]
+[n S250 . . TX8_9 ]
+"4858
+[s S251 :1 `uc 1 ]
+[n S251 . TXD8 ]
+"4812
+[u S240 `S241 1 `S242 1 `S243 1 `S244 1 `S245 1 `S246 1 `S247 1 `S248 1 `S249 1 `S250 1 `S251 1 ]
+[n S240 . . . . . . . . . . . . ]
+"4862
+[v _TXSTAbits `VS240 ~T0 @X0 0 e@4012 ]
+"5099
+[v _TXREG `Vuc ~T0 @X0 0 e@4013 ]
+"4604
+[s S227 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S227 . RX9D OERR FERR ADDEN CREN SREN RX9 SPEN ]
+"4614
+[s S228 :3 `uc 1 :1 `uc 1 ]
+[n S228 . . ADEN ]
+"4618
+[s S229 :5 `uc 1 :1 `uc 1 ]
+[n S229 . . SRENA ]
+"4622
+[s S230 :6 `uc 1 :1 `uc 1 ]
+[n S230 . . RC8_9 ]
+"4626
+[s S231 :6 `uc 1 :1 `uc 1 ]
+[n S231 . . RC9 ]
+"4630
+[s S232 :1 `uc 1 ]
+[n S232 . RCD8 ]
+"4603
+[u S226 `S227 1 `S228 1 `S229 1 `S230 1 `S231 1 `S232 1 ]
+[n S226 . . . . . . . ]
+"4634
+[v _RCSTAbits `VS226 ~T0 @X0 0 e@4011 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f4431.h: 49: extern volatile unsigned char DFLTCON @ 0xF60;
@@ -4265,472 +4302,259 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 161: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 163: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 165: extern __nonreentrant void _delay3(unsigned char);
-"9 main.c
-[p x OSC=HSPLL ]
-"10
-[p x FCMEN=ON ]
-"11
-[p x IESO=ON ]
-"12
-[p x PWRTEN=ON ]
-"13
-[p x BOREN=OFF ]
-"14
-[p x WDTEN=OFF ]
-"15
-[p x WDPS=32768 ]
-"16
-[p x WINEN=OFF ]
-"17
-[p x PWMPIN=OFF ]
-"18
-[p x LPOL=HIGH ]
-"19
-[p x HPOL=HIGH ]
-"20
-[p x T1OSCMX=ON ]
-"21
-[p x FLTAMX=RC1 ]
-"22
-[p x SSPMX=RD1 ]
-"23
-[p x PWM4MX=RB5 ]
-"24
-[p x EXCLKMX=RC3 ]
-"25
-[p x MCLRE=ON ]
-"26
-[p x STVREN=ON ]
-"27
-[p x LVP=OFF ]
-"28
-[p x CP0=OFF ]
-"29
-[p x CP1=OFF ]
-"30
-[p x CP2=OFF ]
-"31
-[p x CP3=OFF ]
-"32
-[p x CPB=OFF ]
-"33
-[p x CPD=OFF ]
-"34
-[p x WRT0=OFF ]
-"35
-[p x WRT1=OFF ]
-"36
-[p x WRT2=OFF ]
-"37
-[p x WRT3=OFF ]
-"38
-[p x WRTC=OFF ]
-"39
-[p x WRTB=OFF ]
-"40
-[p x WRTD=OFF ]
-"41
-[p x EBTR0=OFF ]
-"42
-[p x EBTR1=OFF ]
-"43
-[p x EBTR2=OFF ]
-"44
-[p x EBTR3=OFF ]
-"45
-[p x EBTRB=OFF ]
-[; ;input.h: 1: void InputInit(void);
-[; ;input.h: 2: bit ReadInput_C1(void);
-[; ;input.h: 3: bit ReadInput_C2(void);
-[; ;dc_brake.h: 1: void DCBrake_PWMInit(void);
-[; ;dc_brake.h: 2: void SetDCBrake_PWMDuty(unsigned int);
-[; ;dc_brake.h: 3: void DCBrake_Release(void);
-[; ;dc_brake.h: 4: void DCBrake_Catch(void);
-[; ;dc_brake.h: 5: int SetDCBrake_NominalVoltage(unsigned short, unsigned short);
-[; ;pcpwm.h: 5: void InitPCPWM(void);
-[; ;pcpwm.h: 6: void SetPWM1Duty(unsigned int);
-[; ;pcpwm.h: 7: void SetPWM2Duty(unsigned int);
-[; ;pcpwm.h: 8: void IR2110Enable(void);
-[; ;pcpwm.h: 9: void IR2110Disable(void);
-[; ;qei.h: 39: void InitQEI(unsigned char, unsigned char, unsigned int);
-[; ;qei.h: 40: unsigned int GetPOSCNT(void);
-[; ;ring_buffer.h: 4: typedef struct circular_buffer
-[; ;ring_buffer.h: 5: {
-[; ;ring_buffer.h: 6: unsigned char buffer[32];
-[; ;ring_buffer.h: 7: volatile unsigned int head;
-[; ;ring_buffer.h: 8: volatile unsigned int tail;
-[; ;ring_buffer.h: 9: } ringBuffer;
-[; ;ring_buffer.h: 13: void Buffer_Write(unsigned char, ringBuffer*);
-[; ;ring_buffer.h: 14: char Buffer_Read(ringBuffer*);
-[; ;ring_buffer.h: 15: unsigned char Buffer_GetCRC8(ringBuffer*);
 [; ;uart.h: 1: void UARTInit(unsigned long);
 [; ;uart.h: 2: void UARTSendByte(unsigned char);
 [; ;uart.h: 3: void UARTSendBytes(unsigned char*, int);
 [; ;uart.h: 4: void UARTAddressDetection_ON(void);
 [; ;uart.h: 5: void UARTAddressDetection_OFF(void);
-[; ;comm_protocol.h: 5: typedef struct package
-[; ;comm_protocol.h: 6: {
-[; ;comm_protocol.h: 7: unsigned char ADR;
-[; ;comm_protocol.h: 8: unsigned char NUM_OF_BYTES;
-[; ;comm_protocol.h: 9: ringBuffer DATA;
-[; ;comm_protocol.h: 10: unsigned char CRC8;
-[; ;comm_protocol.h: 11: } comm_package;
-[; ;comm_protocol.h: 13: typedef enum
-[; ;comm_protocol.h: 14: {
-[; ;comm_protocol.h: 15: ADDRESING,
-[; ;comm_protocol.h: 16: DATA_LENGTH_RECEIVING,
-[; ;comm_protocol.h: 17: DATA_RECEIVING,
-[; ;comm_protocol.h: 18: CRC8_RECEIVING
-[; ;comm_protocol.h: 19: } state_t;
-"21 comm_protocol.h
-[v _in `S442 ~T0 @X0 1 e ]
-[i _in
-:U ..
-:U ..
--> -> 120 `i `uc
--> -> 0 `i `uc
-:U ..
-:U ..
-:U ..
--> -> 0 `i `uc
-..
--> -> 0 `i `ui
--> -> 0 `i `ui
-..
-..
--> -> 0 `i `uc
-..
-..
-]
-[; ;comm_protocol.h: 21: comm_package in = {120, 0, {{0}, 0, 0}, 0};
+"8 uart.c
+[v _UARTInit `(v ~T0 @X0 1 ef1`ul ]
+"9
+{
+[; ;uart.c: 8: void UARTInit(unsigned long baudrate)
+[; ;uart.c: 9: {
+[e :U _UARTInit ]
+"8
+[v _baudrate `ul ~T0 @X0 1 r1 ]
+"9
+[f ]
+"10
+[v _divisor `ui ~T0 @X0 1 a ]
+[; ;uart.c: 10: unsigned int divisor;
+[; ;uart.c: 12: TRISCbits.RC6 = 1;
+"12
+[e = . . _TRISCbits 1 6 -> -> 1 `i `uc ]
+[; ;uart.c: 13: TRISCbits.RC7 = 1;
+"13
+[e = . . _TRISCbits 1 7 -> -> 1 `i `uc ]
+[; ;uart.c: 16: TRISDbits.RD4 = 0;
+"16
+[e = . . _TRISDbits 1 4 -> -> 0 `i `uc ]
+[; ;uart.c: 17: PORTDbits.RD4 = 0;
+"17
+[e = . . _PORTDbits 0 4 -> -> 0 `i `uc ]
+[; ;uart.c: 19: TXSTA = 0b00100110;
+"19
+[e = _TXSTA -> -> 38 `i `uc ]
+[; ;uart.c: 20: RCSTA = 0b11010000;
+"20
+[e = _RCSTA -> -> 208 `i `uc ]
+[; ;uart.c: 22: BAUDCTLbits.BRG16 = 1;
 "22
-[v _out `S442 ~T0 @X0 1 e ]
-[i _out
-:U ..
-:U ..
--> -> 130 `i `uc
--> -> 0 `i `uc
-:U ..
-:U ..
-:U ..
--> -> 0 `i `uc
-..
--> -> 0 `i `ui
--> -> 0 `i `ui
-..
-..
--> -> 0 `i `uc
-..
-..
-]
-[; ;comm_protocol.h: 22: comm_package out = {130, 0, {{0}, 0, 0}, 0};
+[e = . . _BAUDCTLbits 0 3 -> -> 1 `i `uc ]
+[; ;uart.c: 23: BAUDCTLbits.WUE = 0;
 "23
-[v _RCV_STATE `E4520 ~T0 @X0 1 e ]
-[i _RCV_STATE
-. `E4520 0
-]
-[; ;comm_protocol.h: 23: state_t RCV_STATE = ADDRESING;
+[e = . . _BAUDCTLbits 0 1 -> -> 0 `i `uc ]
+[; ;uart.c: 24: BAUDCONbits.ABDEN = 0;
 "24
-[v _RCV_LENGTH `uc ~T0 @X0 1 e ]
-[i _RCV_LENGTH
--> -> 0 `i `uc
-]
-[; ;comm_protocol.h: 24: unsigned char RCV_LENGTH = 0;
-[; ;comm_protocol.h: 26: void Package_Send(comm_package*);
-[; ;comm_protocol.h: 27: void Package_WriteDataByte(comm_package*, unsigned char);
-[; ;comm_protocol.h: 28: unsigned char Package_ReadDataByte(comm_package*);
-[; ;comm_protocol.h: 29: unsigned char Package_GetLength(comm_package*);
-[; ;comm_protocol.h: 30: void Package_SetADR(comm_package*, unsigned char);
-[; ;comm_protocol.h: 31: unsigned char Package_GetADR(comm_package*);
-[; ;comm_protocol.h: 32: unsigned char Package_GetCRC8(comm_package*);
-[; ;comm_protocol.h: 33: unsigned char Package_CalculateCRC8(comm_package*);
-"55 main.c
-[v _fVersion `Cuc ~T0 @X0 -> 0 `x e ]
-[i _fVersion
-:U ..
--> 118 `c
--> 49 `c
--> 46 `c
--> 48 `c
--> 0 `c
-..
-]
-[; ;main.c: 55: const char fVersion[] = "v1.0";
-"56
-[v _NEW_PACKAGE_RECEIVED `b ~T0 @X0 1 e ]
-[i _NEW_PACKAGE_RECEIVED
--> 0 `i
-]
-[; ;main.c: 56: bit NEW_PACKAGE_RECEIVED = 0;
-[v F4552 `(v ~T0 @X0 1 tf ]
-"58
-[v _LowIsr `ILF4552 ~T0 @X0 1 e ]
-"59
+[e = . . _BAUDCONbits 0 0 -> -> 0 `i `uc ]
+[; ;uart.c: 26: switch (baudrate)
+"26
+[e $U 443  ]
+[; ;uart.c: 27: {
+"27
 {
-[; ;main.c: 58: void interrupt low_priority LowIsr(void)
-[; ;main.c: 59: {
-[e :U _LowIsr ]
-[f ]
-[; ;main.c: 60: if (PIR1bits.RCIF && PIE1bits.RCIE)
-"60
-[e $ ! && != -> . . _PIR1bits 0 5 `i -> -> -> 0 `i `Vuc `i != -> . . _PIE1bits 0 5 `i -> -> -> 0 `i `Vuc `i 444  ]
-[; ;main.c: 61: {
-"61
-{
-[; ;main.c: 62: switch (RCV_STATE)
-"62
-[e $U 446  ]
-[; ;main.c: 63: {
-"63
-{
-[; ;main.c: 64: case ADDRESING:
-"64
-[e :U 447 ]
-[; ;main.c: 65: if (Package_GetADR(&in) == RCREG)
-"65
-[e $ ! == -> ( _Package_GetADR (1 &U _in `i -> _RCREG `i 448  ]
-[; ;main.c: 66: {
-"66
-{
-[; ;main.c: 67: UARTAddressDetection_OFF();
-"67
-[e ( _UARTAddressDetection_OFF ..  ]
-[; ;main.c: 68: RCV_STATE = DATA_LENGTH_RECEIVING;
-"68
-[e = _RCV_STATE . `E4520 1 ]
-"69
-}
-[e :U 448 ]
-[; ;main.c: 69: }
-[; ;main.c: 70: break;
-"70
-[e $U 445  ]
-[; ;main.c: 71: case DATA_LENGTH_RECEIVING:
-"71
-[e :U 449 ]
-[; ;main.c: 72: RCV_LENGTH = RCREG;
-"72
-[e = _RCV_LENGTH _RCREG ]
-[; ;main.c: 73: RCV_STATE = DATA_RECEIVING;
-"73
-[e = _RCV_STATE . `E4520 2 ]
-[; ;main.c: 74: break;
-"74
-[e $U 445  ]
-[; ;main.c: 75: case DATA_RECEIVING:
-"75
-[e :U 450 ]
-[; ;main.c: 76: if(Package_GetLength(&in) == RCV_LENGTH-1)
-"76
-[e $ ! == -> ( _Package_GetLength (1 &U _in `i - -> _RCV_LENGTH `i -> 1 `i 451  ]
-[; ;main.c: 77: RCV_STATE = CRC8_RECEIVING;
-"77
-[e = _RCV_STATE . `E4520 3 ]
-[e :U 451 ]
-[; ;main.c: 78: Package_WriteDataByte(&in, RCREG);
-"78
-[e ( _Package_WriteDataByte (2 , &U _in _RCREG ]
-[; ;main.c: 79: break;
-"79
-[e $U 445  ]
-[; ;main.c: 80: case CRC8_RECEIVING:
-"80
-[e :U 452 ]
-[; ;main.c: 81: if(RCREG == Package_CalculateCRC8(&in))
-"81
-[e $ ! == -> _RCREG `i -> ( _Package_CalculateCRC8 (1 &U _in `i 453  ]
-[; ;main.c: 82: {
-"82
-{
-[; ;main.c: 83: RCV_STATE = ADDRESING;
-"83
-[e = _RCV_STATE . `E4520 0 ]
-[; ;main.c: 84: NEW_PACKAGE_RECEIVED = 1;
-"84
-[e = _NEW_PACKAGE_RECEIVED -> -> 1 `i `b ]
-[; ;main.c: 85: UARTAddressDetection_ON();
-"85
-[e ( _UARTAddressDetection_ON ..  ]
-"86
-}
-[e :U 453 ]
-[; ;main.c: 86: }
-[; ;main.c: 87: break;
-"87
-[e $U 445  ]
-"88
-}
-[; ;main.c: 88: }
-[e $U 445  ]
-"62
-[e :U 446 ]
-[e [\ _RCV_STATE , $ . `E4520 0 447
- , $ . `E4520 1 449
- , $ . `E4520 2 450
- , $ . `E4520 3 452
- 445 ]
-"88
-[e :U 445 ]
-"89
-}
+[; ;uart.c: 28: case 9600:
+"28
 [e :U 444 ]
-[; ;main.c: 89: }
-[; ;main.c: 90: }
-"90
-[e :UE 443 ]
+[; ;uart.c: 29: divisor = 1040;
+"29
+[e = _divisor -> -> 1040 `i `ui ]
+[; ;uart.c: 30: break;
+"30
+[e $U 442  ]
+[; ;uart.c: 31: case 19200:
+"31
+[e :U 445 ]
+[; ;uart.c: 32: divisor = 520;
+"32
+[e = _divisor -> -> 520 `i `ui ]
+[; ;uart.c: 33: break;
+"33
+[e $U 442  ]
+[; ;uart.c: 34: case 57600:
+"34
+[e :U 446 ]
+[; ;uart.c: 35: divisor = 172;
+"35
+[e = _divisor -> -> 172 `i `ui ]
+[; ;uart.c: 36: break;
+"36
+[e $U 442  ]
+[; ;uart.c: 37: case 115200:
+"37
+[e :U 447 ]
+[; ;uart.c: 38: divisor = 86;
+"38
+[e = _divisor -> -> 86 `i `ui ]
+[; ;uart.c: 39: break;
+"39
+[e $U 442  ]
+[; ;uart.c: 40: case 921600:
+"40
+[e :U 448 ]
+[; ;uart.c: 41: divisor = 10;
+"41
+[e = _divisor -> -> 10 `i `ui ]
+[; ;uart.c: 42: break;
+"42
+[e $U 442  ]
+"43
 }
-[v F4555 `(v ~T0 @X0 1 tf ]
-"92
-[v _HighIsr `IF4555 ~T0 @X0 1 e ]
-"93
-{
-[; ;main.c: 92: void interrupt HighIsr(void)
-[; ;main.c: 93: {
-[e :U _HighIsr ]
-[f ]
-[; ;main.c: 95: }
-"95
-[e :UE 454 ]
+[; ;uart.c: 43: }
+[e $U 442  ]
+"26
+[e :U 443 ]
+[e [\ _baudrate , $ -> -> -> 9600 `i `l `ul 444
+ , $ -> -> -> 19200 `i `l `ul 445
+ , $ -> -> 57600 `l `ul 446
+ , $ -> -> 115200 `l `ul 447
+ , $ -> -> 921600 `l `ul 448
+ 442 ]
+"43
+[e :U 442 ]
+[; ;uart.c: 45: SPBRG = divisor;
+"45
+[e = _SPBRG -> _divisor `uc ]
+[; ;uart.c: 46: SPBRGH = divisor >> 8;
+"46
+[e = _SPBRGH -> >> _divisor -> 8 `i `uc ]
+[; ;uart.c: 48: IPR1bits.RCIP = 0;
+"48
+[e = . . _IPR1bits 0 5 -> -> 0 `i `uc ]
+[; ;uart.c: 49: PIE1bits.RCIE = 1;
+"49
+[e = . . _PIE1bits 0 5 -> -> 1 `i `uc ]
+[; ;uart.c: 50: }
+"50
+[e :UE 441 ]
 }
-"101
-[v _delay_ms `(v ~T0 @X0 1 ef1`ui ]
-"102
+"56
+[v _UARTSendByte `(v ~T0 @X0 1 ef1`uc ]
+"57
 {
-[; ;main.c: 101: void delay_ms(unsigned int delay)
-[; ;main.c: 102: {
-[e :U _delay_ms ]
-"101
-[v _delay `ui ~T0 @X0 1 r1 ]
-"102
+[; ;uart.c: 56: void UARTSendByte(unsigned char data)
+[; ;uart.c: 57: {
+[e :U _UARTSendByte ]
+"56
+[v _data `uc ~T0 @X0 1 r1 ]
+"57
 [f ]
-"103
+[; ;uart.c: 58: while (!TXSTAbits.TRMT);
+"58
+[e $U 450  ]
+[e :U 451 ]
+[e :U 450 ]
+[e $ ! != -> . . _TXSTAbits 0 1 `i -> -> -> 0 `i `Vuc `i 451  ]
+[e :U 452 ]
+[; ;uart.c: 59: PORTDbits.RD4 = 1;
+"59
+[e = . . _PORTDbits 0 4 -> -> 1 `i `uc ]
+[; ;uart.c: 60: TXREG = data;
+"60
+[e = _TXREG _data ]
+[; ;uart.c: 61: while (!TXSTAbits.TRMT);
+"61
+[e $U 453  ]
+[e :U 454 ]
+[e :U 453 ]
+[e $ ! != -> . . _TXSTAbits 0 1 `i -> -> -> 0 `i `Vuc `i 454  ]
+[e :U 455 ]
+[; ;uart.c: 62: PORTDbits.RD4 = 0;
+"62
+[e = . . _PORTDbits 0 4 -> -> 0 `i `uc ]
+[; ;uart.c: 63: }
+"63
+[e :UE 449 ]
+}
+"70
+[v _UARTSendBytes `(v ~T0 @X0 1 ef2`*uc`i ]
+"71
+{
+[; ;uart.c: 70: void UARTSendBytes(unsigned char *data, int dataLength)
+[; ;uart.c: 71: {
+[e :U _UARTSendBytes ]
+"70
+[v _data `*uc ~T0 @X0 1 r1 ]
+[v _dataLength `i ~T0 @X0 1 r2 ]
+"71
+[f ]
+"72
 [v _i `i ~T0 @X0 1 a ]
-[; ;main.c: 103: int i;
-[; ;main.c: 104: for (i = 0; i < delay; i++)
-"104
+[; ;uart.c: 72: int i;
+[; ;uart.c: 73: for (i = 0; i < dataLength; i++)
+"73
 {
 [e = _i -> 0 `i ]
-[e $U 459  ]
-"105
-[e :U 456 ]
-[; ;main.c: 105: _delay((unsigned long)((1)*(40000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 40000000 `l `d .4000.0 `ul ]
-"104
-[e ++ _i -> 1 `i ]
-[e :U 459 ]
-[e $ < -> _i `ui _delay 456  ]
+[e $U 460  ]
+"74
 [e :U 457 ]
-"105
-}
-[; ;main.c: 106: }
-"106
-[e :UE 455 ]
-}
-"108
-[v _main `(i ~T0 @X0 1 ef ]
-"109
+[; ;uart.c: 74: {
 {
-[; ;main.c: 108: int main()
-[; ;main.c: 109: {
-[e :U _main ]
-[f ]
-[; ;main.c: 113: UARTInit(115200);
-"113
-[e ( _UARTInit (1 -> -> 115200 `l `ul ]
-[; ;main.c: 114: UARTAddressDetection_OFF();
-"114
-[e ( _UARTAddressDetection_OFF ..  ]
-[; ;main.c: 117: InputInit();
-"117
-[e ( _InputInit ..  ]
-[; ;main.c: 120: DCBrake_PWMInit();
-"120
-[e ( _DCBrake_PWMInit ..  ]
-[; ;main.c: 122: SetDCBrake_NominalVoltage(24, 26);
-"122
-[e ( _SetDCBrake_NominalVoltage (2 , -> -> 24 `i `us -> -> 26 `i `us ]
-[; ;main.c: 123: DCBrake_Catch();
-"123
-[e ( _DCBrake_Catch ..  ]
-[; ;main.c: 125: InitPCPWM();
-"125
-[e ( _InitPCPWM ..  ]
-[; ;main.c: 126: SetPWM1Duty(1023);
-"126
-[e ( _SetPWM1Duty (1 -> -> 1023 `i `ui ]
-[; ;main.c: 127: SetPWM2Duty(1023);
-"127
-[e ( _SetPWM2Duty (1 -> -> 1023 `i `ui ]
-[; ;main.c: 128: IR2110Disable();
-"128
-[e ( _IR2110Disable ..  ]
-[; ;main.c: 130: InitQEI(0b00000000 | 0b00011000 | 0b00000000, 0b00000000, 255);
-"130
-[e ( _InitQEI (3 , , -> | | -> 0 `i -> 24 `i -> 0 `i `uc -> -> 0 `i `uc -> -> 255 `i `ui ]
-[; ;main.c: 132: Package_WriteDataByte(&out, fVersion[0]);
-"132
-[e ( _Package_WriteDataByte (2 , &U _out *U + &U _fVersion * -> -> -> 0 `i `ui `ux -> -> # *U &U _fVersion `ui `ux ]
-[; ;main.c: 133: Package_WriteDataByte(&out, fVersion[1]);
-"133
-[e ( _Package_WriteDataByte (2 , &U _out *U + &U _fVersion * -> -> -> 1 `i `ui `ux -> -> # *U &U _fVersion `ui `ux ]
-[; ;main.c: 134: Package_WriteDataByte(&out, fVersion[2]);
-"134
-[e ( _Package_WriteDataByte (2 , &U _out *U + &U _fVersion * -> -> -> 2 `i `ui `ux -> -> # *U &U _fVersion `ui `ux ]
-[; ;main.c: 135: Package_WriteDataByte(&out, fVersion[3]);
-"135
-[e ( _Package_WriteDataByte (2 , &U _out *U + &U _fVersion * -> -> -> 3 `i `ui `ux -> -> # *U &U _fVersion `ui `ux ]
-[; ;main.c: 137: Package_Send(&out);
-"137
-[e ( _Package_Send (1 &U _out ]
-[; ;main.c: 139: delay_ms(100);
-"139
-[e ( _delay_ms (1 -> -> 100 `i `ui ]
-[; ;main.c: 141: RCONbits.IPEN = 1;
-"141
-[e = . . _RCONbits 5 6 -> -> 1 `i `uc ]
-[; ;main.c: 142: INTCONbits.GIEH = 1;
-"142
-[e = . . _INTCONbits 2 7 -> -> 1 `i `uc ]
-[; ;main.c: 143: INTCONbits.GIEL = 1;
-"143
-[e = . . _INTCONbits 2 6 -> -> 1 `i `uc ]
-[; ;main.c: 145: delay_ms(1);
-"145
-[e ( _delay_ms (1 -> -> 1 `i `ui ]
-[; ;main.c: 147: while (1)
-"147
+[; ;uart.c: 75: while (!TXSTAbits.TRMT);
+"75
+[e $U 461  ]
 [e :U 462 ]
-[; ;main.c: 148: {
-"148
-{
-[; ;main.c: 149: if (NEW_PACKAGE_RECEIVED)
-"149
-[e $ ! _NEW_PACKAGE_RECEIVED 464  ]
-[; ;main.c: 150: {
-"150
-{
-[; ;main.c: 151: UARTSendByte(89);
-"151
-[e ( _UARTSendByte (1 -> -> 89 `i `uc ]
-[; ;main.c: 152: NEW_PACKAGE_RECEIVED = 0;
-"152
-[e = _NEW_PACKAGE_RECEIVED -> -> 0 `i `b ]
-"153
-}
-[e :U 464 ]
-"155
-}
 [e :U 461 ]
-"147
-[e $U 462  ]
+[e $ ! != -> . . _TXSTAbits 0 1 `i -> -> -> 0 `i `Vuc `i 462  ]
 [e :U 463 ]
-[; ;main.c: 153: }
-[; ;main.c: 155: }
-[; ;main.c: 157: return 0;
-"157
-[e ) -> 0 `i ]
-[e $UE 460  ]
-[; ;main.c: 158: }
-"158
-[e :UE 460 ]
+[; ;uart.c: 76: PORTDbits.RD4 = 1;
+"76
+[e = . . _PORTDbits 0 4 -> -> 1 `i `uc ]
+[; ;uart.c: 77: TXREG = data[i];
+"77
+[e = _TXREG *U + _data * -> _i `x -> -> # *U _data `i `x ]
+"78
+}
+"73
+[e ++ _i -> 1 `i ]
+[e :U 460 ]
+[e $ < _i _dataLength 457  ]
+[e :U 458 ]
+"78
+}
+[; ;uart.c: 78: }
+[; ;uart.c: 79: while (!TXSTAbits.TRMT);
+"79
+[e $U 464  ]
+[e :U 465 ]
+[e :U 464 ]
+[e $ ! != -> . . _TXSTAbits 0 1 `i -> -> -> 0 `i `Vuc `i 465  ]
+[e :U 466 ]
+[; ;uart.c: 80: PORTDbits.RD4 = 0;
+"80
+[e = . . _PORTDbits 0 4 -> -> 0 `i `uc ]
+[; ;uart.c: 82: }
+"82
+[e :UE 456 ]
+}
+"87
+[v _UARTAddressDetection_ON `(v ~T0 @X0 1 ef ]
+"88
+{
+[; ;uart.c: 87: void UARTAddressDetection_ON()
+[; ;uart.c: 88: {
+[e :U _UARTAddressDetection_ON ]
+[f ]
+[; ;uart.c: 89: RCSTAbits.ADDEN = 1;
+"89
+[e = . . _RCSTAbits 0 3 -> -> 1 `i `uc ]
+[; ;uart.c: 90: }
+"90
+[e :UE 467 ]
+}
+"95
+[v _UARTAddressDetection_OFF `(v ~T0 @X0 1 ef ]
+"96
+{
+[; ;uart.c: 95: void UARTAddressDetection_OFF()
+[; ;uart.c: 96: {
+[e :U _UARTAddressDetection_OFF ]
+[f ]
+[; ;uart.c: 97: RCSTAbits.ADDEN = 0;
+"97
+[e = . . _RCSTAbits 0 3 -> -> 0 `i `uc ]
+[; ;uart.c: 98: }
+"98
+[e :UE 468 ]
 }
